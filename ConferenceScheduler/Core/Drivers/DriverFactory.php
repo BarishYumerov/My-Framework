@@ -1,5 +1,5 @@
 <?php
-declare(strict_types=1);
+//declare(strict_types=1);
 
 namespace ConferenceScheduler\Core\Drivers;
 
@@ -12,7 +12,7 @@ class DriverFactory {
      * @param $host
      * @return Driver
      */
-    public static function create(string $driver, string $user, string $pass, string $dbName, string $host)
+    public static function create($driver, $user, $pass, $dbName, $host)
     {
         $driverName = strtolower($driver);
         switch ($driverName) {

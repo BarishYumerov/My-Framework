@@ -1,5 +1,7 @@
 <?php
-declare(strict_types=1);
+//declare(strict_types=1);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 
 session_start();
 
@@ -18,3 +20,7 @@ $routeString = implode('/', $routeParams);
 if (strlen($routeString) > 1 &&  $routeString[0] == '/') {
     $routeString = substr($routeString, 1, strlen($routeString));
 }
+$databaseConfig = new ConferenceScheduler\Configs\DatabaseConfig();
+ConferenceScheduler\Core\Database\Db::setInstance($databaseConfig);
+
+var_dump($routeString);

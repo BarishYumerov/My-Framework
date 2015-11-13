@@ -1,8 +1,9 @@
 <?php
-declare(strict_types=1);
+//declare(strict_types=1);
 
 namespace ConferenceScheduler\Core\Database;
 
+use ConferenceScheduler\Configs\DatabaseConfig;
 use ConferenceScheduler\Core\Drivers\DriverFactory;
 
 class Db {
@@ -27,21 +28,20 @@ class Db {
         return self::$instances[$instanceName];
     }
 
-    public static function setInstance(
-        string $instanceName,
-        string $driver,
-        string $user,
-        string $pass,
-        string $dbName,
-        string $host = null) {
-        $driver = DriverFactory::create($driver, $user, $pass, $dbName, $host);
+    public static function setInstance(DatabaseConfig $databaseConfig) {
+        $driver = DriverFactory::create(
+            $databaseConfig::DB_DRIVER,
+            $databaseConfig::DB_USER,
+            $databaseConfig::DB_PASS,
+            $databaseConfig::DB_NAME,
+            $databaseConfig::DB_HOST);
 
-        $pdo = new \PDO($driver->getDsn(), $user, $pass);
+        $pdo = new \PDO($driver->getDsn(), $databaseConfig::DB_USER, $databaseConfig::DB_PASS);
 
-        self::$instances[$instanceName] = new self($pdo);
+        self::$instances[$databaseConfig::DB_INSTANCE] = new self($pdo);
     }
 
-    public function query(string $statement, array $params = [])
+    public function query($statement, array $params = [])
     {
         $this->statement = $this->db->prepare($statement);
         $this->statement->execute($params);

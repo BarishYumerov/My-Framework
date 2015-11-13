@@ -1,5 +1,5 @@
 <?php
-declare(strict_types=1);
+//declare(strict_types=1);
 
 namespace ConferenceScheduler\Core\Drivers;
 
@@ -9,7 +9,7 @@ abstract class Driver {
     protected $dbName;
     protected $host;
 
-    public function __construct(string $user, string $pass, string $dbName, string $host = null)
+    public function __construct($user, $pass, $dbName, $host = null)
     {
         $this->user = $user;
         $this->pass = $pass;
