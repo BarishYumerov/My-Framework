@@ -21,6 +21,6 @@ class RouteCreator{
     }
 
     private static function findRoutes(){
-
+        return null;
     }
 }

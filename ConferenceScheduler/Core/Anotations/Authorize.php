@@ -2,7 +2,7 @@
 
 namespace ConferenceScheduler\Core\Annotations;
 
-use ConferenceScheduler\Core\HttpContext;
+use ConferenceScheduler\Core\HttpContext\HttpContext;
 
 class Authorize extends  Annotation {
 
