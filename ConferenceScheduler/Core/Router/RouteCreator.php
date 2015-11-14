@@ -12,7 +12,7 @@ class RouteCreator{
         $allRoutes = [];
 
         $routes = self::findRoutes();
-        
+
         if ($routes !== null) {
             $allRoutes = array_merge($allRoutes, $routes['annotationRoutes']);
         }
