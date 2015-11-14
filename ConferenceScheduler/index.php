@@ -23,4 +23,5 @@ if (strlen($routeString) > 1 &&  $routeString[0] == '/') {
 $databaseConfig = new ConferenceScheduler\Configs\DatabaseConfig();
 ConferenceScheduler\Core\Database\Db::setInstance($databaseConfig);
 
-var_dump($routeString);
+$app = new ConferenceScheduler\Application\Application($routeString);
+$app->start();
