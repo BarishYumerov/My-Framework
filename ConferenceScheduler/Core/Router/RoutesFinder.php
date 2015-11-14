@@ -71,6 +71,7 @@ class RoutesFinder{
                     ];
 
                     $annotations = self::getRouteForMethod($method);
+                    var_dump($annotations); // TODO : Fix this;
                     if ($annotations !== null) {
                         $annotationRoutes[] = [
                             'controller' => $controllerName,
