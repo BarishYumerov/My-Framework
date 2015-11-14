@@ -5,7 +5,7 @@ namespace ConferenceScheduler\Core\Router;
 use ReflectionClass as ReflectionClass;
 use ReflectionMethod as ReflectionMethod;
 
-class RouteCreator{
+class RoutesFinder{
 
     public static function getRoutes()
     {

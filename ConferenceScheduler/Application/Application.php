@@ -4,7 +4,7 @@
 namespace ConferenceScheduler\Application;
 
 use ConferenceScheduler\Core\HttpContext\HttpContext;
-use ConferenceScheduler\Core\Router\RouteCreator;
+use ConferenceScheduler\Core\Router\RoutesFinder;
 
 class Application{
     private $raute;
@@ -12,7 +12,7 @@ class Application{
 
     public function __construct($route)
     {
-        RouteCreator::getRoutes();
+        RoutesFinder::getRoutes();
     }
 
     function start(){
