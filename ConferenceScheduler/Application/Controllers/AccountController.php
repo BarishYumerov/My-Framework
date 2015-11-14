@@ -11,10 +11,10 @@ class AccountController
      */
     public function getAll()
     {
-
+        echo '<p class="p">account all</p>';
     }
 
     public function getOne(){
-
+        echo 'account get one';
     }
 }

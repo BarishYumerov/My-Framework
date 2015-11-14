@@ -12,6 +12,6 @@ class LecturesController
      * @Route("lectures/{int id}/details")
      */
     public function getOne(){
-
+        echo 'lud si';
     }
 }
