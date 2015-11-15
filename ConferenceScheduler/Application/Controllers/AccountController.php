@@ -15,7 +15,8 @@ class AccountController
 
     /**
      * @Authorize
-     * @Route("accounts/{int id}/get")
+     * @Route("account/{int id}/get")
+     * @Pesho
      */
     public function getOne(){
         echo 'account get one';

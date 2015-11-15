@@ -16,7 +16,7 @@ class Application{
         RoutesFinder::getRoutes();
         $this->route = RouteMapper::map($route);
 
-        // If no area-route or standard route has been found - assign default route and action
+        // Set Default Route If invalid route;
         if (!$this->route) {
             $this->route['controller'] = DEFAULT_CONTROLLER;
             $this->route['action'] = DEFAULT_ACTION;
@@ -48,6 +48,5 @@ class Application{
     {
         $controllerClassName = $this->route['controller'];
         $this->controller = new $controllerClassName();
-        $this->route['parameters'] = [];
     }
 }
