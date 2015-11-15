@@ -69,14 +69,12 @@ class RoutesFinder{
                         'route' => strtolower(str_replace('Controller', '', $controllerRouteName)) . '/' . $method->name,
                         'annotations' => $annotations == null? [] : $annotations
                     ];
-
-                    $annotations = self::getRouteForMethod($method);
-                    var_dump($annotations); // TODO : Fix this;
+                    $annotationRoute = self::getRouteForMethod($method);
                     if ($annotations !== null) {
                         $annotationRoutes[] = [
                             'controller' => $controllerName,
                             'action' => $method->name,
-                            'route' => $annotations,
+                            'route' => $annotationRoute,
                             'annotations' => $annotations == null? [] : $annotations
                         ];
                     }
@@ -95,7 +93,7 @@ class RoutesFinder{
     private static function getRouteForMethod(ReflectionMethod $method)
     {
         $comments = $method->getDocComment();
-        preg_match("/@Route\('(.+)\'\)/", $comments, $matches);
+        preg_match("/@Route\(\"(.+)\"\)/", $comments, $matches);
         if (count($matches) > 0) {
             return $matches[1];
         }
@@ -163,7 +161,6 @@ class RoutesFinder{
             fwrite($routeConfigFile, $annotationText);
 
             fwrite($routeConfigFile, "\t\t ], \n");
-
         }
 
         fwrite($routeConfigFile, "\t ]; \n");

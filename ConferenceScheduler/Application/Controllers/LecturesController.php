@@ -9,9 +9,9 @@ class LecturesController
     }
 
     /**
-     * @Route("lectures/{int id}/details")
+     * @Route("lectures/pesho")
      */
     public function getOne(){
-        echo 'lud si';
+        echo 'lectures get one';
     }
 }

@@ -10,7 +10,7 @@ class RouteMapper
     {
         foreach (Routes::$ROUTES as $existingRoute) {
             if (strpos($existingRoute['route'], '{') === false) {
-                if (strtolower($route) == strtolower($existingRoute['route'])) {
+                if (strtolower($route) === strtolower($existingRoute['route'])) {
                     return $existingRoute;
                 }
             } else {

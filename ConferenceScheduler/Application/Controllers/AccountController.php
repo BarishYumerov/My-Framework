@@ -10,7 +10,7 @@ class AccountController
      */
     public function getAll()
     {
-        echo '<p class="p">account all</p>';
+        echo '<p class="p">account awioh all</p>';
     }
 
     /**

@@ -14,7 +14,7 @@ class ParameterRoute {
             if ($token[0] == '{') {
                 $parameterComponents = preg_split('/[\s+\{\}]/', $token, -1, PREG_SPLIT_NO_EMPTY);
                 switch ($parameterComponents[0]) {
-                    case 'integer':
+                    case 'int':
                         $parameter = new UriParameter(UriParameter::INTEGER_TYPE, $parameterComponents[1]);
                         $this->parameters[] = $parameter;
                         break;
