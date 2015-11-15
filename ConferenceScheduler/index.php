@@ -6,7 +6,7 @@ session_start();
 
 require_once "Autoloader.php";
 require_once "Configs/AppConstants.php";
-
+echo 'waidj';
 \ConferenceScheduler\Autoloader::init();
 
 $requestParts = explode('/', parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));

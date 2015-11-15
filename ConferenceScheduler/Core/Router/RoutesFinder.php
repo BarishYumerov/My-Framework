@@ -60,7 +60,6 @@ class RoutesFinder{
                     $method->name !== '__construct') {
 
                     $annotations = self::getAnnotationsForMethod($method);
-                    var_dump($annotations);
 
                     $controllerRouteName = end(explode('\\', $controllerName));
 

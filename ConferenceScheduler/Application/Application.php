@@ -48,5 +48,6 @@ class Application{
     {
         $controllerClassName = $this->route['controller'];
         $this->controller = new $controllerClassName();
+        $this->route['parameters'] = [];
     }
 }

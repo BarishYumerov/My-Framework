@@ -10,13 +10,12 @@ class AccountController
      */
     public function getAll()
     {
-        echo '<p class="p">account awioh all</p>';
+        echo 'all accounts';
     }
 
     /**
      * @Authorize
      * @Route("account/{int id}/get")
-     * @Pesho
      */
     public function getOne(){
         echo 'account get one';
