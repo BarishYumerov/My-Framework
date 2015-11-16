@@ -5,9 +5,6 @@ namespace ConferenceScheduler\Application\Controllers;
 
 class AccountController
 {
-    /**
-     * @Authorize
-     */
     public function getAll()
     {
         echo 'all accounts';

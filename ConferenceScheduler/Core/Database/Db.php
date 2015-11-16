@@ -1,5 +1,4 @@
 <?php
-//declare(strict_types=1);
 
 namespace ConferenceScheduler\Core\Database;
 
@@ -9,7 +8,6 @@ use ConferenceScheduler\Core\Drivers\DriverFactory;
 class Db {
     private static $instances;
     private $db;
-    private $statement;
 
     private function __construct(\PDO $pdo) {
         $this->db = $pdo;
@@ -17,7 +15,7 @@ class Db {
 
     /**
      * @param string $instanceName
-     * @return DatabaseData
+     * @return Db
      * @throws \Exception
      */
     public static function getInstance($instanceName = 'default') {
@@ -28,23 +26,42 @@ class Db {
         return self::$instances[$instanceName];
     }
 
-    public static function setInstance(DatabaseConfig $databaseConfig) {
+    public static function setInstance(DatabaseConfig $config) {
         $driver = DriverFactory::create(
-            $databaseConfig::DB_DRIVER,
-            $databaseConfig::DB_USER,
-            $databaseConfig::DB_PASS,
-            $databaseConfig::DB_NAME,
-            $databaseConfig::DB_HOST);
+            $config::DB_DRIVER,
+            $config::DB_USER,
+            $config::DB_PASS,
+            $config::DB_NAME,
+            $config::DB_HOST);
 
-        $pdo = new \PDO($driver->getDsn(), $databaseConfig::DB_USER, $databaseConfig::DB_PASS);
+        $pdo = new \PDO($driver->getDsn(), $config::DB_USER, $config::DB_PASS);
 
-        self::$instances[$databaseConfig::DB_INSTANCE] = new self($pdo);
+        self::$instances[$config::DB_INSTANCE] = new self($pdo);
     }
 
-    public function query($statement, array $params = [])
+    public function prepare($statement, $driver_options = [])
     {
-        $this->statement = $this->db->prepare($statement);
-        $this->statement->execute($params);
+        $pdoStatement = $this->db->prepare($statement, $driver_options);
+        return new Statement($pdoStatement);
+    }
+
+    public function query($statement)
+    {
+        return $this->db->query($statement);
+    }
+
+    public function lastInsertId($name = null)
+    {
+        return $this->db->lastInsertId($name);
+    }
+}
+
+class Statement {
+    private $statement;
+
+    public function __construct(\PDOStatement $stmnt)
+    {
+        $this->statement = $stmnt;
     }
 
     public function fetch($fetchStyle = \PDO::FETCH_ASSOC)
