@@ -6,6 +6,7 @@ namespace ConferenceScheduler\Application;
 use ConferenceScheduler\Core\HttpContext\HttpContext;
 use ConferenceScheduler\Core\Router\RoutesFinder;
 use ConferenceScheduler\Core\Router\RouteMapper;
+use ConferenceScheduler\Core\Identity\IdentityParser;
 
 class Application{
     private $route;
@@ -32,6 +33,9 @@ class Application{
         $context->setCookies($_COOKIE);
         $context->setSession($_SESSION);
         $context->setMethod(strtolower($_SERVER['REQUEST_METHOD']));
+
+        IdentityParser::createIdentity();
+        IdentityParser::updateIdentity();
 
         $this->createController();
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace RedDevil\Core\Identity;
+namespace ConferenceScheduler\Core\Identity;
 
 use ConferenceScheduler\Core\Database\Db;
 use ConferenceScheduler\Configs\DatabaseConfig;

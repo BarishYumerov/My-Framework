@@ -1,9 +1,9 @@
 <?php
 
-namespace RedDevil\Core\Identity;
+namespace ConferenceScheduler\Core\Identity;
 
 
-class IdentityTableParser
+class ColumnsParser
 {
     private $columns = [];
 
