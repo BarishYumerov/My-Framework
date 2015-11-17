@@ -2,27 +2,30 @@
 
 namespace ConferenceScheduler\Models;
 
-class conference
+class Conference
 {
 	const COL_ID = 'id';
 	const COL_NAME = 'Name';
 	const COL_VENUEID = 'VenueId';
 	const COL_START = 'Start';
 	const COL_END = 'End';
+	const COL_OWNERID = 'OwnerId';
 
 	private $id;
 	private $Name;
 	private $VenueId;
 	private $Start;
 	private $End;
+	private $OwnerId;
 
-	public function __construct($Name, $VenueId, $Start, $End, $id = null)
+	public function __construct($Name, $VenueId, $Start, $End, $OwnerId, $id = null)
 	{
 		$this->setId($id);
 		$this->setName($Name);
 		$this->setVenueId($VenueId);
 		$this->setStart($Start);
 		$this->setEnd($End);
+		$this->setOwnerId($OwnerId);
 	}
 
 	/**
@@ -120,6 +123,26 @@ class conference
 	public function setEnd($End)
 	{
 		$this->End = $End;
+		
+		return $this;
+	}
+
+
+	/**
+	* @return mixed
+	*/
+	public function getOwnerId()
+	{
+		return $this->OwnerId;
+	}
+
+	/**
+	* @param $OwnerId
+	* @return $this
+	*/
+	public function setOwnerId($OwnerId)
+	{
+		$this->OwnerId = $OwnerId;
 		
 		return $this;
 	}

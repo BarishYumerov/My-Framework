@@ -2,12 +2,12 @@
 
 namespace ConferenceScheduler\Collections;
 
-use ConferenceScheduler\Models\venue;
+use ConferenceScheduler\Models\Venue;
 
-class venueCollection
+class VenueCollection
 {
     /**
-     * @var venue[];
+     * @var Venue[];
      */
     private $collection = [];
 
@@ -17,9 +17,9 @@ class venueCollection
     }
 
     /**
-     * @return venue[]
+     * @return Venue[]
      */
-    public function getvenues()
+    public function getVenues()
     {
         return $this->collection;
     }

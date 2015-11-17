@@ -29,9 +29,9 @@ class Orm {
 
             $repositoryName .= "Repository";
 
+            $model = ucfirst($model);
 
             Repositories::create($repositoryName, $model, $tableName, $columns);
-
             $output = "";
             $output .= self::generateClassInfo($model);
             $output .= self::generateConstants($model, $tableName, $columns);
@@ -45,6 +45,8 @@ class Orm {
             $collectionsOutput = Collections::create($model);
             $collectionFile = fopen('Collections/' . $model . 'Collection.php', 'w');
             fwrite($collectionFile, $collectionsOutput);
+
+            EntityCreator::create();
         }
     }
 

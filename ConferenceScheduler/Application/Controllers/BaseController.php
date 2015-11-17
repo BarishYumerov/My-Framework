@@ -4,8 +4,18 @@
 
 namespace ConferenceScheduler\Application\Controllers;
 
-class BaseController{
-    public function test(){
+use ConferenceScheduler\Core\ORM\DbContext;
 
+class BaseController{
+    protected $dbContext;
+
+    public function __construct()
+    {
+        $this->dbContext = new DbContext();
+        $this->onInit();
+    }
+
+    public function onInit() {
+        // Implement initializing logic in the subclasses
     }
 }

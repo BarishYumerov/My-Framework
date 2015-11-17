@@ -1,9 +1,9 @@
 <?php
-namespace Con\Repositories;
+namespace ConferenceScheduler\Repositories;
 
 use ConferenceScheduler\Core\Database\Db;
-use ConferenceScheduler\Models\conference;
-use ConferenceScheduler\Collections\conferenceCollection;
+use ConferenceScheduler\Models\Conference;
+use ConferenceScheduler\Collections\ConferenceCollection;
 
 class conferencesRepository
 {
@@ -92,6 +92,17 @@ class conferencesRepository
 
         return $this;
     }
+    /**
+     * @param $OwnerId
+     * @return $this
+     */
+    public function filterByOwnerId($OwnerId)
+    {
+        $this->where .= " AND OwnerId $OwnerId";
+        $this->placeholders[] = $OwnerId;
+
+        return $this;
+    }
 
     /**
      * @param $column
@@ -174,12 +185,12 @@ class conferencesRepository
     }
 
     /**
-     * @return conferenceCollection
+     * @return ConferenceCollection
      * @throws \Exception
      */
     public function findAll()
     {
-        $db = DatabaseData::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
+        $db = Db::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
 
         $this->query = "SELECT * FROM conferences" . $this->where . $this->order;
         $result = $db->prepare($this->query);
@@ -187,10 +198,11 @@ class conferencesRepository
 
         $collection = [];
         foreach ($result->fetchAll() as $entityInfo) {
-            $entity = new conference($entityInfo['Name'],
+            $entity = new Conference($entityInfo['Name'],
 $entityInfo['VenueId'],
 $entityInfo['Start'],
 $entityInfo['End'],
+$entityInfo['OwnerId'],
 $entityInfo['id']);
 
             $collection[] = $entity;
@@ -198,25 +210,26 @@ $entityInfo['id']);
         }
 
         $this->where = substr($this->where, 0, 8);
-        return new conferenceCollection($collection);
+        return new ConferenceCollection($collection);
     }
 
     /**
-     * @return conference
+     * @return Conference
      * @throws \Exception
      */
     public function findOne()
     {
-        $db = DatabaseData::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
+        $db = Db::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
 
         $this->query = "SELECT * FROM conferences" . $this->where . $this->order . " LIMIT 1";
         $result = $db->prepare($this->query);
         $result->execute([]);
         $entityInfo = $result->fetch();
-        $entity = new conference($entityInfo['Name'],
+        $entity = new Conference($entityInfo['Name'],
 $entityInfo['VenueId'],
 $entityInfo['Start'],
 $entityInfo['End'],
+$entityInfo['OwnerId'],
 $entityInfo['id']);
 
         self::$selectedObjectPool[] = $entity;
@@ -231,7 +244,7 @@ $entityInfo['id']);
      */
     public function delete()
     {
-        $db = DatabaseData::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
+        $db = Db::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
 
         $this->query = "DELETE FROM conferences" . $this->where;
         $result = $db->prepare($this->query);
@@ -240,7 +253,7 @@ $entityInfo['id']);
         return $result->rowCount() > 0;
     }
 
-    public static function add(conference $model)
+    public static function add(Conference $model)
     {
         if ($model->getId()) {
             throw new \Exception('This entity is not new');
@@ -262,11 +275,11 @@ $entityInfo['id']);
         return true;
     }
 
-    private static function update(conference $model)
+    private static function update(Conference $model)
     {
-        $db = DatabaseData::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
+        $db = Db::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
 
-        $query = "UPDATE conferences SET Name= :Name, VenueId= :VenueId, Start= :Start, End= :End WHERE id = :id";
+        $query = "UPDATE conferences SET Name= :Name, VenueId= :VenueId, Start= :Start, End= :End, OwnerId= :OwnerId WHERE id = :id";
         $result = $db->prepare($query);
         $result->execute(
             [
@@ -274,23 +287,25 @@ $entityInfo['id']);
 ':Name' => $model->getName(),
 ':VenueId' => $model->getVenueId(),
 ':Start' => $model->getStart(),
-':End' => $model->getEnd()
+':End' => $model->getEnd(),
+':OwnerId' => $model->getOwnerId()
             ]
         );
     }
 
-    private static function insert(conference $model)
+    private static function insert(Conference $model)
     {
-        $db = DatabaseData::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
+        $db = Db::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
 
-        $query = "INSERT INTO conferences (Name,VenueId,Start,End) VALUES (:Name, :VenueId, :Start, :End);";
+        $query = "INSERT INTO conferences (Name,VenueId,Start,End,OwnerId) VALUES (:Name, :VenueId, :Start, :End, :OwnerId);";
         $result = $db->prepare($query);
         $result->execute(
             [
                 ':Name' => $model->getName(),
 ':VenueId' => $model->getVenueId(),
 ':Start' => $model->getStart(),
-':End' => $model->getEnd()
+':End' => $model->getEnd(),
+':OwnerId' => $model->getOwnerId()
             ]
         );
         $model->setId($db->lastInsertId());
@@ -298,7 +313,7 @@ $entityInfo['id']);
 
     private function isColumnAllowed($column)
     {
-        $refc = new \ReflectionClass('\ConferenceScheduler\Models\conference');
+        $refc = new \ReflectionClass('\ConferenceScheduler\Models\Conference');
         $consts = $refc->getConstants();
 
         return in_array($column, $consts);

@@ -2,7 +2,7 @@
 
 namespace ConferenceScheduler\Models;
 
-class usersrole
+class Usersrole
 {
 	const COL_USERID = 'userId';
 	const COL_ROLEID = 'roleId';

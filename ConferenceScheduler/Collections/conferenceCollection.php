@@ -2,12 +2,12 @@
 
 namespace ConferenceScheduler\Collections;
 
-use ConferenceScheduler\Models\conference;
+use ConferenceScheduler\Models\Conference;
 
-class conferenceCollection
+class ConferenceCollection
 {
     /**
-     * @var conference[];
+     * @var Conference[];
      */
     private $collection = [];
 
@@ -17,9 +17,9 @@ class conferenceCollection
     }
 
     /**
-     * @return conference[]
+     * @return Conference[]
      */
-    public function getconferences()
+    public function getConferences()
     {
         return $this->collection;
     }

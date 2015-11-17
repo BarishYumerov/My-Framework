@@ -1,9 +1,9 @@
 <?php
-namespace Con\Repositories;
+namespace ConferenceScheduler\Repositories;
 
 use ConferenceScheduler\Core\Database\Db;
-use ConferenceScheduler\Models\user;
-use ConferenceScheduler\Collections\userCollection;
+use ConferenceScheduler\Models\User;
+use ConferenceScheduler\Collections\UserCollection;
 
 class usersRepository
 {
@@ -174,12 +174,12 @@ class usersRepository
     }
 
     /**
-     * @return userCollection
+     * @return UserCollection
      * @throws \Exception
      */
     public function findAll()
     {
-        $db = DatabaseData::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
+        $db = Db::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
 
         $this->query = "SELECT * FROM users" . $this->where . $this->order;
         $result = $db->prepare($this->query);
@@ -187,7 +187,7 @@ class usersRepository
 
         $collection = [];
         foreach ($result->fetchAll() as $entityInfo) {
-            $entity = new user($entityInfo['username'],
+            $entity = new User($entityInfo['username'],
 $entityInfo['email'],
 $entityInfo['telephone'],
 $entityInfo['address'],
@@ -198,22 +198,22 @@ $entityInfo['id']);
         }
 
         $this->where = substr($this->where, 0, 8);
-        return new userCollection($collection);
+        return new UserCollection($collection);
     }
 
     /**
-     * @return user
+     * @return User
      * @throws \Exception
      */
     public function findOne()
     {
-        $db = DatabaseData::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
+        $db = Db::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
 
         $this->query = "SELECT * FROM users" . $this->where . $this->order . " LIMIT 1";
         $result = $db->prepare($this->query);
         $result->execute([]);
         $entityInfo = $result->fetch();
-        $entity = new user($entityInfo['username'],
+        $entity = new User($entityInfo['username'],
 $entityInfo['email'],
 $entityInfo['telephone'],
 $entityInfo['address'],
@@ -231,7 +231,7 @@ $entityInfo['id']);
      */
     public function delete()
     {
-        $db = DatabaseData::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
+        $db = Db::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
 
         $this->query = "DELETE FROM users" . $this->where;
         $result = $db->prepare($this->query);
@@ -240,7 +240,7 @@ $entityInfo['id']);
         return $result->rowCount() > 0;
     }
 
-    public static function add(user $model)
+    public static function add(User $model)
     {
         if ($model->getId()) {
             throw new \Exception('This entity is not new');
@@ -262,9 +262,9 @@ $entityInfo['id']);
         return true;
     }
 
-    private static function update(user $model)
+    private static function update(User $model)
     {
-        $db = DatabaseData::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
+        $db = Db::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
 
         $query = "UPDATE users SET username= :username, email= :email, telephone= :telephone, address= :address WHERE id = :id";
         $result = $db->prepare($query);
@@ -279,9 +279,9 @@ $entityInfo['id']);
         );
     }
 
-    private static function insert(user $model)
+    private static function insert(User $model)
     {
-        $db = DatabaseData::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
+        $db = Db::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
 
         $query = "INSERT INTO users (username,email,telephone,address) VALUES (:username, :email, :telephone, :address);";
         $result = $db->prepare($query);
@@ -298,7 +298,7 @@ $entityInfo['id']);
 
     private function isColumnAllowed($column)
     {
-        $refc = new \ReflectionClass('\ConferenceScheduler\Models\user');
+        $refc = new \ReflectionClass('\ConferenceScheduler\Models\User');
         $consts = $refc->getConstants();
 
         return in_array($column, $consts);

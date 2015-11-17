@@ -2,7 +2,7 @@
 
 namespace ConferenceScheduler\Models;
 
-class venue
+class Venue
 {
 	const COL_ID = 'id';
 	const COL_NAME = 'Name';

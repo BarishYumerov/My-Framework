@@ -1,9 +1,9 @@
 <?php
-namespace Con\Repositories;
+namespace ConferenceScheduler\Repositories;
 
 use ConferenceScheduler\Core\Database\Db;
-use ConferenceScheduler\Models\role;
-use ConferenceScheduler\Collections\roleCollection;
+use ConferenceScheduler\Models\Role;
+use ConferenceScheduler\Collections\RoleCollection;
 
 class rolesRepository
 {
@@ -141,12 +141,12 @@ class rolesRepository
     }
 
     /**
-     * @return roleCollection
+     * @return RoleCollection
      * @throws \Exception
      */
     public function findAll()
     {
-        $db = DatabaseData::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
+        $db = Db::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
 
         $this->query = "SELECT * FROM roles" . $this->where . $this->order;
         $result = $db->prepare($this->query);
@@ -154,7 +154,7 @@ class rolesRepository
 
         $collection = [];
         foreach ($result->fetchAll() as $entityInfo) {
-            $entity = new role($entityInfo['name'],
+            $entity = new Role($entityInfo['name'],
 $entityInfo['id']);
 
             $collection[] = $entity;
@@ -162,22 +162,22 @@ $entityInfo['id']);
         }
 
         $this->where = substr($this->where, 0, 8);
-        return new roleCollection($collection);
+        return new RoleCollection($collection);
     }
 
     /**
-     * @return role
+     * @return Role
      * @throws \Exception
      */
     public function findOne()
     {
-        $db = DatabaseData::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
+        $db = Db::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
 
         $this->query = "SELECT * FROM roles" . $this->where . $this->order . " LIMIT 1";
         $result = $db->prepare($this->query);
         $result->execute([]);
         $entityInfo = $result->fetch();
-        $entity = new role($entityInfo['name'],
+        $entity = new Role($entityInfo['name'],
 $entityInfo['id']);
 
         self::$selectedObjectPool[] = $entity;
@@ -192,7 +192,7 @@ $entityInfo['id']);
      */
     public function delete()
     {
-        $db = DatabaseData::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
+        $db = Db::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
 
         $this->query = "DELETE FROM roles" . $this->where;
         $result = $db->prepare($this->query);
@@ -201,7 +201,7 @@ $entityInfo['id']);
         return $result->rowCount() > 0;
     }
 
-    public static function add(role $model)
+    public static function add(Role $model)
     {
         if ($model->getId()) {
             throw new \Exception('This entity is not new');
@@ -223,9 +223,9 @@ $entityInfo['id']);
         return true;
     }
 
-    private static function update(role $model)
+    private static function update(Role $model)
     {
-        $db = DatabaseData::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
+        $db = Db::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
 
         $query = "UPDATE roles SET name= :name WHERE id = :id";
         $result = $db->prepare($query);
@@ -237,9 +237,9 @@ $entityInfo['id']);
         );
     }
 
-    private static function insert(role $model)
+    private static function insert(Role $model)
     {
-        $db = DatabaseData::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
+        $db = Db::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
 
         $query = "INSERT INTO roles (name) VALUES (:name);";
         $result = $db->prepare($query);
@@ -253,7 +253,7 @@ $entityInfo['id']);
 
     private function isColumnAllowed($column)
     {
-        $refc = new \ReflectionClass('\ConferenceScheduler\Models\role');
+        $refc = new \ReflectionClass('\ConferenceScheduler\Models\Role');
         $consts = $refc->getConstants();
 
         return in_array($column, $consts);

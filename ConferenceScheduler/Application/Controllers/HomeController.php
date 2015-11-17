@@ -2,17 +2,15 @@
 
 namespace ConferenceScheduler\Application\Controllers;
 
-use ConferenceScheduler\Core\Database\Db;
+use ConferenceScheduler\Application\Services\ConferencesServices;
 
 
-class HomeController
+class HomeController extends BaseController
 {
     public function index(){
-        echo '<h1>All Users</h1>';
-        $db = Db::getInstance(APPLICATION_NAME);
-        $statement = $db->prepare('select * from users');
-        $statement->execute();
-        $users = $statement->fetchAll();
-        var_dump($users);
+        $service = new ConferencesServices($this->dbContext);
+        $allConferences =$service->getAll();
+
+        var_dump($allConferences);
     }
 }

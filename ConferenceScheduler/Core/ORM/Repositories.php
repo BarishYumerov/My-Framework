@@ -56,7 +56,7 @@ KUF;
         $repositoryFileName = fopen('Repositories/' . $repositoryName . '.php', 'w');
         $content = "";
         $content .= "<?php\n";
-        $content .= "namespace Con\\Repositories;\n";
+        $content .= "namespace ConferenceScheduler\\Repositories;\n";
         $content .= "\n";
         $content .= "use ConferenceScheduler\\Core\\Database\\Db;\n";
         $content .= "use ConferenceScheduler\\Models\\$model;\n";
@@ -181,7 +181,7 @@ $columnFilters
      */
     public function findAll()
     {
-        \$db = DatabaseData::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
+        \$db = Db::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
 
         \$this->query = "SELECT * FROM $tableName" . \$this->where . \$this->order;
         \$result = \$db->prepare(\$this->query);
@@ -205,7 +205,7 @@ $columnFilters
      */
     public function findOne()
     {
-        \$db = DatabaseData::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
+        \$db = Db::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
 
         \$this->query = "SELECT * FROM $tableName" . \$this->where . \$this->order . " LIMIT 1";
         \$result = \$db->prepare(\$this->query);
@@ -225,7 +225,7 @@ $columnFilters
      */
     public function delete()
     {
-        \$db = DatabaseData::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
+        \$db = Db::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
 
         \$this->query = "DELETE FROM $tableName" . \$this->where;
         \$result = \$db->prepare(\$this->query);
@@ -258,7 +258,7 @@ $columnFilters
 
     private static function update($model \$model)
     {
-        \$db = DatabaseData::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
+        \$db = Db::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
 
         \$query = "UPDATE $tableName SET $columnsWithPlaceHoldersText WHERE id = :id";
         \$result = \$db->prepare(\$query);
@@ -271,7 +271,7 @@ $columnFilters
 
     private static function insert($model \$model)
     {
-        \$db = DatabaseData::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
+        \$db = Db::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
 
         \$query = "INSERT INTO $tableName ($columnsImploded) VALUES ($onlyPlaceHolders);";
         \$result = \$db->prepare(\$query);

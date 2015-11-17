@@ -1,9 +1,9 @@
 <?php
-namespace Con\Repositories;
+namespace ConferenceScheduler\Repositories;
 
 use ConferenceScheduler\Core\Database\Db;
-use ConferenceScheduler\Models\lecture;
-use ConferenceScheduler\Collections\lectureCollection;
+use ConferenceScheduler\Models\Lecture;
+use ConferenceScheduler\Collections\LectureCollection;
 
 class lecturesRepository
 {
@@ -207,12 +207,12 @@ class lecturesRepository
     }
 
     /**
-     * @return lectureCollection
+     * @return LectureCollection
      * @throws \Exception
      */
     public function findAll()
     {
-        $db = DatabaseData::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
+        $db = Db::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
 
         $this->query = "SELECT * FROM lectures" . $this->where . $this->order;
         $result = $db->prepare($this->query);
@@ -220,7 +220,7 @@ class lecturesRepository
 
         $collection = [];
         foreach ($result->fetchAll() as $entityInfo) {
-            $entity = new lecture($entityInfo['Name'],
+            $entity = new Lecture($entityInfo['Name'],
 $entityInfo['speakerId'],
 $entityInfo['Start'],
 $entityInfo['End'],
@@ -234,22 +234,22 @@ $entityInfo['id']);
         }
 
         $this->where = substr($this->where, 0, 8);
-        return new lectureCollection($collection);
+        return new LectureCollection($collection);
     }
 
     /**
-     * @return lecture
+     * @return Lecture
      * @throws \Exception
      */
     public function findOne()
     {
-        $db = DatabaseData::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
+        $db = Db::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
 
         $this->query = "SELECT * FROM lectures" . $this->where . $this->order . " LIMIT 1";
         $result = $db->prepare($this->query);
         $result->execute([]);
         $entityInfo = $result->fetch();
-        $entity = new lecture($entityInfo['Name'],
+        $entity = new Lecture($entityInfo['Name'],
 $entityInfo['speakerId'],
 $entityInfo['Start'],
 $entityInfo['End'],
@@ -270,7 +270,7 @@ $entityInfo['id']);
      */
     public function delete()
     {
-        $db = DatabaseData::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
+        $db = Db::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
 
         $this->query = "DELETE FROM lectures" . $this->where;
         $result = $db->prepare($this->query);
@@ -279,7 +279,7 @@ $entityInfo['id']);
         return $result->rowCount() > 0;
     }
 
-    public static function add(lecture $model)
+    public static function add(Lecture $model)
     {
         if ($model->getId()) {
             throw new \Exception('This entity is not new');
@@ -301,9 +301,9 @@ $entityInfo['id']);
         return true;
     }
 
-    private static function update(lecture $model)
+    private static function update(Lecture $model)
     {
-        $db = DatabaseData::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
+        $db = Db::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
 
         $query = "UPDATE lectures SET Name= :Name, speakerId= :speakerId, Start= :Start, End= :End, hallId= :hallId, venueId= :venueId, conferenceId= :conferenceId WHERE id = :id";
         $result = $db->prepare($query);
@@ -321,9 +321,9 @@ $entityInfo['id']);
         );
     }
 
-    private static function insert(lecture $model)
+    private static function insert(Lecture $model)
     {
-        $db = DatabaseData::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
+        $db = Db::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
 
         $query = "INSERT INTO lectures (Name,speakerId,Start,End,hallId,venueId,conferenceId) VALUES (:Name, :speakerId, :Start, :End, :hallId, :venueId, :conferenceId);";
         $result = $db->prepare($query);
@@ -343,7 +343,7 @@ $entityInfo['id']);
 
     private function isColumnAllowed($column)
     {
-        $refc = new \ReflectionClass('\ConferenceScheduler\Models\lecture');
+        $refc = new \ReflectionClass('\ConferenceScheduler\Models\Lecture');
         $consts = $refc->getConstants();
 
         return in_array($column, $consts);

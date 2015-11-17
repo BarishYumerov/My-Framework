@@ -2,12 +2,12 @@
 
 namespace ConferenceScheduler\Collections;
 
-use ConferenceScheduler\Models\usersrole;
+use ConferenceScheduler\Models\Usersrole;
 
-class usersroleCollection
+class UsersroleCollection
 {
     /**
-     * @var usersrole[];
+     * @var Usersrole[];
      */
     private $collection = [];
 
@@ -17,9 +17,9 @@ class usersroleCollection
     }
 
     /**
-     * @return usersrole[]
+     * @return Usersrole[]
      */
-    public function getusersroles()
+    public function getUsersroles()
     {
         return $this->collection;
     }
