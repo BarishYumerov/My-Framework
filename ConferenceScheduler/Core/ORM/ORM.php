@@ -52,7 +52,7 @@ class Orm {
         $output = <<<KUF
 <?php
 
-namespace RedDevil\Models;
+namespace ConferenceScheduler\Models;
 
 class $model
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace RedDevil\Models;
+namespace ConferenceScheduler\Models;
 
 class venue
 {

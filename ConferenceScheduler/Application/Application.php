@@ -35,9 +35,11 @@ class Application{
         $context->setSession($_SESSION);
         $context->setMethod(strtolower($_SERVER['REQUEST_METHOD']));
 
-        IdentityParser::createIdentity();
-        IdentityParser::updateIdentity();
-        Orm::update();
+        if(AppMode == 'Development'){
+            IdentityParser::createIdentity();
+            IdentityParser::updateIdentity();
+            Orm::update();
+        }
 
         $this->createController();
 
