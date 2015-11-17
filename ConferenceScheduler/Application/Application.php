@@ -7,6 +7,7 @@ use ConferenceScheduler\Core\HttpContext\HttpContext;
 use ConferenceScheduler\Core\Router\RoutesFinder;
 use ConferenceScheduler\Core\Router\RouteMapper;
 use ConferenceScheduler\Core\Identity\IdentityParser;
+use ConferenceScheduler\Core\ORM\Orm;
 
 class Application{
     private $route;
@@ -36,6 +37,7 @@ class Application{
 
         IdentityParser::createIdentity();
         IdentityParser::updateIdentity();
+        Orm::update();
 
         $this->createController();
 
