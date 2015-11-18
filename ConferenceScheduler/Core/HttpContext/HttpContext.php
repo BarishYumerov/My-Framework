@@ -13,7 +13,11 @@ class HttpContext {
     private $method = 'get';
 
     private function __construct() {
-        $this->_cookies = $_COOKIE;
+        $this->setGet($_GET);
+        $this->setPost($_POST);
+        $this->setCookies($_COOKIE);
+        $this->setSession($_SESSION);
+        $this->setMethod(strtolower($_SERVER['REQUEST_METHOD']));
     }
 
     public function setPost($ar) {

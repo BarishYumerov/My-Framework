@@ -19,7 +19,5 @@ class AccountController extends BaseController
      */
     public function getOne(){
         echo 'account get one';
-        $this->context->addSessionItem('pesho', 'kiro');
-        $this->redirect('account', 'getAll');
     }
 }

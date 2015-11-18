@@ -12,6 +12,7 @@ use ConferenceScheduler\Core\ORM\Orm;
 class Application{
     private $route;
     private $controller;
+    private $annotations = [];
 
     public function __construct($route)
     {
@@ -25,16 +26,13 @@ class Application{
             $this->route['parameters'] = [];
             $this->route['annotations'] = [];
         }
+
+        $this->createAnnotations($this->route);
     }
 
     //Initializes the context, updates orm, identity and calls controller method.
     function start(){
-        $context = HttpContext::getInstance();
-        $context->setGet($_GET);
-        $context->setPost($_POST);
-        $context->setCookies($_COOKIE);
-        $context->setSession($_SESSION);
-        $context->setMethod(strtolower($_SERVER['REQUEST_METHOD']));
+        HttpContext::getInstance();
 
         if(AppMode == 'Development'){
             IdentityParser::createIdentity();
@@ -48,6 +46,9 @@ class Application{
             $this->route['parameters'] = [];
         }
 
+        foreach ($this->annotations as $annotation) {
+            $annotation->annotate(); 
+        }
         call_user_func_array(
             [
                 $this->controller,
@@ -61,5 +62,38 @@ class Application{
     {
         $controllerClassName = $this->route['controller'];
         $this->controller = new $controllerClassName();
+    }
+
+    private function createAnnotations($route)
+    {
+        $availableAnnotations = [];
+
+        $dirHandle = opendir('Core' . DIRECTORY_SEPARATOR . 'Annotations');
+        $file = readdir($dirHandle);
+        while ($file) {
+            if ($file[0] == '.') {
+                $file = readdir($dirHandle);
+                continue;
+            }
+
+            if ($file == 'Annotation.php') {
+                $file = readdir($dirHandle);
+                continue;
+            }
+
+            $annotationClassName = explode('.', $file)[0];
+            $availableAnnotations[] = $annotationClassName;
+            $file = readdir($dirHandle);
+        }
+        
+        foreach ($route['annotations'] as $key => $value) {
+            $annotationName = ucfirst($key);
+            if (!in_array($annotationName, $availableAnnotations)) {
+                throw new \Exception("Unrecognized annotation class.", 501);
+            }
+
+            $annotationName = '\\ConferenceScheduler\\Core\\Annotations\\' . $annotationName;
+            $this->annotations[] = new $annotationName($value);
+        }
     }
 }
