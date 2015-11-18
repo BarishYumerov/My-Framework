@@ -85,7 +85,7 @@ class Application{
             $availableAnnotations[] = $annotationClassName;
             $file = readdir($dirHandle);
         }
-        
+
         foreach ($route['annotations'] as $key => $value) {
             $annotationName = ucfirst($key);
             if (!in_array($annotationName, $availableAnnotations)) {
