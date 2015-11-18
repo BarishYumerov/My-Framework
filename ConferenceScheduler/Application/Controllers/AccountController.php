@@ -2,12 +2,15 @@
 
 namespace ConferenceScheduler\Application\Controllers;
 
+use ConferenceScheduler\Core\HttpContext\HttpContext;
 
-class AccountController
+class AccountController extends BaseController
 {
     public function getAll()
     {
         echo 'all accounts';
+
+        var_dump($this->context->session('pesho'));
     }
 
     /**
@@ -16,5 +19,7 @@ class AccountController
      */
     public function getOne(){
         echo 'account get one';
+        $this->context->addSessionItem('pesho', 'kiro');
+        $this->redirect('account', 'getAll');
     }
 }

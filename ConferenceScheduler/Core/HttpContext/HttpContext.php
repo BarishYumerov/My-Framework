@@ -122,4 +122,20 @@ class HttpContext {
         }
         return self::$_instance;
     }
+
+    public function addSessionItem($key, $value){
+        $this->_session[$key] = $value;
+    }
+
+    public function addCookieItem($key, $value){
+        $this->_cookies[$key] = $value;
+    }
+
+    public function addGetItem($key, $value){
+        $this->_get[$key] = $value;
+    }
+
+    public function addPostItem($key, $value){
+        $this->_post[$key] = $value;
+    }
 }

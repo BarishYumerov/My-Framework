@@ -27,6 +27,7 @@ class Application{
         }
     }
 
+    //Initializes the context, updates orm, identity and calls controller method.
     function start(){
         $context = HttpContext::getInstance();
         $context->setGet($_GET);
@@ -43,6 +44,10 @@ class Application{
 
         $this->createController();
 
+        if(!isset($this->route['parameters'])){
+            $this->route['parameters'] = [];
+        }
+
         call_user_func_array(
             [
                 $this->controller,
@@ -56,6 +61,5 @@ class Application{
     {
         $controllerClassName = $this->route['controller'];
         $this->controller = new $controllerClassName();
-        $this->route['parameters'] = [];
     }
 }
