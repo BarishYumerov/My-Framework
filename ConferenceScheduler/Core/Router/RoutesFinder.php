@@ -12,12 +12,18 @@ class RoutesFinder{
         $allRoutes = [];
 
         $routes = self::findRoutes();
+        $areaRoutes = self::findAreaRoutes();
 
         if ($routes !== null) {
             $allRoutes = array_merge($allRoutes, $routes['annotationRoutes']);
         }
 
+        if($allRoutes !== null){
+            $allRoutes = array_merge($allRoutes, $areaRoutes['annotationRoutes']);
+        }
+
         $allRoutes = array_merge($allRoutes, $routes['routes']);
+        $allRoutes = array_merge($allRoutes, $areaRoutes['routes']);
 
         self::createRoutesConfig($allRoutes);
     }
@@ -83,6 +89,83 @@ class RoutesFinder{
         }
 
         closedir($controllersFolder);
+
+        return [
+            'routes' => $routes,
+            'annotationRoutes' => $annotationRoutes
+        ];
+    }
+
+    private static function findAreaRoutes()
+    {
+        $routes = [];
+        $annotationRoutes = [];
+
+        if (!file_exists(AREAS_NAMESPACE)) {
+            return null;
+        }
+
+        $areasFile = opendir(AREAS_NAMESPACE);
+        $areaName = readdir($areasFile);
+        while ($areaName) {
+            if ($areaName[0] == '.') {
+                $areaName = readdir($areasFile);
+                continue;
+            }
+
+            $controllersDirHandle = opendir(AREAS_NAMESPACE . '/' . $areaName . '/' . 'Controllers');
+            if ($controllersDirHandle === null) {
+                continue;
+            }
+
+            $file = readdir($controllersDirHandle);
+            while ($file) {
+                if ($file[0] == '.') {
+                    $file = readdir($controllersDirHandle);
+                    continue;
+                }
+
+                $className = substr($file, 0, strlen($file) - 4);
+                $fullControllerName = APPLICATION_NAME . DIRECTORY_SEPARATOR . AREAS_DIR
+                    . $areaName . '\\Controllers\\' . $className;
+
+                $route = strtolower($areaName) . '/' . strtolower(str_replace('Controller', '', $className));
+
+                $class = new ReflectionClass($fullControllerName);
+                $methods = $class->getMethods(ReflectionMethod::IS_PUBLIC);
+
+                foreach ($methods as $method) {
+                    if(strpos($method->class, 'BaseController') === false &&
+                        $method->name !== '__construct') {
+
+                        $annotations = self::getAnnotationsForMethod($method);
+
+                        $routes[] = [
+                            'controller' => $fullControllerName,
+                            'action' => $method->name,
+                            'route' => $route . '/' . $method->name,
+                            'annotations' => $annotations == null? [] : $annotations
+                        ];
+
+                        $annotationRoute = self::getRouteForMethod($method);
+                        if ($annotationRoute !== null) {
+                            $annotationRoutes[] = [
+                                'controller' => $fullControllerName,
+                                'action' => $method->name,
+                                'route' => $annotationRoute,
+                                'annotations' => $annotations == null? [] : $annotations
+                            ];
+                        }
+                    }
+                }
+
+                $file = readdir($controllersDirHandle);
+            }
+
+            closedir($controllersDirHandle);
+            $areaName = readdir($areasFile);
+        }
+        closedir($areasFile);
 
         return [
             'routes' => $routes,

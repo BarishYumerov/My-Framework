@@ -8,31 +8,53 @@ class View
     private $action;
     private $layout;
     private $model;
+    private $area;
 
     public function __construct(
         $controller = null,
         $action = null,
         $layout = 'Default',
-        $model = null){
+        $model = null,
+        $area = null){
 
         require_once "Configs/AppConstants.php";
 
         $this->layout = $layout;
         $this->model = $model;
+        $this->area = $area;
 
-        if($controller == null){
-            $this->controller = DEFAULT_CONTROLLER;
-        }
-        else{
-            $this->controller =  $controller;
+        if($area == null){
+            if($controller == null){
+                $this->controller = DEFAULT_CONTROLLER;
+            }
+            else{
+                $this->controller =  $controller;
+            }
+
+            if($action == null){
+                $this->action = DEFAULT_ACTION;
+            }
+            else{
+                $this->action = $action;
+            }
         }
 
-        if($action == null){
-            $this->action = DEFAULT_ACTION;
-        }
         else{
-            $this->action = $action;
+            if($controller == null){
+                $this->controller = DEFAULT_CONTROLLER;
+            }
+            else{
+                $this->controller =  $controller;
+            }
+
+            if($action == null){
+                $this->action = DEFAULT_ACTION;
+            }
+            else{
+                $this->action = $action;
+            }
         }
+
 
         $this->renderView($model);
     }
@@ -63,14 +85,30 @@ class View
     }
 
     private function getView(){
-        $path = 'Application'
-            . DIRECTORY_SEPARATOR
-            .'Views'
-            . DIRECTORY_SEPARATOR
-            . $this->controller
-            . DIRECTORY_SEPARATOR
-            . $this->action . '.php';
-        require $path;
+        if($this->area == null){
+            $path = 'Application'
+                . DIRECTORY_SEPARATOR
+                .'Views'
+                . DIRECTORY_SEPARATOR
+                . $this->controller
+                . DIRECTORY_SEPARATOR
+                . $this->action . '.php';
+            require $path;
+        }
+        else{
+            $path = 'Application'
+                . DIRECTORY_SEPARATOR
+                . 'Areas'
+                . DIRECTORY_SEPARATOR
+                .$this->area
+                . DIRECTORY_SEPARATOR
+                .'Views'
+                . DIRECTORY_SEPARATOR
+                . $this->controller
+                . DIRECTORY_SEPARATOR
+                . $this->action . '.php';
+            require $path;
+        }
     }
 
     private function includeFooter()
