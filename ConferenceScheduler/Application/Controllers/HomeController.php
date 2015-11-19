@@ -3,6 +3,7 @@
 namespace ConferenceScheduler\Application\Controllers;
 
 use ConferenceScheduler\Application\Services\ConferencesServices;
+use ConferenceScheduler\View;
 
 
 class HomeController extends BaseController
@@ -11,6 +12,6 @@ class HomeController extends BaseController
         $service = new ConferencesServices($this->dbContext);
         $allConferences =$service->getAll();
 
-        var_dump($allConferences);
+        return new View('Home', 'Index');
     }
 }

@@ -7,7 +7,7 @@ namespace ConferenceScheduler\Application\Controllers;
 use ConferenceScheduler\Core\HttpContext\HttpContext;
 use ConferenceScheduler\Core\ORM\DbContext;
 
-class BaseController{
+abstract class BaseController{
     protected $dbContext;
     protected $context;
 

@@ -33,5 +33,60 @@ class View
         else{
             $this->action = $action;
         }
+
+        $this->renderView($model);
+    }
+
+    private function renderView($model){
+        $this->includeHeader();
+
+        $this->getView();
+
+        $this->includeFooter();
+    }
+
+    private function includeHeader()
+    {
+        if ($this->layout) {
+            $path = 'Application'
+                . DIRECTORY_SEPARATOR
+                .'Views'
+                . DIRECTORY_SEPARATOR
+                . 'Layouts'
+                . DIRECTORY_SEPARATOR
+                . $this->layout
+                . DIRECTORY_SEPARATOR
+                . 'header.php';
+
+            require $path;
+        }
+    }
+
+    private function getView(){
+        $path = 'Application'
+            . DIRECTORY_SEPARATOR
+            .'Views'
+            . DIRECTORY_SEPARATOR
+            . $this->controller
+            . DIRECTORY_SEPARATOR
+            . $this->action . '.php';
+        require $path;
+    }
+
+    private function includeFooter()
+    {
+        if ($this->layout) {
+            $path = 'Application'
+                . DIRECTORY_SEPARATOR
+                .'Views'
+                . DIRECTORY_SEPARATOR
+                . 'Layouts'
+                . DIRECTORY_SEPARATOR
+                . $this->layout
+                . DIRECTORY_SEPARATOR
+                . 'footer.php';
+
+            require $path;
+        }
     }
 }
