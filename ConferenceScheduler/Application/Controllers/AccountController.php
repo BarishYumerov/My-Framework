@@ -2,6 +2,7 @@
 
 namespace ConferenceScheduler\Application\Controllers;
 
+use ConferenceScheduler\Application\Models\Account\RegisterBindingModel;
 use ConferenceScheduler\Application\Services\AccountService;
 use ConferenceScheduler\Application\Models\Account\LoginBindingModel;
 use ConferenceScheduler\View;
@@ -12,7 +13,8 @@ class AccountController extends BaseController
         $service = new AccountService($this->dbContext);
 
         if($this->context->getMethod() == 'post'){
-            return new View('account', 'register');
+            $model = new RegisterBindingModel();
+            return new View('account', 'register', $model);
         }
 
         return new View('account', 'register');

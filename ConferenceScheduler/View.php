@@ -72,9 +72,11 @@ class View
         }
         $path = $this->getView();
         $contents = file_get_contents($path);
+        $modelClassName = explode('\\', get_class($model));
+        $modelClassName = end($modelClassName);
         preg_match_all("/model\s*=\s*(.*) /", $contents, $matches);
         if($matches[1]){
-            if($matches[1][0] !== $model){
+            if($matches[1][0] !== $modelClassName){
                 throw new \Exception('Invalid view model! Expected ' . $matches[1][0]);
             }
         }
