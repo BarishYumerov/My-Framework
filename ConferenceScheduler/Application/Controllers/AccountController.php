@@ -8,6 +8,16 @@ use ConferenceScheduler\View;
 
 class AccountController extends BaseController
 {
+    public function register(){
+        $service = new AccountService($this->dbContext);
+
+        if($this->context->getMethod() == 'post'){
+            return new View('account', 'register');
+        }
+
+        return new View('account', 'register');
+    }
+
     public function login(){
 
         $service = new AccountService($this->dbContext);

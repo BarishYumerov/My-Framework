@@ -30,7 +30,7 @@
             </ul>
             <?php if(!\ConferenceScheduler\Core\HttpContext\HttpContext::getInstance()->session('username')) : ?>
                 <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Register</a></li>
+                <li><a href="/account/register">Register</a></li>
                 <li><a href="/account/login">Login</a></li>
             </ul>
             <?php else : ?>

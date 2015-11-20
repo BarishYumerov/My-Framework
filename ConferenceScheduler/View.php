@@ -2,6 +2,8 @@
 
 namespace ConferenceScheduler;
 
+use ConferenceScheduler\Core\HttpContext\HttpContext;
+
 class View
 {
     private $controller;
@@ -13,8 +15,8 @@ class View
     public function __construct(
         $controller = null,
         $action = null,
-        $layout = 'Default',
         $model = null,
+        $layout = 'Default',
         $area = null){
 
         require_once "Configs/AppConstants.php";
@@ -58,11 +60,24 @@ class View
     }
 
     private function renderView($model){
+        $this->checkModel($model);
         $this->includeHeader();
-
-        $this->getView();
-
+        require $this->getView();
         $this->includeFooter();
+    }
+
+    private function checkModel($model){
+        if(HttpContext::getInstance()->getMethod() == 'get'){
+            return;
+        }
+        $path = $this->getView();
+        $contents = file_get_contents($path);
+        preg_match_all("/model\s*=\s*(.*) /", $contents, $matches);
+        if($matches[1]){
+            if($matches[1][0] !== $model){
+                throw new \Exception('Invalid view model! Expected ' . $matches[1][0]);
+            }
+        }
     }
 
     private function includeHeader()
@@ -91,7 +106,7 @@ class View
                 . $this->controller
                 . DIRECTORY_SEPARATOR
                 . $this->action . '.php';
-            require $path;
+            return $path;
         }
         else{
             $path = 'Application'
