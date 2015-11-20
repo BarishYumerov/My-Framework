@@ -10,6 +10,7 @@ use ConferenceScheduler\Core\ORM\DbContext;
 abstract class BaseController{
     protected $dbContext;
     protected $context;
+    protected $service;
 
     public function __construct()
     {
@@ -18,7 +19,7 @@ abstract class BaseController{
         $this->onInit();
     }
 
-    public function onInit() {
+    protected function onInit() {
         // Implement initializing logic in the subclasses
     }
 
@@ -27,7 +28,7 @@ abstract class BaseController{
         exit;
     }
 
-    public function redirect($controllerName, $actionName = null, $params = null) {
+    public function redirect($controllerName = null, $actionName = null, $params = null) {
         $url = '/' . urlencode($controllerName);
         if ($actionName != null) {
             $url .= '/' . urlencode($actionName);
@@ -48,10 +49,10 @@ abstract class BaseController{
     }
 
     function addInfoMessage($msg) {
-        $this->addMessage($msg, 'info');
+        $this->addMessage($msg, 'alert alert-info');
     }
 
     function addErrorMessage($msg) {
-        $this->addMessage($msg, 'error');
+        $this->addMessage($msg, 'alert alert-danger');
     }
 }

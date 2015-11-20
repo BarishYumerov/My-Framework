@@ -84,7 +84,7 @@ TAG;
 
     /**
      *
-     * @return \RedDevil\Core\Identity\Identity
+     * @return \ConferenceScheduler\Core\Identity\Identity
      */
     public static function getInstance() {
         if (self::$_instance == null) {

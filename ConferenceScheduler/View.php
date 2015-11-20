@@ -54,8 +54,6 @@ class View
                 $this->action = $action;
             }
         }
-
-
         $this->renderView($model);
     }
 

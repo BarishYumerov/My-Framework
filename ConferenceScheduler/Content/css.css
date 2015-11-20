@@ -1,3 +1,11 @@
-.navMargin{
-    margin-bottom: 4%;
+.login{
+    margin-bottom: 240px;
+}
+
+.footer{
+    text-align: center;
+}
+
+#msgs:active{
+    display: none;
 }

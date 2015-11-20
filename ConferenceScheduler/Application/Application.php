@@ -32,7 +32,6 @@ class Application{
 
     //Initializes the context, updates orm, identity and calls controller method.
     function start(){
-        HttpContext::getInstance();
 
         if(AppMode == 'Development'){
             IdentityParser::createIdentity();

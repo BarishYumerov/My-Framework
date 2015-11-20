@@ -3,6 +3,7 @@
 namespace ConferenceScheduler\Core\HttpContext;
 
 use ConferenceScheduler\Core\Commons\Normalizer;
+use ConferenceScheduler\Core\Identity\Identity;
 
 class HttpContext {
     private static $_instance = null;
@@ -11,13 +12,16 @@ class HttpContext {
     private $_cookies = array();
     private $_session = array();
     private $method = 'get';
+    private $identity;
 
-    private function __construct() {
+    private function __construct()
+    {
         $this->setGet($_GET);
         $this->setPost($_POST);
         $this->setCookies($_COOKIE);
         $this->setSession($_SESSION);
         $this->setMethod(strtolower($_SERVER['REQUEST_METHOD']));
+        $this->identity = Identity::getInstance();
     }
 
     public function setPost($ar) {
@@ -125,21 +129,5 @@ class HttpContext {
             self::$_instance = new HttpContext();
         }
         return self::$_instance;
-    }
-
-    public function addSessionItem($key, $value){
-        $this->_session[$key] = $value;
-    }
-
-    public function addCookieItem($key, $value){
-        $this->_cookies[$key] = $value;
-    }
-
-    public function addGetItem($key, $value){
-        $this->_get[$key] = $value;
-    }
-
-    public function addPostItem($key, $value){
-        $this->_post[$key] = $value;
     }
 }

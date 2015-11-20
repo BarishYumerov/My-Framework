@@ -60,6 +60,17 @@ class usersRepository
         return $this;
     }
     /**
+     * @param $password
+     * @return $this
+     */
+    public function filterByPassword($password)
+    {
+        $this->where .= " AND password $password";
+        $this->placeholders[] = $password;
+
+        return $this;
+    }
+    /**
      * @param $email
      * @return $this
      */
@@ -188,6 +199,7 @@ class usersRepository
         $collection = [];
         foreach ($result->fetchAll() as $entityInfo) {
             $entity = new User($entityInfo['username'],
+$entityInfo['password'],
 $entityInfo['email'],
 $entityInfo['telephone'],
 $entityInfo['address'],
@@ -214,6 +226,7 @@ $entityInfo['id']);
         $result->execute([]);
         $entityInfo = $result->fetch();
         $entity = new User($entityInfo['username'],
+$entityInfo['password'],
 $entityInfo['email'],
 $entityInfo['telephone'],
 $entityInfo['address'],
@@ -266,12 +279,13 @@ $entityInfo['id']);
     {
         $db = Db::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
 
-        $query = "UPDATE users SET username= :username, email= :email, telephone= :telephone, address= :address WHERE id = :id";
+        $query = "UPDATE users SET username= :username, password= :password, email= :email, telephone= :telephone, address= :address WHERE id = :id";
         $result = $db->prepare($query);
         $result->execute(
             [
                 ':id' => $model->getId(),
 ':username' => $model->getUsername(),
+':password' => $model->getPassword(),
 ':email' => $model->getEmail(),
 ':telephone' => $model->getTelephone(),
 ':address' => $model->getAddress()
@@ -283,11 +297,12 @@ $entityInfo['id']);
     {
         $db = Db::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
 
-        $query = "INSERT INTO users (username,email,telephone,address) VALUES (:username, :email, :telephone, :address);";
+        $query = "INSERT INTO users (username,password,email,telephone,address) VALUES (:username, :password, :email, :telephone, :address);";
         $result = $db->prepare($query);
         $result->execute(
             [
                 ':username' => $model->getUsername(),
+':password' => $model->getPassword(),
 ':email' => $model->getEmail(),
 ':telephone' => $model->getTelephone(),
 ':address' => $model->getAddress()

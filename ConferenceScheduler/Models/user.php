@@ -6,20 +6,23 @@ class User
 {
 	const COL_ID = 'id';
 	const COL_USERNAME = 'username';
+	const COL_PASSWORD = 'password';
 	const COL_EMAIL = 'email';
 	const COL_TELEPHONE = 'telephone';
 	const COL_ADDRESS = 'address';
 
 	private $id;
 	private $username;
+	private $password;
 	private $email;
 	private $telephone;
 	private $address;
 
-	public function __construct($username, $email, $telephone, $address, $id = null)
+	public function __construct($username, $password, $email, $telephone, $address, $id = null)
 	{
 		$this->setId($id);
 		$this->setUsername($username);
+		$this->setPassword($password);
 		$this->setEmail($email);
 		$this->setTelephone($telephone);
 		$this->setAddress($address);
@@ -60,6 +63,26 @@ class User
 	public function setUsername($username)
 	{
 		$this->username = $username;
+		
+		return $this;
+	}
+
+
+	/**
+	* @return mixed
+	*/
+	public function getPassword()
+	{
+		return $this->password;
+	}
+
+	/**
+	* @param $password
+	* @return $this
+	*/
+	public function setPassword($password)
+	{
+		$this->password = $password;
 		
 		return $this;
 	}
