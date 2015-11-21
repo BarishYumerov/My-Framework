@@ -11,6 +11,8 @@ class ConferenceViewModel
     private $endDate;
     private $owner;
     private $venue;
+    private $title;
+    private $venueId;
 
     function __construct(Conference $conference)
     {
@@ -27,5 +29,61 @@ class ConferenceViewModel
 
     public function setOwner($owner){
         $this->owner = $owner;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStartDate()
+    {
+        return $this->startDate;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEndDate()
+    {
+        return $this->endDate;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getOwner()
+    {
+        return $this->owner;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getVenue()
+    {
+        return $this->venue;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getVenueId()
+    {
+        return $this->venueId;
     }
 }

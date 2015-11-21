@@ -13,7 +13,7 @@ class HomeController extends BaseController
     public function index(){
         $service = new ConferencesServices($this->dbContext);
         $allConferences =$service->getAll();
-
-        return new View('Home', 'Index');
+        $allConferences = array_slice($allConferences, 0, 6);
+        return new View('Home', 'Index', $allConferences);
     }
 }

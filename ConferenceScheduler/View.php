@@ -72,7 +72,13 @@ class View
         }
         $path = $this->getView();
         $contents = file_get_contents($path);
-        $modelClassName = explode('\\', get_class($model));
+
+        if(is_array($model)){
+            $modelClassName = explode('\\', get_class($model[0]));
+        }
+        else{
+            $modelClassName = explode('\\', get_class($model));
+        }
         $modelClassName = end($modelClassName);
         preg_match_all("/@model\s*=\s*(.*) /", $contents, $matches);
         if($matches[1]){
