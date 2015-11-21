@@ -148,7 +148,7 @@ class usersrolesRepository
     {
         $db = Db::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
 
-        $this->query = "SELECT * FROM usersroles" . $this->where . $this->order;
+        $this->query = "SELECT * FROM ConferenceScheduler.usersroles" . $this->where . $this->order;
         $result = $db->prepare($this->query);
         $result->execute([]);
 
@@ -174,7 +174,7 @@ $entityInfo['id']);
     {
         $db = Db::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
 
-        $this->query = "SELECT * FROM usersroles" . $this->where . $this->order . " LIMIT 1";
+        $this->query = "SELECT * FROM ConferenceScheduler.usersroles" . $this->where . $this->order . " LIMIT 1";
         $result = $db->prepare($this->query);
         $result->execute([]);
         $entityInfo = $result->fetch();
@@ -196,7 +196,7 @@ $entityInfo['id']);
     {
         $db = Db::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
 
-        $this->query = "DELETE FROM usersroles" . $this->where;
+        $this->query = "DELETE FROM ConferenceScheduler.usersroles" . $this->where;
         $result = $db->prepare($this->query);
         $result->execute($this->placeholders);
 

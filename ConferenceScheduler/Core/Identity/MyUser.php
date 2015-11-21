@@ -12,7 +12,7 @@ namespace ConferenceScheduler\Core\Identity;
 class MyUser extends ApplicationUser
 {
     private $telephone;
-    private $address;
+//    private $address;
 
     /**
      * @type varchar(50)
@@ -30,19 +30,19 @@ class MyUser extends ApplicationUser
         $this->telephone = $telephone;
     }
 
-    /**
-     * @type varchar(50)
-     */
-    public function getAddress()
-    {
-        return $this->address;
-    }
-
-    /**
-     * @param mixed $telephone
-     */
-    public function setAddress($address)
-    {
-        $this->address = $address;
-    }
+//    /**
+//     * @type varchar(50)
+//     */
+//    public function getAddress()
+//    {
+//        return $this->address;
+//    }
+//
+//    /**
+//     * @param mixed $telephone
+//     */
+//    public function setAddress($address)
+//    {
+//        $this->address = $address;
+//    }
 }

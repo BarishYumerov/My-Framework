@@ -9,23 +9,20 @@ class User
 	const COL_PASSWORD = 'password';
 	const COL_EMAIL = 'email';
 	const COL_TELEPHONE = 'telephone';
-	const COL_ADDRESS = 'address';
 
 	private $id;
 	private $username;
 	private $password;
 	private $email;
 	private $telephone;
-	private $address;
 
-	public function __construct($username, $password, $email, $telephone, $address, $id = null)
+	public function __construct($username, $password, $email, $telephone, $id = null)
 	{
 		$this->setId($id);
 		$this->setUsername($username);
 		$this->setPassword($password);
 		$this->setEmail($email);
 		$this->setTelephone($telephone);
-		$this->setAddress($address);
 	}
 
 	/**
@@ -123,26 +120,6 @@ class User
 	public function setTelephone($telephone)
 	{
 		$this->telephone = $telephone;
-		
-		return $this;
-	}
-
-
-	/**
-	* @return mixed
-	*/
-	public function getAddress()
-	{
-		return $this->address;
-	}
-
-	/**
-	* @param $address
-	* @return $this
-	*/
-	public function setAddress($address)
-	{
-		$this->address = $address;
 		
 		return $this;
 	}

@@ -148,7 +148,7 @@ class venuesRepository
     {
         $db = Db::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
 
-        $this->query = "SELECT * FROM venues" . $this->where . $this->order;
+        $this->query = "SELECT * FROM ConferenceScheduler.venues" . $this->where . $this->order;
         $result = $db->prepare($this->query);
         $result->execute([]);
 
@@ -173,7 +173,7 @@ $entityInfo['id']);
     {
         $db = Db::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
 
-        $this->query = "SELECT * FROM venues" . $this->where . $this->order . " LIMIT 1";
+        $this->query = "SELECT * FROM ConferenceScheduler.venues" . $this->where . $this->order . " LIMIT 1";
         $result = $db->prepare($this->query);
         $result->execute([]);
         $entityInfo = $result->fetch();
@@ -194,7 +194,7 @@ $entityInfo['id']);
     {
         $db = Db::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
 
-        $this->query = "DELETE FROM venues" . $this->where;
+        $this->query = "DELETE FROM ConferenceScheduler.venues" . $this->where;
         $result = $db->prepare($this->query);
         $result->execute($this->placeholders);
 

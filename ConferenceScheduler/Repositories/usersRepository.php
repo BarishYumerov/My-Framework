@@ -92,17 +92,6 @@ class usersRepository
 
         return $this;
     }
-    /**
-     * @param $address
-     * @return $this
-     */
-    public function filterByAddress($address)
-    {
-        $this->where .= " AND address $address";
-        $this->placeholders[] = $address;
-
-        return $this;
-    }
 
     /**
      * @param $column
@@ -192,7 +181,7 @@ class usersRepository
     {
         $db = Db::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
 
-        $this->query = "SELECT * FROM users" . $this->where . $this->order;
+        $this->query = "SELECT * FROM ConferenceScheduler.users" . $this->where . $this->order;
         $result = $db->prepare($this->query);
         $result->execute([]);
 
@@ -202,7 +191,6 @@ class usersRepository
 $entityInfo['password'],
 $entityInfo['email'],
 $entityInfo['telephone'],
-$entityInfo['address'],
 $entityInfo['id']);
 
             $collection[] = $entity;
@@ -221,7 +209,7 @@ $entityInfo['id']);
     {
         $db = Db::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
 
-        $this->query = "SELECT * FROM users" . $this->where . $this->order . " LIMIT 1";
+        $this->query = "SELECT * FROM ConferenceScheduler.users" . $this->where . $this->order . " LIMIT 1";
         $result = $db->prepare($this->query);
         $result->execute([]);
         $entityInfo = $result->fetch();
@@ -229,7 +217,6 @@ $entityInfo['id']);
 $entityInfo['password'],
 $entityInfo['email'],
 $entityInfo['telephone'],
-$entityInfo['address'],
 $entityInfo['id']);
 
         self::$selectedObjectPool[] = $entity;
@@ -246,7 +233,7 @@ $entityInfo['id']);
     {
         $db = Db::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
 
-        $this->query = "DELETE FROM users" . $this->where;
+        $this->query = "DELETE FROM ConferenceScheduler.users" . $this->where;
         $result = $db->prepare($this->query);
         $result->execute($this->placeholders);
 
@@ -279,7 +266,7 @@ $entityInfo['id']);
     {
         $db = Db::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
 
-        $query = "UPDATE users SET username= :username, password= :password, email= :email, telephone= :telephone, address= :address WHERE id = :id";
+        $query = "UPDATE users SET username= :username, password= :password, email= :email, telephone= :telephone WHERE id = :id";
         $result = $db->prepare($query);
         $result->execute(
             [
@@ -287,8 +274,7 @@ $entityInfo['id']);
 ':username' => $model->getUsername(),
 ':password' => $model->getPassword(),
 ':email' => $model->getEmail(),
-':telephone' => $model->getTelephone(),
-':address' => $model->getAddress()
+':telephone' => $model->getTelephone()
             ]
         );
     }
@@ -297,15 +283,14 @@ $entityInfo['id']);
     {
         $db = Db::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
 
-        $query = "INSERT INTO users (username,password,email,telephone,address) VALUES (:username, :password, :email, :telephone, :address);";
+        $query = "INSERT INTO users (username,password,email,telephone) VALUES (:username, :password, :email, :telephone);";
         $result = $db->prepare($query);
         $result->execute(
             [
                 ':username' => $model->getUsername(),
 ':password' => $model->getPassword(),
 ':email' => $model->getEmail(),
-':telephone' => $model->getTelephone(),
-':address' => $model->getAddress()
+':telephone' => $model->getTelephone()
             ]
         );
         $model->setId($db->lastInsertId());

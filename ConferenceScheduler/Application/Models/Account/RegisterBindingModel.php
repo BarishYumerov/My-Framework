@@ -2,14 +2,16 @@
 
 namespace ConferenceScheduler\Application\Models\Account;
 
+use ConferenceScheduler\Application\Models\BaseBindingModel;
 use ConferenceScheduler\Core\HttpContext\HttpContext;
 
-class RegisterBindingModel
+class RegisterBindingModel extends BaseBindingModel
 {
     private $username;
     private $email;
     private $password;
     private $confirmPassword;
+    private $telephone;
 
     public function __construct(){
         $context = HttpContext::getInstance();
@@ -17,6 +19,7 @@ class RegisterBindingModel
         $this->setPassword($context->post('password'));
         $this->setConfirmPassword($context->post('confirm'));
         $this->setEmail($context->post('email'));
+        $this->setTelephone($context->post('telephone', 'int'));
     }
 
     /**
@@ -32,6 +35,9 @@ class RegisterBindingModel
      */
     public function setUsername($username)
     {
+        if(!ctype_alnum($username)){
+            $this->errors[] = 'The username must contain only characters and numbers!';
+        }
         $this->username = $username;
     }
 
@@ -48,6 +54,9 @@ class RegisterBindingModel
      */
     public function setEmail($email)
     {
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $this->errors[] = "Invalid email";
+        }
         $this->email = $email;
     }
 
@@ -64,6 +73,9 @@ class RegisterBindingModel
      */
     public function setConfirmPassword($confirmPassword)
     {
+        if($confirmPassword !== $this->getPassword()){
+            $this->errors[] = 'Passwords does not match!';
+        }
         $this->confirmPassword = $confirmPassword;
     }
 
@@ -80,6 +92,30 @@ class RegisterBindingModel
      */
     public function setPassword($password)
     {
+        $pattern = '/[A-Za-z0-9_]+$/';
+        preg_match($pattern, $password, $matches);
+        if(!isset($matches[0])){
+            $this->errors[] = 'Invalid password the password must contain only characters, numbers and "_"!';
+        }
         $this->password = $password;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTelephone()
+    {
+        return $this->telephone;
+    }
+
+    /**
+     * @param mixed $telephone
+     */
+    public function setTelephone($telephone)
+    {
+        if($telephone === 0){
+            $this->errors[] = 'Phone number must me only digits and length greater than 5!';
+        }
+        $this->telephone = $telephone;
     }
 }

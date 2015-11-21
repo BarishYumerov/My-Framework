@@ -14,7 +14,24 @@ class AccountController extends BaseController
 
         if($this->context->getMethod() == 'post'){
             $model = new RegisterBindingModel();
-            return new View('account', 'register', $model);
+            if($model->getErrors()){
+                foreach ($model->getErrors() as $error) {
+                     $this->addErrorMessage($error);
+                }
+
+                return new View('account', 'register', $model);
+            }
+
+            $result = $service->register($model);
+
+            if(isset($result['error'])){
+                $this->addErrorMessage($result['error']);
+                return new View('account', 'register', $model);
+            }
+
+            $this->addInfoMessage($result['success']);
+
+            return new View('account', 'login');
         }
 
         return new View('account', 'register');

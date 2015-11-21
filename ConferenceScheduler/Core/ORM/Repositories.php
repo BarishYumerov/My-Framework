@@ -1,6 +1,7 @@
 <?php
 
 namespace ConferenceScheduler\Core\ORM;
+use ConferenceScheduler\Configs\DatabaseConfig;
 
 /**
  * The skeleton of the code is taken from RoYal
@@ -63,6 +64,7 @@ KUF;
         $content .= "use ConferenceScheduler\\Collections\\$model" . "Collection" . ";\n\n";
         $content .= "class $repositoryName\n";
         $content .= "{\n";
+        $dbName = DatabaseConfig::DB_NAME;
         $content .= <<<KUF
     private \$query;
 
@@ -183,7 +185,7 @@ $columnFilters
     {
         \$db = Db::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
 
-        \$this->query = "SELECT * FROM $tableName" . \$this->where . \$this->order;
+        \$this->query = "SELECT * FROM $dbName.$tableName" . \$this->where . \$this->order;
         \$result = \$db->prepare(\$this->query);
         \$result->execute([]);
 
@@ -207,7 +209,7 @@ $columnFilters
     {
         \$db = Db::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
 
-        \$this->query = "SELECT * FROM $tableName" . \$this->where . \$this->order . " LIMIT 1";
+        \$this->query = "SELECT * FROM $dbName.$tableName" . \$this->where . \$this->order . " LIMIT 1";
         \$result = \$db->prepare(\$this->query);
         \$result->execute([]);
         \$entityInfo = \$result->fetch();
@@ -227,7 +229,7 @@ $columnFilters
     {
         \$db = Db::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
 
-        \$this->query = "DELETE FROM $tableName" . \$this->where;
+        \$this->query = "DELETE FROM $dbName.$tableName" . \$this->where;
         \$result = \$db->prepare(\$this->query);
         \$result->execute(\$this->placeholders);
 
