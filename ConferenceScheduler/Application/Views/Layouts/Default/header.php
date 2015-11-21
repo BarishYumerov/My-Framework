@@ -21,17 +21,15 @@
         </div>
         <div class="navbar-collapse collapse" id="navbar-main">
             <ul class="nav navbar-nav">
-                <li>
-                    <a href="../help/">Help</a>
-                </li>
-                <li>
-                    <a href="http://news.bootswatch.com">Blog</a>
-                </li>
+                <?php if(\ConferenceScheduler\Core\HttpContext\HttpContext::getInstance()->session('username')) : ?>
+                    <li> <a href="#">My Schedule</a></li>
+                    <li> <a href="/Conference/Create">New Conference</a></li>
+                <?php endif; ?>
             </ul>
             <?php if(!\ConferenceScheduler\Core\HttpContext\HttpContext::getInstance()->session('username')) : ?>
                 <ul class="nav navbar-nav navbar-right">
-                <li><a href="/account/register">Register</a></li>
-                <li><a href="/account/login">Login</a></li>
+                <li><a href="/Account/Register">Register</a></li>
+                <li><a href="/Account/Login">Login</a></li>
             </ul>
             <?php else : ?>
             <ul class="nav navbar-nav navbar-right">

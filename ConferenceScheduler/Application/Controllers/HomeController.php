@@ -2,9 +2,7 @@
 
 namespace ConferenceScheduler\Application\Controllers;
 
-use ConferenceScheduler\Application\Models\Conference\ConferenceViewModel;
 use ConferenceScheduler\Application\Services\ConferencesServices;
-use ConferenceScheduler\Core\HttpContext\HttpContext;
 use ConferenceScheduler\View;
 
 

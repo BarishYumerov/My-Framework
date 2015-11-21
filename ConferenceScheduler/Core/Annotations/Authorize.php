@@ -10,7 +10,7 @@ class Authorize extends  Annotation {
     {
         $httpContext = HttpContext::getInstance();
 
-        if (!$httpContext->session('userId')) {
+        if (!$httpContext->session('username')) {
             throw new \Exception("Unauthorized", 401);
         }
     }
