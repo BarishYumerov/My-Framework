@@ -59,6 +59,17 @@ class usersrolesRepository
 
         return $this;
     }
+    /**
+     * @param $id
+     * @return $this
+     */
+    public function filterById($id)
+    {
+        $this->where .= " AND id $id";
+        $this->placeholders[] = $id;
+
+        return $this;
+    }
 
     /**
      * @param $column
@@ -234,7 +245,8 @@ $entityInfo['id']);
         $result->execute(
             [
                 ':userId' => $model->getUserId(),
-':roleId' => $model->getRoleId()
+':roleId' => $model->getRoleId(),
+':id' => $model->getId()
             ]
         );
     }

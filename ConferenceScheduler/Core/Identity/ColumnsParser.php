@@ -35,7 +35,6 @@ class ColumnsParser
     }
 
     /**
-     * @param \RedDevil\Core\Identity\IdentityUserTable $anotherUserTable
      * @return bool
      */
     public function equals($anotherUserTable)

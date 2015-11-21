@@ -11,6 +11,7 @@ namespace ConferenceScheduler\Application\Services;
 use ConferenceScheduler\Application\Models\Account\LoginBindingModel;
 use ConferenceScheduler\Application\Models\Account\RegisterBindingModel;
 use ConferenceScheduler\Models\User;
+use ConferenceScheduler\Models\Usersrole;
 
 class AccountService extends BaseService
 {
@@ -66,6 +67,13 @@ class AccountService extends BaseService
 
         $this->dbContext->getUsersRepository()->add($user);
         $this->dbContext->saveChanges();
+
+        $user = $this->dbContext->getUsersRepository()->filterByUsername(" = '" . $model->getUsername() . "'")->findOne();
+        $userId = intval($user->getId());
+        $userRole = new Usersrole($userId, 2, 0);
+        $this->dbContext->getUsersrolesRepository()->add($userRole);
+        $this->dbContext->saveChanges();
+
         $this->response['success'] = 'Register successful!';
         return $this->response;
     }

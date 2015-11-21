@@ -67,7 +67,7 @@ class IdentityParser
         }
 
         $tableOps->dropTable('roles');
-        $tableOps->dropTable('users_roles');
+        $tableOps->dropTable('usersroles');
 
         $tableOps->createTable('users');
         $tableOps->addColumn('users', 'passwordHash', 'varchar(255)');
@@ -146,6 +146,7 @@ class IdentityParser
     {
         $tableOps = new TablesUpdater();
         $tableOps->createTable('usersroles');
+        $tableOps->addColumn('usersroles', 'id', 'int(11)');
         $tableOps->addColumn('usersroles', 'userid', 'int(11)');
         $tableOps->addColumn('usersroles', 'roleid', 'int(11)');
     }
