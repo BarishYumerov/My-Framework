@@ -5,17 +5,20 @@
 namespace ConferenceScheduler\Application\Controllers;
 
 use ConferenceScheduler\Core\HttpContext\HttpContext;
+use ConferenceScheduler\Core\Identity\Identity;
 use ConferenceScheduler\Core\ORM\DbContext;
 
 abstract class BaseController{
     protected $dbContext;
     protected $context;
     protected $service;
+    protected $identity;
 
     public function __construct()
     {
         $this->dbContext = new DbContext();
         $this->context = HttpContext::getInstance();
+        $this->identity = Identity::getInstance();
         $this->onInit();
     }
 

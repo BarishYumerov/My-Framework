@@ -10,6 +10,9 @@ use ConferenceScheduler\View;
 class AccountController extends BaseController
 {
     public function register(){
+        if($this->identity->isAuthorised()){
+            $this->redirect('home');
+        }
         $service = new AccountService($this->dbContext);
 
         if($this->context->getMethod() == 'post'){
