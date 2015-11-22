@@ -33,6 +33,8 @@ class AccountService extends BaseService
 
         if (password_verify($model->getPassword(), $user->getPassword())) {
             $this->response['success'] = 'Successful login!';
+            $_SESSION['username'] = $user->getUsername();
+            $_SESSION['userId'] = $user->getId();
             return $this->response;
         }
 

@@ -15,7 +15,7 @@ class RouteMapper
                 }
             } else {
                 $parameterRoute = new ParameterRoute($existingRoute['route']);
-                if ($parameterRoute->isMatching($route)) {
+                if ($parameterRoute->isMatching(strtolower($route))) {
                     $existingRoute['parameters'] = $parameterRoute->parameterValues;
                     return $existingRoute;
                 }

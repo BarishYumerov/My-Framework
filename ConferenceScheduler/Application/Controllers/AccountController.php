@@ -53,7 +53,6 @@ class AccountController extends BaseController
                 return new View('account', 'login');
             }
             else{
-                $_SESSION['username'] = $model->getUsername();
                 $this->addInfoMessage($result['success']);
                 $this->redirect();
             }

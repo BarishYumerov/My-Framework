@@ -48,6 +48,7 @@ class Application{
         foreach ($this->annotations as $annotation) {
             $annotation->annotate(); 
         }
+
         call_user_func_array(
             [
                 $this->controller,

@@ -1,9 +1,27 @@
 <?php 
 namespace ConferenceScheduler\Configs; 
 class Routes { 
-	 public static $lastCheck = '2015-11-21 17:01:59';
+	 public static $lastCheck = '2015-11-22 10:56:01';
 
 	 public static $ROUTES = [ 
+		 [ 
+			 'controller' => 'ConferenceScheduler\Application\Controllers\ConferenceController',
+			 'action' => 'myConferences',
+			 'route' => 'me/conferences',
+			 'annotations' => [
+				'route' => 'me/conferences',
+				'authorize' => '1',
+			 ]
+		 ], 
+		 [ 
+			 'controller' => 'ConferenceScheduler\Application\Controllers\ConferenceController',
+			 'action' => 'edit',
+			 'route' => 'conference/{int id}/edit',
+			 'annotations' => [
+				'route' => 'conference/{int id}/edit',
+				'authorize' => '1',
+			 ]
+		 ], 
 		 [ 
 			 'controller' => 'ConferenceScheduler\Application\Controllers\LecturesController',
 			 'action' => 'getOne',
@@ -46,6 +64,24 @@ class Routes {
 			 'action' => 'create',
 			 'route' => 'conference/create',
 			 'annotations' => [
+				'authorize' => '1',
+			 ]
+		 ], 
+		 [ 
+			 'controller' => 'ConferenceScheduler\Application\Controllers\ConferenceController',
+			 'action' => 'myConferences',
+			 'route' => 'conference/myConferences',
+			 'annotations' => [
+				'route' => 'me/conferences',
+				'authorize' => '1',
+			 ]
+		 ], 
+		 [ 
+			 'controller' => 'ConferenceScheduler\Application\Controllers\ConferenceController',
+			 'action' => 'edit',
+			 'route' => 'conference/edit',
+			 'annotations' => [
+				'route' => 'conference/{int id}/edit',
 				'authorize' => '1',
 			 ]
 		 ], 

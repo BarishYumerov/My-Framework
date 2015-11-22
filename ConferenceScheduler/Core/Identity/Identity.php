@@ -27,8 +27,8 @@ class Identity {
      */
     public function getUserId()
     {
-        if (array_key_exists('username', $_SESSION)) {
-            return $_SESSION['username'];
+        if (array_key_exists('userId', $_SESSION)) {
+            return intval($_SESSION['userId']);
         } else {
             return null;
         }

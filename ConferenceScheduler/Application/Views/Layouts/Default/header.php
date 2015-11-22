@@ -24,6 +24,7 @@
                 <?php if(\ConferenceScheduler\Core\HttpContext\HttpContext::getInstance()->session('username')) : ?>
                     <li> <a href="#">My Schedule</a></li>
                     <li> <a href="/Conference/Create">New Conference</a></li>
+                    <li> <a href="/Me/Conferences">My Conferences</a></li>
                 <?php endif; ?>
             </ul>
             <?php if(!\ConferenceScheduler\Core\HttpContext\HttpContext::getInstance()->session('username')) : ?>

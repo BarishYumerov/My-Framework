@@ -11,19 +11,22 @@ class View
     private $layout;
     private $model;
     private $area;
+    private $viewBag;
 
     public function __construct(
         $controller = null,
         $action = null,
         $model = null,
-        $layout = 'Default',
-        $area = null){
+        $viewBag = [],
+        $area = null,
+        $layout = 'Default'){
 
         require_once "Configs/AppConstants.php";
 
         $this->layout = $layout;
         $this->model = $model;
         $this->area = $area;
+        $this->viewBag = $viewBag;
 
         if($area == null){
             if($controller == null){
@@ -57,6 +60,10 @@ class View
             }
         }
         $this->renderView($model);
+    }
+
+    public function getViewBag(){
+        return $this->viewBag;
     }
 
     private function renderView($model){

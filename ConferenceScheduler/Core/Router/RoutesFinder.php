@@ -80,7 +80,7 @@ class RoutesFinder{
                         $annotationRoutes[] = [
                             'controller' => $controllerName,
                             'action' => $method->name,
-                            'route' => $annotationRoute,
+                            'route' => strtolower($annotationRoute),
                             'annotations' => $annotations == null? [] : $annotations
                         ];
                     }
