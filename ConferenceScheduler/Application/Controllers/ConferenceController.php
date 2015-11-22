@@ -3,9 +3,7 @@
 namespace ConferenceScheduler\Application\Controllers;
 
 use ConferenceScheduler\Application\Models\Conference\ConferenceBindingModel;
-use ConferenceScheduler\Application\Models\Conference\ConferenceViewModel;
-use ConferenceScheduler\Application\Services\ConferencesServices;
-use ConferenceScheduler\Core\Database\Db;
+use ConferenceScheduler\Application\Services\ConferenceService;
 use ConferenceScheduler\Models\Conference;
 use ConferenceScheduler\View;
 
@@ -50,7 +48,7 @@ class ConferenceController extends BaseController
      * @Route("Me/Conferences")
      */
     public function myConferences(){
-        $service = new ConferencesServices($this->dbContext);
+        $service = new ConferenceService($this->dbContext);
         $conferences = $service->myConferences();
         return new View('Conference', 'MyConferences', $conferences);
     }
@@ -64,7 +62,7 @@ class ConferenceController extends BaseController
         $viewBag['venues'] = $this->dbContext->getVenuesRepository()->findAll()->getVenues();
 
         $id = intval(func_get_args()[0]);
-        $service = new ConferencesServices($this->dbContext);
+        $service = new ConferenceService($this->dbContext);
         $conference = $service->getOne($id);
         $loggedUserId = $this->identity->getUserId();
 

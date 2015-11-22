@@ -6,7 +6,6 @@ class Lecture
 {
 	const COL_ID = 'id';
 	const COL_NAME = 'Name';
-	const COL_SPEAKERID = 'speakerId';
 	const COL_START = 'Start';
 	const COL_END = 'End';
 	const COL_HALLID = 'hallId';
@@ -15,18 +14,16 @@ class Lecture
 
 	private $id;
 	private $Name;
-	private $speakerId;
 	private $Start;
 	private $End;
 	private $hallId;
 	private $venueId;
 	private $conferenceId;
 
-	public function __construct($Name, $speakerId, $Start, $End, $hallId, $venueId, $conferenceId, $id = null)
+	public function __construct($Name, $Start, $End, $hallId, $venueId, $conferenceId, $id = null)
 	{
 		$this->setId($id);
 		$this->setName($Name);
-		$this->setSpeakerId($speakerId);
 		$this->setStart($Start);
 		$this->setEnd($End);
 		$this->setHallId($hallId);
@@ -69,26 +66,6 @@ class Lecture
 	public function setName($Name)
 	{
 		$this->Name = $Name;
-		
-		return $this;
-	}
-
-
-	/**
-	* @return mixed
-	*/
-	public function getSpeakerId()
-	{
-		return $this->speakerId;
-	}
-
-	/**
-	* @param $speakerId
-	* @return $this
-	*/
-	public function setSpeakerId($speakerId)
-	{
-		$this->speakerId = $speakerId;
 		
 		return $this;
 	}

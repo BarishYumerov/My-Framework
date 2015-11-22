@@ -8,7 +8,7 @@
             <h4>Venue: <?php echo $conference->getVenue()?></h4>
             <p>Start Date: <?php echo $conference->getStartDate()?></p>
             <p>End Date: <?php echo $conference->getEndDate()?></p>
-            <a class="btn btn-primary">Edit</a>
+            <a href="/Conference/<?php echo $conference->getId() ?>/Edit" class="btn btn-primary">Edit</a>
             <a class="btn btn-danger">Delete</a>
         </div>
     <?php endforeach ?>

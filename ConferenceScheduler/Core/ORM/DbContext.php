@@ -7,6 +7,8 @@ class DbContext
 private $conferencesRepository;
 	private $hallsRepository;
 	private $lecturesRepository;
+	private $lecturesspeakersRepository;
+	private $lecturesusersRepository;
 	private $rolesRepository;
 	private $usersRepository;
 	private $usersrolesRepository;
@@ -19,6 +21,8 @@ public function __construct()
         $this->conferencesRepository = \ConferenceScheduler\Repositories\ConferencesRepository::create();
 		$this->hallsRepository = \ConferenceScheduler\Repositories\HallsRepository::create();
 		$this->lecturesRepository = \ConferenceScheduler\Repositories\LecturesRepository::create();
+		$this->lecturesspeakersRepository = \ConferenceScheduler\Repositories\LecturesspeakersRepository::create();
+		$this->lecturesusersRepository = \ConferenceScheduler\Repositories\LecturesusersRepository::create();
 		$this->rolesRepository = \ConferenceScheduler\Repositories\RolesRepository::create();
 		$this->usersRepository = \ConferenceScheduler\Repositories\UsersRepository::create();
 		$this->usersrolesRepository = \ConferenceScheduler\Repositories\UsersrolesRepository::create();
@@ -27,6 +31,8 @@ public function __construct()
         $this->repositories[] = $this->conferencesRepository;
 		$this->repositories[] = $this->hallsRepository;
 		$this->repositories[] = $this->lecturesRepository;
+		$this->repositories[] = $this->lecturesspeakersRepository;
+		$this->repositories[] = $this->lecturesusersRepository;
 		$this->repositories[] = $this->rolesRepository;
 		$this->repositories[] = $this->usersRepository;
 		$this->repositories[] = $this->usersrolesRepository;
@@ -55,6 +61,22 @@ public function __construct()
     public function getLecturesRepository()
     {
         return $this->lecturesRepository;
+    }
+
+    /**
+     * @return \ConferenceScheduler\Repositories\LecturesspeakersRepository
+     */
+    public function getLecturesspeakersRepository()
+    {
+        return $this->lecturesspeakersRepository;
+    }
+
+    /**
+     * @return \ConferenceScheduler\Repositories\LecturesusersRepository
+     */
+    public function getLecturesusersRepository()
+    {
+        return $this->lecturesusersRepository;
     }
 
     /**
@@ -116,6 +138,26 @@ public function __construct()
     public function setLecturesRepository($lecturesRepository)
     {
         $this->lecturesRepository = $lecturesRepository;
+        return $this;
+    }
+
+    /**
+     * @param mixed $lecturesspeakersRepository
+     * @return $this
+     */
+    public function setLecturesspeakersRepository($lecturesspeakersRepository)
+    {
+        $this->lecturesspeakersRepository = $lecturesspeakersRepository;
+        return $this;
+    }
+
+    /**
+     * @param mixed $lecturesusersRepository
+     * @return $this
+     */
+    public function setLecturesusersRepository($lecturesusersRepository)
+    {
+        $this->lecturesusersRepository = $lecturesusersRepository;
         return $this;
     }
 

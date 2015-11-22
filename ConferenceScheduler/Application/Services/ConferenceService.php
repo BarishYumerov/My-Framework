@@ -4,7 +4,7 @@ namespace ConferenceScheduler\Application\Services;
 
 use ConferenceScheduler\Application\Models\Conference\ConferenceViewModel;
 
-class ConferencesServices extends BaseService
+class ConferenceService extends BaseService
 {
     public function getOne($id){
         $conference = $this->dbContext->getConferencesRepository()->filterById(" = '$id'")->findOne();

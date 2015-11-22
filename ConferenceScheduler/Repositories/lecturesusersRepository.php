@@ -2,10 +2,10 @@
 namespace ConferenceScheduler\Repositories;
 
 use ConferenceScheduler\Core\Database\Db;
-use ConferenceScheduler\Models\Lecture;
-use ConferenceScheduler\Collections\LectureCollection;
+use ConferenceScheduler\Models\Lecturesuser;
+use ConferenceScheduler\Collections\LecturesuserCollection;
 
-class lecturesRepository
+class lecturesusersRepository
 {
     private $query;
 
@@ -19,14 +19,14 @@ class lecturesRepository
     private static $insertObjectPool = [];
 
     /**
-     * @var lecturesRepository
+     * @var lecturesusersRepository
      */
     private static $inst = null;
 
     private function __construct() { }
 
     /**
-     * @return lecturesRepository
+     * @return lecturesusersRepository
      */
     public static function create()
     {
@@ -49,68 +49,24 @@ class lecturesRepository
         return $this;
     }
     /**
-     * @param $Name
+     * @param $lectureId
      * @return $this
      */
-    public function filterByName($Name)
+    public function filterByLectureId($lectureId)
     {
-        $this->where .= " AND Name $Name";
-        $this->placeholders[] = $Name;
+        $this->where .= " AND lectureId $lectureId";
+        $this->placeholders[] = $lectureId;
 
         return $this;
     }
     /**
-     * @param $Start
+     * @param $userId
      * @return $this
      */
-    public function filterByStart($Start)
+    public function filterByUserId($userId)
     {
-        $this->where .= " AND Start $Start";
-        $this->placeholders[] = $Start;
-
-        return $this;
-    }
-    /**
-     * @param $End
-     * @return $this
-     */
-    public function filterByEnd($End)
-    {
-        $this->where .= " AND End $End";
-        $this->placeholders[] = $End;
-
-        return $this;
-    }
-    /**
-     * @param $hallId
-     * @return $this
-     */
-    public function filterByHallId($hallId)
-    {
-        $this->where .= " AND hallId $hallId";
-        $this->placeholders[] = $hallId;
-
-        return $this;
-    }
-    /**
-     * @param $venueId
-     * @return $this
-     */
-    public function filterByVenueId($venueId)
-    {
-        $this->where .= " AND venueId $venueId";
-        $this->placeholders[] = $venueId;
-
-        return $this;
-    }
-    /**
-     * @param $conferenceId
-     * @return $this
-     */
-    public function filterByConferenceId($conferenceId)
-    {
-        $this->where .= " AND conferenceId $conferenceId";
-        $this->placeholders[] = $conferenceId;
+        $this->where .= " AND userId $userId";
+        $this->placeholders[] = $userId;
 
         return $this;
     }
@@ -196,25 +152,21 @@ class lecturesRepository
     }
 
     /**
-     * @return LectureCollection
+     * @return LecturesuserCollection
      * @throws \Exception
      */
     public function findAll()
     {
         $db = Db::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
 
-        $this->query = "SELECT * FROM ConferenceScheduler.lectures" . $this->where . $this->order;
+        $this->query = "SELECT * FROM ConferenceScheduler.lecturesusers" . $this->where . $this->order;
         $result = $db->prepare($this->query);
         $result->execute([]);
 
         $collection = [];
         foreach ($result->fetchAll() as $entityInfo) {
-            $entity = new Lecture($entityInfo['Name'],
-$entityInfo['Start'],
-$entityInfo['End'],
-$entityInfo['hallId'],
-$entityInfo['venueId'],
-$entityInfo['conferenceId'],
+            $entity = new Lecturesuser($entityInfo['lectureId'],
+$entityInfo['userId'],
 $entityInfo['id']);
 
             $collection[] = $entity;
@@ -222,27 +174,23 @@ $entityInfo['id']);
         }
 
         $this->where = substr($this->where, 0, 8);
-        return new LectureCollection($collection);
+        return new LecturesuserCollection($collection);
     }
 
     /**
-     * @return Lecture
+     * @return Lecturesuser
      * @throws \Exception
      */
     public function findOne()
     {
         $db = Db::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
 
-        $this->query = "SELECT * FROM ConferenceScheduler.lectures" . $this->where . $this->order . " LIMIT 1";
+        $this->query = "SELECT * FROM ConferenceScheduler.lecturesusers" . $this->where . $this->order . " LIMIT 1";
         $result = $db->prepare($this->query);
         $result->execute([]);
         $entityInfo = $result->fetch();
-        $entity = new Lecture($entityInfo['Name'],
-$entityInfo['Start'],
-$entityInfo['End'],
-$entityInfo['hallId'],
-$entityInfo['venueId'],
-$entityInfo['conferenceId'],
+        $entity = new Lecturesuser($entityInfo['lectureId'],
+$entityInfo['userId'],
 $entityInfo['id']);
 
         self::$selectedObjectPool[] = $entity;
@@ -259,14 +207,14 @@ $entityInfo['id']);
     {
         $db = Db::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
 
-        $this->query = "DELETE FROM ConferenceScheduler.lectures" . $this->where;
+        $this->query = "DELETE FROM ConferenceScheduler.lecturesusers" . $this->where;
         $result = $db->prepare($this->query);
         $result->execute($this->placeholders);
 
         return $result->rowCount() > 0;
     }
 
-    public static function add(Lecture $model)
+    public static function add(Lecturesuser $model)
     {
         if ($model->getId()) {
             throw new \Exception('This entity is not new');
@@ -288,39 +236,31 @@ $entityInfo['id']);
         return true;
     }
 
-    private static function update(Lecture $model)
+    private static function update(Lecturesuser $model)
     {
         $db = Db::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
 
-        $query = "UPDATE lectures SET Name= :Name, Start= :Start, End= :End, hallId= :hallId, venueId= :venueId, conferenceId= :conferenceId WHERE id = :id";
+        $query = "UPDATE lecturesusers SET lectureId= :lectureId, userId= :userId WHERE id = :id";
         $result = $db->prepare($query);
         $result->execute(
             [
                 ':id' => $model->getId(),
-':Name' => $model->getName(),
-':Start' => $model->getStart(),
-':End' => $model->getEnd(),
-':hallId' => $model->getHallId(),
-':venueId' => $model->getVenueId(),
-':conferenceId' => $model->getConferenceId()
+':lectureId' => $model->getLectureId(),
+':userId' => $model->getUserId()
             ]
         );
     }
 
-    private static function insert(Lecture $model)
+    private static function insert(Lecturesuser $model)
     {
         $db = Db::getInstance(\ConferenceScheduler\Configs\DatabaseConfig::DB_INSTANCE);
 
-        $query = "INSERT INTO lectures (Name,Start,End,hallId,venueId,conferenceId) VALUES (:Name, :Start, :End, :hallId, :venueId, :conferenceId);";
+        $query = "INSERT INTO lecturesusers (lectureId,userId) VALUES (:lectureId, :userId);";
         $result = $db->prepare($query);
         $result->execute(
             [
-                ':Name' => $model->getName(),
-':Start' => $model->getStart(),
-':End' => $model->getEnd(),
-':hallId' => $model->getHallId(),
-':venueId' => $model->getVenueId(),
-':conferenceId' => $model->getConferenceId()
+                ':lectureId' => $model->getLectureId(),
+':userId' => $model->getUserId()
             ]
         );
         $model->setId($db->lastInsertId());
@@ -328,7 +268,7 @@ $entityInfo['id']);
 
     private function isColumnAllowed($column)
     {
-        $refc = new \ReflectionClass('\ConferenceScheduler\Models\Lecture');
+        $refc = new \ReflectionClass('\ConferenceScheduler\Models\Lecturesuser');
         $consts = $refc->getConstants();
 
         return in_array($column, $consts);
