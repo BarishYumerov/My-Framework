@@ -30,7 +30,7 @@ class LecturesService extends BaseService
             $lecturesViewModel[] = $lectureView;
         }
 
-        var_dump($lecturesViewModel);
+        return $lecturesViewModel;
     }
 
     private function getLectureMembers($id){

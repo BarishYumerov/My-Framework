@@ -4,6 +4,7 @@ namespace ConferenceScheduler\Application\Controllers;
 
 use ConferenceScheduler\Application\Services\ConferenceService;
 use ConferenceScheduler\Application\Services\LecturesService;
+use ConferenceScheduler\View;
 
 class LecturesController extends BaseController
 {
@@ -29,5 +30,7 @@ class LecturesController extends BaseController
         }
 
         $lectures = $service->getLectures($id);
+
+        return new View('lectures', 'manage', $lectures);
     }
 }
