@@ -33,6 +33,27 @@ class LecturesService extends BaseService
         return $lecturesViewModel;
     }
 
+    public function getOne($lectureId){
+        $lecture = $this->dbContext->getLecturesRepository()
+            ->filterById(" = '$lectureId'")
+            ->findOne();
+
+        $lectureView = new LectureViewModel($lecture);
+
+        $hallId = intval($lecture->getHallId());
+
+        $members = $this->getLectureMembers($lectureId);
+        $lectureView->setLectureJoinedMembers($members);
+
+        $speakers = $this->getLectureSpeakers($lectureId);
+        $lectureView->setSpeakers($speakers);
+
+        $hall = $this->getLectureHall($hallId);
+        $lectureView->setHall($hall);
+
+        return $lectureView->getId() == null ? null : $lectureView;
+    }
+
     private function getLectureMembers($id){
         $members = $this->dbContext->getLecturesusersRepository()->filterByLectureId(" = '$id'")->findAll()->getLecturesusers();
         $membersCount = count($members);
