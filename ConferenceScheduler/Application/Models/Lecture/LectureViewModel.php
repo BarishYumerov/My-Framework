@@ -13,12 +13,16 @@ class LectureViewModel
     private $endDate;
     private $hall;
     private $lectureJoinedMembers;
+    private $conferenceId;
+    private $venueId;
 
     public function __construct(Lecture $lecture){
         $this->id = $lecture->getId();
         $this->name = $lecture->getName();
         $this->startDate = $lecture->getStart();
         $this->endDate = $lecture->getEnd();
+        $this->conferenceId = $lecture->getConferenceId();
+        $this->venueId = $lecture->getVenueId();
     }
 
     /**
@@ -133,4 +137,38 @@ class LectureViewModel
     {
         return $this->lectureJoinedMembers;
     }
+
+    /**
+     * @return mixed
+     */
+
+    public function getConferenceId()
+    {
+        return $this->conferenceId;
+    }
+
+    /**
+     * @param mixed $conferenceId
+     */
+    public function setConferenceId($conferenceId)
+    {
+        $this->conferenceId = $conferenceId;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getVenueId()
+    {
+        return $this->venueId;
+    }
+
+    /**
+     * @param mixed $venueId
+     */
+    public function setVenueId($venueId)
+    {
+        $this->venueId = $venueId;
+    }
+
 }

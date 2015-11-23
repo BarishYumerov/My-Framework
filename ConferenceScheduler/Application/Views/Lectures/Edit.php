@@ -1,6 +1,6 @@
 <?php /** @model = LectureViewModel */?>
 <div class="thumbnail col-lg-4 col-lg-offset-4" style="background: #333; padding: 10px; margin-right: 900px;">
-    <form method="post" action="/Lecture/<?php echo $model->getId() ?>/Edit">
+    <form method="post" action="/Lecture/<?php echo $model->getId() ?>/Manage">
         <div class="form-group">
             <label for="title">Title: </label>
             <input type="datetime" id="title" value="<?php echo $model->getName(); ?>" name="name" class="form-control" />
@@ -12,7 +12,7 @@
         </div>
 
         <div class="form-group">
-            <label for="end">Start Time: </label>
+            <label for="end">End Time: </label>
             <input type="datetime" id="end" value="<?php echo $model->getEndDate(); ?>" name="endDate" class="form-control" />
         </div>
 

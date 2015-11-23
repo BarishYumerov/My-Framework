@@ -3,7 +3,7 @@
 namespace ConferenceScheduler\Application\Controllers;
 
 use ConferenceScheduler\Application\Models\Account\AddSpeakerBindingModel;
-use ConferenceScheduler\Application\Services\AccountService;
+use ConferenceScheduler\Application\Models\Lecture\LectureBindingModel;
 use ConferenceScheduler\Application\Services\ConferenceService;
 use ConferenceScheduler\Application\Services\LecturesService;
 use ConferenceScheduler\Models\Lecturesspeaker;
@@ -50,13 +50,69 @@ class LecturesController extends BaseController
 
         $service = new LecturesService($this->dbContext);
         $lecture = $service->getOne($lectureId);
-        $venueId = $lecture->getHall()->getId();
+        $venueId = $lecture->getVenueId();
         $halls = $this->dbContext->getHallsRepository()->filterByVenueId(" = '$venueId'")->findAll()->getHalls();
         $viewBag = [];
         $viewBag['halls'] = $halls;
-
         if($this->context->isPost()){
-            $model = new LectureB
+            $model = new LectureBindingModel();
+            if($model->getErrors()){
+                foreach ($model->getErrors() as $error) {
+                     $this->addErrorMessage($error);
+                }
+                $this->redirectToUrl('/Lecture/' . $lectureId . '/Manage');
+            }
+
+            $conferenceServive = new ConferenceService($this->dbContext);
+            $conference = $conferenceServive->getOne(intval($lecture->getConferenceId()));
+
+            if(strtotime($conference->getStart()) > strtotime($model->getStartDate())){
+                $this->addErrorMessage('Start of the lecture must be later than start of the conference');
+                $this->redirectToUrl('/Lecture/' . $lectureId . '/Manage');
+            }
+
+            if(strtotime($conference->getEnd()) < strtotime($model->getEndDate())){
+                $this->addErrorMessage('End of the lecture must be earlier than the end of the conference');
+                $this->redirectToUrl('/Lecture/' . $lectureId . '/Manage');
+            }
+            $conferenceId = intval($conference->getId());
+            $conferenceLectures = $this->dbContext->getLecturesRepository()
+                ->filterByConferenceId(" = '$conferenceId'")
+                ->findAll()->getLectures();
+
+            foreach ($conferenceLectures as $confLecture) {
+                if(intval($confLecture->getId()) !== intval($lectureId)){
+                    if (strtotime($model->getStartDate()) <= strtotime($confLecture->getStart())
+                        && strtotime($model ->getEndDate()) >= strtotime($confLecture->getStart())){
+                        $this->addErrorMessage('The lecture is during other once check the times!');
+                        $this->redirectToUrl('/Lecture/' . $lectureId . '/Manage');
+                    }
+
+                    if(strtotime($model->getStartDate()) <= strtotime($confLecture->getEnd())
+                        && strtotime($model->getEndDate()) >= strtotime($confLecture->getEnd())){
+                        $this->addErrorMessage('The lecture is during other once check the times!');
+                        $this->redirectToUrl('/Lecture/' . $lectureId . '/Manage');
+                    }
+
+                    if(strtotime($model->getStartDate()) >= strtotime($confLecture->getStart())
+                        && strtotime($model->getEndDate()) <= strtotime($confLecture->getEnd())){
+                        $this->addErrorMessage('The lecture is during other once check the times!');
+                        $this->redirectToUrl('/Lecture/' . $lectureId . '/Manage');
+                    }
+                }
+            }
+
+            $lecture = $this->dbContext->getLecturesRepository()
+                ->filterById(" = '$lectureId'")
+                ->findOne();
+            var_dump($model);
+            $lecture->setName($model->getName());
+            $lecture->setEnd($model->getEndDate());
+            $lecture->setHallId($model->getHallId());
+            $lecture->setStart($model->getStartDate());
+
+            $this->dbContext->saveChanges();
+            $this->redirectToUrl('/Conference/' . $conferenceId . '/Lectures/Manage');
         }
 
         return new View('lectures', 'edit', $lecture, $viewBag);
