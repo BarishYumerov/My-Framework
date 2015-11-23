@@ -23,7 +23,7 @@
         <div class="form-group">
             <label for="venue">Venue: </label>
             <select id="venue" name="venueId" class="form-control" >
-                <?php foreach($this->getViewBag()['venues'] as $venue) : ?>
+                <?php foreach($viewBag['venues'] as $venue) : ?>
                     <option value="<?php echo $venue->getId() ?>"
                             <?php if(intval($venue->getId()) == $model->getVenueId())
                             echo 'selected="true"' ?>class=form-control">

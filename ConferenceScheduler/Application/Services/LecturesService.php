@@ -3,6 +3,7 @@
 namespace ConferenceScheduler\Application\Services;
 
 
+use ConferenceScheduler\Application\Models\Account\AccountViewModel;
 use ConferenceScheduler\Application\Models\Hall\HallViewModel;
 use ConferenceScheduler\Application\Models\Lecture\LectureViewModel;
 
@@ -62,14 +63,15 @@ class LecturesService extends BaseService
 
     private function getLectureSpeakers($id){
         $speakers = $this->dbContext->getLecturesspeakersRepository()->filterByLectureId(" = '$id'")->findAll()->getLecturesspeakers();
-        $speakerNames = [];
+        $speakersInfo = [];
 
         foreach ($speakers as $speaker) {
-            $userId = $speaker->getSpeakerId();
-            $speakerNames[] = $this->dbContext->getUsersRepository()->filterById(" = '$userId'")->findOne()->getUsername();
+            $userId = intval($speaker->getSpeakerId());
+            $user = $this->dbContext->getUsersRepository()->filterById(" = '$userId'")->findOne();
+            $speakersInfo[] = new AccountViewModel($user);
         }
 
-        return $speakerNames;
+        return $speakersInfo;
     }
 
     private function getLectureHall($id){

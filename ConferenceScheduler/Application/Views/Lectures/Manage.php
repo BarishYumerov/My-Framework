@@ -13,7 +13,7 @@
                     <div>
                         <h4>Speakers: </h4>
                         <?php foreach($lecture->getSpeakers() as $speaker): ?>
-                            <p><?php echo $speaker ?></p>
+                            <p><?php echo $speaker->getUsername() ?></p>
                         <?php endforeach ?>
                     </div>
                 <?php else : ?>

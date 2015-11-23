@@ -1,7 +1,7 @@
 <?php 
 namespace ConferenceScheduler\Configs; 
 class Routes { 
-	 public static $lastCheck = '2015-11-22 21:48:05';
+	 public static $lastCheck = '2015-11-23 16:48:29';
 
 	 public static $ROUTES = [ 
 		 [ 
@@ -37,6 +37,24 @@ class Routes {
 			 'route' => 'lecture/{int id}/manage',
 			 'annotations' => [
 				'route' => 'lecture/{int id}/manage',
+				'authorize' => '1',
+			 ]
+		 ], 
+		 [ 
+			 'controller' => 'ConferenceScheduler\Application\Controllers\LecturesController',
+			 'action' => 'removeSpeaker',
+			 'route' => 'lecture/{int id}/remove/speaker/{int id}',
+			 'annotations' => [
+				'route' => 'lecture/{int id}/remove/speaker/{int id}',
+				'authorize' => '1',
+			 ]
+		 ], 
+		 [ 
+			 'controller' => 'ConferenceScheduler\Application\Controllers\LecturesController',
+			 'action' => 'inviteSpeaker',
+			 'route' => 'lecture/{int id}/invite/speaker',
+			 'annotations' => [
+				'route' => 'lecture/{int id}/invite/speaker',
 				'authorize' => '1',
 			 ]
 		 ], 
@@ -124,6 +142,24 @@ class Routes {
 			 'route' => 'lectures/edit',
 			 'annotations' => [
 				'route' => 'lecture/{int id}/manage',
+				'authorize' => '1',
+			 ]
+		 ], 
+		 [ 
+			 'controller' => 'ConferenceScheduler\Application\Controllers\LecturesController',
+			 'action' => 'removeSpeaker',
+			 'route' => 'lectures/removeSpeaker',
+			 'annotations' => [
+				'route' => 'lecture/{int id}/remove/speaker/{int id}',
+				'authorize' => '1',
+			 ]
+		 ], 
+		 [ 
+			 'controller' => 'ConferenceScheduler\Application\Controllers\LecturesController',
+			 'action' => 'inviteSpeaker',
+			 'route' => 'lectures/inviteSpeaker',
+			 'annotations' => [
+				'route' => 'lecture/{int id}/invite/speaker',
 				'authorize' => '1',
 			 ]
 		 ], 

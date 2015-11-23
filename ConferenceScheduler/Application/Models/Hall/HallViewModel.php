@@ -6,12 +6,14 @@ use ConferenceScheduler\Models\Hall;
 
 class HallViewModel
 {
+    private $id;
     private $hallName;
     private $maxHallPlaces;
 
     public function __construct(Hall $hall){
         $this->hallName = $hall->getName();
         $this->maxHallPlaces = $hall->getPlaces();
+        $this->id = $hall->getId();
     }
 
     /**
@@ -44,5 +46,21 @@ class HallViewModel
     public function setMaxHallPlaces($maxHallPlaces)
     {
         $this->maxHallPlaces = $maxHallPlaces;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
     }
 }
