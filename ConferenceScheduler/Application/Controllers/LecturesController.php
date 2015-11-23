@@ -54,6 +54,11 @@ class LecturesController extends BaseController
         $halls = $this->dbContext->getHallsRepository()->filterByVenueId(" = '$venueId'")->findAll()->getHalls();
         $viewBag = [];
         $viewBag['halls'] = $halls;
+
+        if($this->context->isPost()){
+            $model = new LectureB
+        }
+
         return new View('lectures', 'edit', $lecture, $viewBag);
     }
 
@@ -107,7 +112,10 @@ class LecturesController extends BaseController
             }
 
             $userId = $user->getId();
-            $speakerCheck = $this->dbContext->getLecturesspeakersRepository()->filterBySpeakerId(" = '$userId'")->findOne();
+            $speakerCheck = $this->dbContext->getLecturesspeakersRepository()
+                ->filterBySpeakerId(" = '$userId'")
+                ->filterByLectureId(" = '$lectureId'")
+                ->findOne();
 
             if($speakerCheck->getId()){
                 $this->addErrorMessage('This user is already a speaker in this lecture!');
@@ -118,6 +126,8 @@ class LecturesController extends BaseController
 
             $this->dbContext->getLecturesspeakersRepository()->add($lectureSpeaker);
             $this->dbContext->saveChanges();
+
+            $this->addInfoMessage('User added to lecture speakers!');
 
             $this->redirectToUrl('/Lecture/' . $lectureId . '/Manage');
         }

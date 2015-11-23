@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2800c4d0-2266-44b7-8f0a-8462eb871835" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Application/Models/Account/AccountViewModel.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Application/Models/Account/AddSpeakerBindingModel.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Application/Views/Lectures/Edit.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Application/Views/Lectures/InviteSpeaker.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Views/Conference/Edit.php" afterPath="$PROJECT_DIR$/Application/Views/Conference/Edit.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Models/Hall/HallViewModel.php" afterPath="$PROJECT_DIR$/Application/Models/Hall/HallViewModel.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Application/Models/Lecture/LectureBindingModel.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Controllers/LecturesController.php" afterPath="$PROJECT_DIR$/Application/Controllers/LecturesController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Services/LecturesService.php" afterPath="$PROJECT_DIR$/Application/Services/LecturesService.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Views/Lectures/Manage.php" afterPath="$PROJECT_DIR$/Application/Views/Lectures/Manage.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Configs/Routes.php" afterPath="$PROJECT_DIR$/Configs/Routes.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -34,14 +27,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="LecturesController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LecturesController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Application/Controllers/LecturesController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.66487455">
-              <caret line="119" column="44" selection-start-line="119" selection-start-column="44" selection-end-line="119" selection-end-column="44" />
+            <state vertical-scroll-proportion="-11.0">
+              <caret line="58" column="33" selection-start-line="58" selection-start-column="33" selection-end-line="58" selection-end-column="33" />
               <folding>
                 <element signature="e#63#137#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LectureBindingModel.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Application/Models/Lecture/LectureBindingModel.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.27419356">
+              <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -139,7 +142,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Application/Areas/Admin/Views/Admin/Index.php" />
         <option value="$PROJECT_DIR$/Configs/Routes.php" />
         <option value="$PROJECT_DIR$/Application/Areas/Admin/Controllers/AdminController.php" />
         <option value="$PROJECT_DIR$/Application/Views/Layouts/Default/footer.php" />
@@ -190,6 +192,7 @@
         <option value="$PROJECT_DIR$/Application/Models/Account/AddSpeakerBindingModel.php" />
         <option value="$PROJECT_DIR$/Application/Views/Lectures/InviteSpeaker.php" />
         <option value="$PROJECT_DIR$/Application/Controllers/LecturesController.php" />
+        <option value="$PROJECT_DIR$/Application/Models/Lecture/LectureBindingModel.php" />
       </list>
     </option>
   </component>
@@ -680,13 +683,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Core/Identity/ColumnsParser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5769231">
-          <caret line="36" column="7" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Core/Identity/IdentityParser.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-9.309091">
@@ -1006,11 +1002,11 @@
         <state vertical-scroll-proportion="-7.4615383">
           <caret line="205" column="20" selection-start-line="205" selection-start-column="20" selection-end-line="205" selection-end-column="20" />
           <folding>
-            <marker date="1448293676993" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..lecturesspeakers$..." />
-            <marker date="1448293676993" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..lecturesspeakers$..." />
-            <marker date="1448293676993" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1448293676993" expanded="true" signature="-1:-1" placeholder="UPDATE lectu..." />
-            <marker date="1448293676993" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1448293975270" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..lecturesspeakers$..." />
+            <marker date="1448293975270" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..lecturesspeakers$..." />
+            <marker date="1448293975270" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1448293975270" expanded="true" signature="-1:-1" placeholder="UPDATE lectu..." />
+            <marker date="1448293975270" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
           </folding>
         </state>
       </provider>
@@ -1070,11 +1066,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Controllers/LecturesController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.66487455">
-          <caret line="119" column="44" selection-start-line="119" selection-start-column="44" selection-end-line="119" selection-end-column="44" />
+        <state vertical-scroll-proportion="-11.0">
+          <caret line="58" column="33" selection-start-line="58" selection-start-column="33" selection-end-line="58" selection-end-column="33" />
           <folding>
             <element signature="e#63#137#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Models/Lecture/LectureBindingModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.27419356">
+          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
