@@ -1,4 +1,4 @@
-<?php /** @model = LectureViewModel */?>
+<?php /** @model = LectureBindingModel */?>
 <div class="thumbnail col-lg-4 col-lg-offset-4" style="background: #333; padding: 10px; margin-right: 900px;">
     <form method="post" action="/Lecture/<?php echo $model->getId() ?>/Manage">
         <div class="form-group">

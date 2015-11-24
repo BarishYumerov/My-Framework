@@ -10,6 +10,7 @@ private $conferencesRepository;
 	private $lecturesspeakersRepository;
 	private $lecturesusersRepository;
 	private $rolesRepository;
+	private $speakerinvitesRepository;
 	private $usersRepository;
 	private $usersrolesRepository;
 	private $venuesRepository;
@@ -24,6 +25,7 @@ public function __construct()
 		$this->lecturesspeakersRepository = \ConferenceScheduler\Repositories\LecturesspeakersRepository::create();
 		$this->lecturesusersRepository = \ConferenceScheduler\Repositories\LecturesusersRepository::create();
 		$this->rolesRepository = \ConferenceScheduler\Repositories\RolesRepository::create();
+		$this->speakerinvitesRepository = \ConferenceScheduler\Repositories\SpeakerinvitesRepository::create();
 		$this->usersRepository = \ConferenceScheduler\Repositories\UsersRepository::create();
 		$this->usersrolesRepository = \ConferenceScheduler\Repositories\UsersrolesRepository::create();
 		$this->venuesRepository = \ConferenceScheduler\Repositories\VenuesRepository::create();
@@ -34,6 +36,7 @@ public function __construct()
 		$this->repositories[] = $this->lecturesspeakersRepository;
 		$this->repositories[] = $this->lecturesusersRepository;
 		$this->repositories[] = $this->rolesRepository;
+		$this->repositories[] = $this->speakerinvitesRepository;
 		$this->repositories[] = $this->usersRepository;
 		$this->repositories[] = $this->usersrolesRepository;
 		$this->repositories[] = $this->venuesRepository;
@@ -85,6 +88,14 @@ public function __construct()
     public function getRolesRepository()
     {
         return $this->rolesRepository;
+    }
+
+    /**
+     * @return \ConferenceScheduler\Repositories\SpeakerinvitesRepository
+     */
+    public function getSpeakerinvitesRepository()
+    {
+        return $this->speakerinvitesRepository;
     }
 
     /**
@@ -168,6 +179,16 @@ public function __construct()
     public function setRolesRepository($rolesRepository)
     {
         $this->rolesRepository = $rolesRepository;
+        return $this;
+    }
+
+    /**
+     * @param mixed $speakerinvitesRepository
+     * @return $this
+     */
+    public function setSpeakerinvitesRepository($speakerinvitesRepository)
+    {
+        $this->speakerinvitesRepository = $speakerinvitesRepository;
         return $this;
     }
 

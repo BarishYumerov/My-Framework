@@ -8,6 +8,7 @@ use ConferenceScheduler\Application\Services\ConferenceService;
 use ConferenceScheduler\Application\Services\LecturesService;
 use ConferenceScheduler\Models\Lecture;
 use ConferenceScheduler\Models\Lecturesspeaker;
+use ConferenceScheduler\Models\Speakerinvite;
 use ConferenceScheduler\View;
 
 class LecturesController extends BaseController
@@ -248,11 +249,24 @@ class LecturesController extends BaseController
      */
     public function inviteSpeaker(){
         $lectureId = intval(func_get_args()[0]);
+        $lecture = $this->dbContext->getLecturesRepository()->filterById(" = '$lectureId'")->findOne();
+
+        $conferenceId = $lecture->getConferenceId();
+
+        $loggedUserId = $this->identity->getUserId();
+
+        $conferenceService = new ConferenceService($this->dbContext);
+        $conference = $conferenceService->getOne($conferenceId);
+
+        if(intval($conference->getOwnerId()) !== $loggedUserId){
+            $this->addErrorMessage('You are not allowed to edit this conference!');
+            $this->redirect('Me', 'Conferences');
+        }
+
         $model = new AddSpeakerBindingModel($lectureId);
 
         if($this->context->isPost()){
-            $user = new AddSpeakerBindingModel($lectureId);
-            $username = $user->getUsername();
+            $username = $model->getUsername();
             $user = $this->dbContext->getUsersRepository()->filterByUsername(" = '$username'")
                 ->findOne();
 
@@ -272,12 +286,12 @@ class LecturesController extends BaseController
                 $this->redirectToUrl("/Lecture/$lectureId/Invite/Speaker");
             }
 
-            $lectureSpeaker = new Lecturesspeaker($lectureId, $userId);
+            $speakerInvite = new Speakerinvite($userId, $lectureId);
 
-            $this->dbContext->getLecturesspeakersRepository()->add($lectureSpeaker);
+            $this->dbContext->getSpeakerinvitesRepository()->add($speakerInvite);
             $this->dbContext->saveChanges();
 
-            $this->addInfoMessage('User added to lecture speakers!');
+            $this->addInfoMessage('User invited to lecture speakers!');
 
             $this->redirectToUrl('/Lecture/' . $lectureId . '/Manage');
         }
