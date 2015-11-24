@@ -53,6 +53,7 @@ class AccountController extends BaseController
                 return new View('account', 'login');
             }
             else{
+                $this->getInvites();
                 $this->addInfoMessage($result['success']);
                 $this->redirect();
             }

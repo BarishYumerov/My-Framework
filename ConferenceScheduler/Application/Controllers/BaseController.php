@@ -4,6 +4,7 @@
 
 namespace ConferenceScheduler\Application\Controllers;
 
+use ConferenceScheduler\Application\Models\Invite\InviteViewModel;
 use ConferenceScheduler\Core\HttpContext\HttpContext;
 use ConferenceScheduler\Core\Identity\Identity;
 use ConferenceScheduler\Core\ORM\DbContext;
@@ -13,17 +14,21 @@ abstract class BaseController{
     protected $context;
     protected $service;
     protected $identity;
+    protected $invites;
 
     public function __construct()
     {
         $this->dbContext = new DbContext();
         $this->context = HttpContext::getInstance();
         $this->identity = Identity::getInstance();
+        if($this->identity->isAuthorised()){
+            $this->getInvites();
+        }
         $this->onInit();
     }
 
     protected function onInit() {
-        // Implement initializing logic in the subclasses
+
     }
 
     public function redirectToUrl($url) {
@@ -41,6 +46,37 @@ abstract class BaseController{
             $url .= implode('/', $encodedParams);
         }
         $this->redirectToUrl($url);
+    }
+
+    protected function getInvites(){
+        $loggedUserId = $this->identity->getUserId();
+        $invites = $this->dbContext->getSpeakerinvitesRepository()
+                ->filterByUserId(" = '$loggedUserId'")->findAll()->getSpeakerinvites();
+
+
+        $invitesViews = [];
+        foreach ($invites as $invite) {
+            $inviteView = new InviteViewModel($invite);
+            $lectureId = intval($invite->getLectureId());
+            $lecture = $this->dbContext->getLecturesRepository()->filterById(" = '$lectureId'")->findOne();
+            $conferenceId = intval($lecture->getConferenceId());
+            $conference = $this->dbContext->getConferencesRepository()->filterById(" = '$conferenceId'")->findOne();
+
+            $inviteView->setLectureName($lecture->getName());
+            $inviteView->setConferenceId($conferenceId);
+            $inviteView->setConferenceName($conference->getName());
+
+            $invitesViews[] = $inviteView;
+        }
+
+        if(count($invites) != 0){
+            $_SESSION['hasInvites'] = true;
+        }
+        else{
+            $_SESSION['hasInvites'] = false;
+        }
+
+        $this->invites = $invitesViews;
     }
 
     function addMessage($msg, $type) {

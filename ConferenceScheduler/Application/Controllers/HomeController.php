@@ -14,4 +14,12 @@ class HomeController extends BaseController
         $allConferences = array_slice($allConferences, 0, 6);
         return new View('Home', 'Index', $allConferences);
     }
+
+    /**
+     * @Authorize
+     * @Route("Me/Invites")
+     */
+    public function invites(){
+        return new View('Home', 'Invites', $this->invites);
+    }
 }

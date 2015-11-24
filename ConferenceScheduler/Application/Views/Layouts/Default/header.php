@@ -25,6 +25,12 @@
                     <li> <a href="#">My Schedule</a></li>
                     <li> <a href="/Conference/Create">New Conference</a></li>
                     <li> <a href="/Me/Conferences">My Conferences</a></li>
+                   <?php if(\ConferenceScheduler\Core\HttpContext\HttpContext::getInstance()->session('hasInvites')){
+                        echo '<li> <a style="color:red" href="/Me/Invites">Speaker Invites</a></li>';
+                    }
+                    else{
+                        echo '<li> <a href="/Me/Invites">Speaker Invites</a></li>';
+                    }?>
                 <?php endif; ?>
             </ul>
             <?php if(!\ConferenceScheduler\Core\HttpContext\HttpContext::getInstance()->session('username')) : ?>
