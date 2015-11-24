@@ -5,6 +5,7 @@ namespace ConferenceScheduler\Application\Models\Invite;
 use ConferenceScheduler\Models\Speakerinvite;
 class InviteViewModel
 {
+    private $id;
     private $userId;
     private $lectureId;
     private $lectureName;
@@ -13,9 +14,27 @@ class InviteViewModel
 
     public function __construct(Speakerinvite $invite)
     {
+        $this->id = $invite->getId();
         $this->userId = $invite->getUserId();
         $this->lectureId = $invite->getLectureId();
     }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
     /**
      * @return mixed
      */
@@ -95,6 +114,5 @@ class InviteViewModel
     {
         $this->conferenceId = $conferenceId;
     }
-
 
 }

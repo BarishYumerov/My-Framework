@@ -1,7 +1,7 @@
 <?php 
 namespace ConferenceScheduler\Configs; 
 class Routes { 
-	 public static $lastCheck = '2015-11-24 22:31:00';
+	 public static $lastCheck = '2015-11-24 23:05:05';
 
 	 public static $ROUTES = [ 
 		 [ 
@@ -28,6 +28,24 @@ class Routes {
 			 'route' => 'me/invites',
 			 'annotations' => [
 				'route' => 'me/invites',
+				'authorize' => '1',
+			 ]
+		 ], 
+		 [ 
+			 'controller' => 'ConferenceScheduler\Application\Controllers\InvitesController',
+			 'action' => 'accept',
+			 'route' => 'invite/{int id}/accept',
+			 'annotations' => [
+				'route' => 'invite/{int id}/accept',
+				'authorize' => '1',
+			 ]
+		 ], 
+		 [ 
+			 'controller' => 'ConferenceScheduler\Application\Controllers\InvitesController',
+			 'action' => 'decline',
+			 'route' => 'invite/{int id}/decline',
+			 'annotations' => [
+				'route' => 'invite/{int id}/decline',
 				'authorize' => '1',
 			 ]
 		 ], 
@@ -144,6 +162,24 @@ class Routes {
 			 'route' => 'home/invites',
 			 'annotations' => [
 				'route' => 'me/invites',
+				'authorize' => '1',
+			 ]
+		 ], 
+		 [ 
+			 'controller' => 'ConferenceScheduler\Application\Controllers\InvitesController',
+			 'action' => 'accept',
+			 'route' => 'invites/accept',
+			 'annotations' => [
+				'route' => 'invite/{int id}/accept',
+				'authorize' => '1',
+			 ]
+		 ], 
+		 [ 
+			 'controller' => 'ConferenceScheduler\Application\Controllers\InvitesController',
+			 'action' => 'decline',
+			 'route' => 'invites/decline',
+			 'annotations' => [
+				'route' => 'invite/{int id}/decline',
 				'authorize' => '1',
 			 ]
 		 ], 
