@@ -63,6 +63,7 @@ class AccountController extends BaseController
     public function logout(){
         if($this->context->hasSession('username')){
             unset($_SESSION['username']);
+            unset($_SESSION['userId']);
             $this->redirect();
         }
         $this->addErrorMessage('Cannot logout need to login first!');

@@ -6,6 +6,7 @@ use ConferenceScheduler\Application\Models\Account\AddSpeakerBindingModel;
 use ConferenceScheduler\Application\Models\Lecture\LectureBindingModel;
 use ConferenceScheduler\Application\Services\ConferenceService;
 use ConferenceScheduler\Application\Services\LecturesService;
+use ConferenceScheduler\Models\Lecture;
 use ConferenceScheduler\Models\Lecturesspeaker;
 use ConferenceScheduler\View;
 
@@ -38,7 +39,93 @@ class LecturesController extends BaseController
 
         $lectures = $service->getLectures($id);
 
-        return new View('lectures', 'manage', $lectures);
+        $viewBag = [];
+        $viewBag['conferenceId'] = $id;
+        return new View('lectures', 'manage', $lectures, $viewBag);
+    }
+
+    /**
+     * @Authorize
+     * @Route("Conference/{int id}/Add/Lecture")
+     */
+    public function add(){
+        $conferenceId = intval(func_get_args()[0]);
+        $viewBag = [];
+        $viewBag['conferenceId'] = $conferenceId;
+
+        $conferenceService = new ConferenceService($this->dbContext);
+        $conference = $conferenceService->getOne($conferenceId);
+
+        if(intval($conference->getOwnerId()) !== $this->identity->getUserId()){
+            $this->addErrorMessage('You are not allowed to add lectures to this conference!');
+            $this->redirect('Me', 'Conferences');
+        }
+
+        $venueId = $conference->getVenueId();
+        $halls = $this->dbContext->getHallsRepository()->filterByVenueId(" = '$venueId'")->findAll()->getHalls();
+
+        $viewBag['halls'] = $halls;
+
+        if($this->context->isPost()){
+            $model = new LectureBindingModel();
+            if($model->getErrors()){
+                foreach ($model->getErrors() as $error) {
+                    $this->addErrorMessage($error);
+                }
+                $this->redirectToUrl('/Conference/' . $conferenceId . '/Add/Lecture');
+            }
+
+            if(strtotime($conference->getStart()) > strtotime($model->getStartDate())){
+                $this->addErrorMessage('Start of the lecture must be later than start of the conference');
+                $this->redirectToUrl('/Conference/' . $conferenceId . '/Add/Lecture');
+            }
+
+            if(strtotime($conference->getEnd()) < strtotime($model->getEndDate())){
+                $this->addErrorMessage('End of the lecture must be earlier than the end of the conference');
+                $this->redirectToUrl('/Conference/' . $conferenceId . '/Add/Lecture');
+            }
+
+            $conferenceId = intval($conference->getId());
+
+            $conferenceLectures = $this->dbContext->getLecturesRepository()
+                ->filterByConferenceId(" = '$conferenceId'")
+                ->findAll()->getLectures();
+
+            foreach ($conferenceLectures as $confLecture) {
+                if (strtotime($model->getStartDate()) <= strtotime($confLecture->getStart())
+                    && strtotime($model ->getEndDate()) >= strtotime($confLecture->getStart())){
+                    $this->addErrorMessage('The lecture is during other once check the times!');
+                    $this->redirectToUrl('/Conference/' . $conferenceId . '/Add/Lecture');
+                }
+
+                if(strtotime($model->getStartDate()) <= strtotime($confLecture->getEnd())
+                    && strtotime($model->getEndDate()) >= strtotime($confLecture->getEnd())){
+                    $this->addErrorMessage('The lecture is during other once check the times!');
+                    $this->redirectToUrl('/Conference/' . $conferenceId . '/Add/Lecture');
+                }
+
+                if(strtotime($model->getStartDate()) >= strtotime($confLecture->getStart())
+                    && strtotime($model->getEndDate()) <= strtotime($confLecture->getEnd())){
+                    $this->addErrorMessage('The lecture is during other once check the times!');
+                    $this->redirectToUrl('/Conference/' . $conferenceId . '/Add/Lecture');
+                }
+            }
+
+            $lecture = new Lecture(
+                $model->getName(),
+                $model->getStartDate(),
+                $model->getEndDate(),
+                intval($model->getHallId()),
+                intval($conference->getVenueId()),
+                $conferenceId);
+
+            $this->dbContext->getLecturesRepository()->add($lecture);
+            $this->dbContext->saveChanges();
+            $this->redirectToUrl("/Conference/$conferenceId/Edit");
+        }
+
+        return new View('Lectures', 'Add', null, $viewBag);
+
     }
 
     /**
@@ -50,10 +137,20 @@ class LecturesController extends BaseController
 
         $service = new LecturesService($this->dbContext);
         $lecture = $service->getOne($lectureId);
+
+        $conferenceService = new ConferenceService($this->dbContext);
+        $conference = $conferenceService->getOne(intval($lecture->getConferenceId()));
+
+        if(intval($conference->getOwnerId()) !== $this->identity->getUserId()){
+            $this->addErrorMessage('You are not allowed to edit lectures of this conference!');
+            $this->redirect('Me', 'Conferences');
+        }
+
         $venueId = $lecture->getVenueId();
         $halls = $this->dbContext->getHallsRepository()->filterByVenueId(" = '$venueId'")->findAll()->getHalls();
         $viewBag = [];
         $viewBag['halls'] = $halls;
+
         if($this->context->isPost()){
             $model = new LectureBindingModel();
             if($model->getErrors()){
@@ -62,9 +159,6 @@ class LecturesController extends BaseController
                 }
                 $this->redirectToUrl('/Lecture/' . $lectureId . '/Manage');
             }
-
-            $conferenceServive = new ConferenceService($this->dbContext);
-            $conference = $conferenceServive->getOne(intval($lecture->getConferenceId()));
 
             if(strtotime($conference->getStart()) > strtotime($model->getStartDate())){
                 $this->addErrorMessage('Start of the lecture must be later than start of the conference');
@@ -105,7 +199,7 @@ class LecturesController extends BaseController
             $lecture = $this->dbContext->getLecturesRepository()
                 ->filterById(" = '$lectureId'")
                 ->findOne();
-            var_dump($model);
+
             $lecture->setName($model->getName());
             $lecture->setEnd($model->getEndDate());
             $lecture->setHallId($model->getHallId());
@@ -167,7 +261,7 @@ class LecturesController extends BaseController
                 $this->redirectToUrl("/Lecture/$lectureId/Invite/Speaker");
             }
 
-            $userId = $user->getId();
+            $userId = intval($user->getId());
             $speakerCheck = $this->dbContext->getLecturesspeakersRepository()
                 ->filterBySpeakerId(" = '$userId'")
                 ->filterByLectureId(" = '$lectureId'")

@@ -8,7 +8,8 @@
 
         <div class="form-group">
             <label for="start">Start Time: </label>
-            <input type="datetime" id="start" value="<?php echo $model->getStartDate(); ?>" name="startDate" class="form-control" />
+            <input type="datetime" id="start" value="<?php echo $model->getStartDate(); ?>
+            " name="startDate" class="form-control" />
         </div>
 
         <div class="form-group">
