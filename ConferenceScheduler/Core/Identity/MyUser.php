@@ -39,7 +39,7 @@ class MyUser extends ApplicationUser
 //    }
 //
 //    /**
-//     * @param mixed $telephone
+//     * @param mixed $address
 //     */
 //    public function setAddress($address)
 //    {

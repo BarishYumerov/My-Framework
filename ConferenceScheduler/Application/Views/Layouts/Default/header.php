@@ -22,7 +22,7 @@
         <div class="navbar-collapse collapse" id="navbar-main">
             <ul class="nav navbar-nav">
                 <?php if(\ConferenceScheduler\Core\HttpContext\HttpContext::getInstance()->session('username')) : ?>
-                    <li> <a href="#">My Schedule</a></li>
+                    <li> <a href="/Me/Schedule">My Schedule</a></li>
                     <li> <a href="/Conference/Create">New Conference</a></li>
                     <li> <a href="/Me/Conferences">My Conferences</a></li>
                    <?php if(\ConferenceScheduler\Core\HttpContext\HttpContext::getInstance()->session('hasInvites')){
