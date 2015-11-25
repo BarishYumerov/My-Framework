@@ -1,9 +1,17 @@
 <?php 
 namespace ConferenceScheduler\Configs; 
 class Routes { 
-	 public static $lastCheck = '2015-11-25 16:39:23';
+	 public static $lastCheck = '2015-11-25 21:17:06';
 
 	 public static $ROUTES = [ 
+		 [ 
+			 'controller' => 'ConferenceScheduler\Application\Controllers\ConferenceController',
+			 'action' => 'details',
+			 'route' => 'conference/{int id}/details',
+			 'annotations' => [
+				'route' => 'conference/{int id}/details',
+			 ]
+		 ], 
 		 [ 
 			 'controller' => 'ConferenceScheduler\Application\Controllers\ConferenceController',
 			 'action' => 'myConferences',
@@ -95,6 +103,15 @@ class Routes {
 			 ]
 		 ], 
 		 [ 
+			 'controller' => 'ConferenceScheduler\Application\Controllers\LecturesController',
+			 'action' => 'addVisit',
+			 'route' => 'lecture/{int id}/visit',
+			 'annotations' => [
+				'route' => 'lecture/{int id}/visit',
+				'authorize' => '1',
+			 ]
+		 ], 
+		 [ 
 			 'controller' => 'ConferenceScheduler\Application\Areas\Admin\Controllers\AdminController',
 			 'action' => 'index',
 			 'route' => 'admin/KillThemAll',
@@ -121,6 +138,14 @@ class Routes {
 			 'action' => 'logout',
 			 'route' => 'account/logout',
 			 'annotations' => [
+			 ]
+		 ], 
+		 [ 
+			 'controller' => 'ConferenceScheduler\Application\Controllers\ConferenceController',
+			 'action' => 'details',
+			 'route' => 'conference/details',
+			 'annotations' => [
+				'route' => 'conference/{int id}/details',
 			 ]
 		 ], 
 		 [ 
@@ -232,6 +257,15 @@ class Routes {
 			 'route' => 'lectures/inviteSpeaker',
 			 'annotations' => [
 				'route' => 'lecture/{int id}/invite/speaker',
+				'authorize' => '1',
+			 ]
+		 ], 
+		 [ 
+			 'controller' => 'ConferenceScheduler\Application\Controllers\LecturesController',
+			 'action' => 'addVisit',
+			 'route' => 'lectures/addVisit',
+			 'annotations' => [
+				'route' => 'lecture/{int id}/visit',
 				'authorize' => '1',
 			 ]
 		 ], 

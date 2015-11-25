@@ -8,6 +8,7 @@ use ConferenceScheduler\Application\Services\ConferenceService;
 use ConferenceScheduler\Application\Services\LecturesService;
 use ConferenceScheduler\Models\Lecture;
 use ConferenceScheduler\Models\Lecturesspeaker;
+use ConferenceScheduler\Models\Lecturesuser;
 use ConferenceScheduler\Models\Speakerinvite;
 use ConferenceScheduler\View;
 
@@ -300,5 +301,58 @@ class LecturesController extends BaseController
             $this->redirectToUrl('/Lecture/' . $lectureId . '/Manage');
         }
         return new View('lectures', 'inviteSpeaker', $model);
+    }
+
+    /**
+     * @Authorize
+     * @Route("Lecture/{int id}/Visit")
+     */
+    public function addVisit(){
+        $loggedUserId = $this->identity->getUserId();
+        $lectureId = intval(func_get_args()[0]);
+        $lecture = $this->dbContext->getLecturesRepository()->filterById(" = '$lectureId'")->findOne();
+
+        $joinedMembersNumber = intval((new LecturesService($this->dbContext))->getOne($lectureId)->getLectureJoinedMembers());
+        var_dump($joinedMembersNumber);
+
+        $conferenceId = $lecture->getConferenceId();
+
+        $myVisits = $this->dbContext->getLecturesusersRepository()
+            ->filterByUserId(" = '$loggedUserId'")->findAll()->getLecturesusers();
+
+        $myVisitLectures = [];
+
+        foreach ($myVisits as $visit) {
+            $id = intval($visit->getLectureId());
+            $myVisitLectures[] = $this->dbContext->getLecturesRepository()->filterById(" = '$id'")->findOne();
+        }
+
+        foreach ($myVisitLectures as $visit) {
+            if (strtotime($lecture->getStart()) <= strtotime($visit->getEnd())
+                && strtotime($lecture ->getEnd()) >= strtotime($visit->getStart())){
+                $this->addErrorMessage('You have another lecture during this time!');
+                $this->redirectToUrl("/Conference/$conferenceId/Details");
+            }
+
+            if(strtotime($lecture->getStart()) <= strtotime($visit->getEnd())
+                && strtotime($lecture->getEnd()) >= strtotime($visit->getEnd())){
+                $this->addErrorMessage('You have another lecture during this time!');
+                $this->redirectToUrl("/Conference/$conferenceId/Details");
+            }
+
+            if(strtotime($lecture->getStart()) >= strtotime($visit->getStart())
+                && strtotime($lecture->getEnd()) <= strtotime($visit->getEnd())){
+                $this->addErrorMessage('You have another lecture during this time!');
+                $this->redirectToUrl("/Conference/$conferenceId/Details");
+            }
+        }
+
+        $visit = new Lecturesuser($lectureId, $loggedUserId);
+        $this->dbContext->getLecturesusersRepository()->add($visit);
+        $this->dbContext->saveChanges();
+
+        $this->addInfoMessage('You have joined this lecture!');
+
+        $this->redirect('home');
     }
 }

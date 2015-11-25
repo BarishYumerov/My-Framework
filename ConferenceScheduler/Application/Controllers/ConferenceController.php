@@ -3,12 +3,49 @@
 namespace ConferenceScheduler\Application\Controllers;
 
 use ConferenceScheduler\Application\Models\Conference\ConferenceBindingModel;
+use ConferenceScheduler\Application\Models\Conference\DetailedConferenceViewModel;
 use ConferenceScheduler\Application\Services\ConferenceService;
+use ConferenceScheduler\Application\Services\LecturesService;
 use ConferenceScheduler\Models\Conference;
 use ConferenceScheduler\View;
 
 class ConferenceController extends BaseController
 {
+    /**
+     * @Route("Conference/{int id}/Details")
+     */
+    public function details(){
+        $id = intval(func_get_args()[0]);
+        $conference = (new ConferenceService($this->dbContext))->getOne($id);
+        $loggedUserId = $this->identity->getUserId();
+
+        $conferenceView = new DetailedConferenceViewModel($conference);
+
+        $venueId = $conference->getVenueId();
+        $venue = $this->dbContext->getVenuesRepository()
+            ->filterById(" = $venueId")
+            ->findOne()
+            ->getName();
+
+        $ownerId = $conference->getOwnerId();
+        $owner = $this->dbContext->getUsersRepository()
+            ->filterById(" = $ownerId")
+            ->findOne()
+            ->getUsername();
+
+        $lectures = (new LecturesService($this->dbContext))->getLectures($id);
+
+        $conferenceView->setVenue($venue);
+        $conferenceView->setOwner($owner);
+        $conferenceView->setLectures($lectures);
+
+        $viewBag = [];
+        $viewBag['visits'] = $this->dbContext->getLecturesusersRepository()
+            ->filterByUserId(" = '$loggedUserId'")->findAll()->getLecturesusers();
+
+        return new View('Conference', 'Details', $conferenceView, $viewBag);
+    }
+
     /**
      * @Authorize
      */
