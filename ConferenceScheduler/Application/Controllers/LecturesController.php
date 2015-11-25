@@ -93,22 +93,24 @@ class LecturesController extends BaseController
                 ->findAll()->getLectures();
 
             foreach ($conferenceLectures as $confLecture) {
-                if (strtotime($model->getStartDate()) <= strtotime($confLecture->getStart())
-                    && strtotime($model ->getEndDate()) >= strtotime($confLecture->getStart())){
-                    $this->addErrorMessage('The lecture is during other once check the times!');
-                    $this->redirectToUrl('/Conference/' . $conferenceId . '/Add/Lecture');
-                }
+                if(intval($confLecture->getHallId()) == intval($model->getHallId())){
+                    if (strtotime($model->getStartDate()) <= strtotime($confLecture->getStart())
+                        && strtotime($model ->getEndDate()) >= strtotime($confLecture->getStart())){
+                        $this->addErrorMessage('The hall is busy during this time!');
+                        $this->redirectToUrl('/Conference/' . $conferenceId . '/Add/Lecture');
+                    }
 
-                if(strtotime($model->getStartDate()) <= strtotime($confLecture->getEnd())
-                    && strtotime($model->getEndDate()) >= strtotime($confLecture->getEnd())){
-                    $this->addErrorMessage('The lecture is during other once check the times!');
-                    $this->redirectToUrl('/Conference/' . $conferenceId . '/Add/Lecture');
-                }
+                    if(strtotime($model->getStartDate()) <= strtotime($confLecture->getEnd())
+                        && strtotime($model->getEndDate()) >= strtotime($confLecture->getEnd())){
+                        $this->addErrorMessage('The hall is busy during this time!');
+                        $this->redirectToUrl('/Conference/' . $conferenceId . '/Add/Lecture');
+                    }
 
-                if(strtotime($model->getStartDate()) >= strtotime($confLecture->getStart())
-                    && strtotime($model->getEndDate()) <= strtotime($confLecture->getEnd())){
-                    $this->addErrorMessage('The lecture is during other once check the times!');
-                    $this->redirectToUrl('/Conference/' . $conferenceId . '/Add/Lecture');
+                    if(strtotime($model->getStartDate()) >= strtotime($confLecture->getStart())
+                        && strtotime($model->getEndDate()) <= strtotime($confLecture->getEnd())){
+                        $this->addErrorMessage('The lecture is during other once check the times!');
+                        $this->redirectToUrl('/Conference/' . $conferenceId . '/Add/Lecture');
+                    }
                 }
             }
 
@@ -176,23 +178,25 @@ class LecturesController extends BaseController
                 ->findAll()->getLectures();
 
             foreach ($conferenceLectures as $confLecture) {
-                if(intval($confLecture->getId()) !== intval($lectureId)){
-                    if (strtotime($model->getStartDate()) <= strtotime($confLecture->getStart())
-                        && strtotime($model ->getEndDate()) >= strtotime($confLecture->getStart())){
-                        $this->addErrorMessage('The lecture is during other once check the times!');
-                        $this->redirectToUrl('/Lecture/' . $lectureId . '/Manage');
-                    }
+                if(intval($confLecture->getHallId()) == intval($model->getHallId())){
+                    if(intval($confLecture->getId()) !== intval($lectureId)){
+                        if (strtotime($model->getStartDate()) <= strtotime($confLecture->getStart())
+                            && strtotime($model ->getEndDate()) >= strtotime($confLecture->getStart())){
+                            $this->addErrorMessage('The hall is busy during this time span!');
+                            $this->redirectToUrl('/Lecture/' . $lectureId . '/Manage');
+                        }
 
-                    if(strtotime($model->getStartDate()) <= strtotime($confLecture->getEnd())
-                        && strtotime($model->getEndDate()) >= strtotime($confLecture->getEnd())){
-                        $this->addErrorMessage('The lecture is during other once check the times!');
-                        $this->redirectToUrl('/Lecture/' . $lectureId . '/Manage');
-                    }
+                        if(strtotime($model->getStartDate()) <= strtotime($confLecture->getEnd())
+                            && strtotime($model->getEndDate()) >= strtotime($confLecture->getEnd())){
+                            $this->addErrorMessage('The hall is busy during this time span!');
+                            $this->redirectToUrl('/Lecture/' . $lectureId . '/Manage');
+                        }
 
-                    if(strtotime($model->getStartDate()) >= strtotime($confLecture->getStart())
-                        && strtotime($model->getEndDate()) <= strtotime($confLecture->getEnd())){
-                        $this->addErrorMessage('The lecture is during other once check the times!');
-                        $this->redirectToUrl('/Lecture/' . $lectureId . '/Manage');
+                        if(strtotime($model->getStartDate()) >= strtotime($confLecture->getStart())
+                            && strtotime($model->getEndDate()) <= strtotime($confLecture->getEnd())){
+                            $this->addErrorMessage('The lecture is during other once check the times!');
+                            $this->redirectToUrl('/Lecture/' . $lectureId . '/Manage');
+                        }
                     }
                 }
             }

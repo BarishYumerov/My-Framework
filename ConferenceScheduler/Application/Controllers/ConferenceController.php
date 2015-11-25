@@ -26,6 +26,34 @@ class ConferenceController extends BaseController
                 return new View('conference', 'create', $model, $viewBag);
             }
 
+            $venueId = intval($model->getVenueId());
+
+            $conferences = $this->dbContext->getConferencesRepository()
+                ->filterByVenueId(" = '$venueId'")->findAll()->getConferences();
+
+            foreach ($conferences as $conf) {
+                if (strtotime($model->getStartDate()) <= strtotime($conf->getStart())
+                    && strtotime($model ->getEndDate()) >= strtotime($conf->getStart())){
+                    $this->addErrorMessage('The venue is busy during this time span!');
+                    $this->context->setMethod('get');
+                    return new View('conference', 'create', $model, $viewBag);
+                }
+
+                if(strtotime($model->getStartDate()) <= strtotime($conf->getEnd())
+                    && strtotime($model->getEndDate()) >= strtotime($conf->getEnd())){
+                    $this->addErrorMessage('The venue is busy during this time span!');
+                    $this->context->setMethod('get');
+                    return new View('conference', 'create', $model, $viewBag);
+                }
+
+                if(strtotime($model->getStartDate()) >= strtotime($conf->getStart())
+                    && strtotime($model->getEndDate()) <= strtotime($conf->getEnd())){
+                    $this->addErrorMessage('The venue is during other once check the times!');
+                    $this->context->setMethod('get');
+                    return new View('conference', 'create', $model, $viewBag);
+                }
+            }
+
             $conference = new Conference(
                 $model->getTitle(),
                 $model->getVenueId(),
@@ -83,15 +111,45 @@ class ConferenceController extends BaseController
                 return new View('Conference', 'Edit', $model, $viewBag);
             }
 
+            $venueId = intval($model->getVenueId());
+
+            $conferences = $this->dbContext->getConferencesRepository()
+                ->filterByVenueId(" = '$venueId'")->findAll()->getConferences();
+
+            foreach ($conferences as $conf) {
+                if(intval($conf->getId()) !== intval($id)){
+                    if (strtotime($model->getStartDate()) < strtotime($conf->getStart())
+                        && strtotime($model ->getEndDate()) > strtotime($conf->getStart())){
+                        $this->addErrorMessage('The venue is busy during this time span!');
+                        $this->context->setMethod('get');
+                        return new View('Conference', 'Edit', $model, $viewBag);
+                    }
+
+                    if(strtotime($model->getStartDate()) < strtotime($conf->getEnd())
+                        && strtotime($model->getEndDate()) > strtotime($conf->getEnd())){
+                        $this->addErrorMessage('The venue is busy during this time span!');
+                        $this->context->setMethod('get');
+                        return new View('Conference', 'Edit', $model, $viewBag);
+                    }
+
+                    if(strtotime($model->getStartDate()) > strtotime($conf->getStart())
+                        && strtotime($model->getEndDate()) < strtotime($conf->getEnd())){
+                        $this->addErrorMessage('The venue is during other once check the times!');
+                        $this->context->setMethod('get');
+                        return new View('Conference', 'Edit', $model, $viewBag);
+                    }
+                }
+            }
+            $conference = $service->getOne($id);
+
             $conference->setName($model->getTitle());
             $conference->setVenueId($model->getVenueId());
             $conference->setEnd($model->getEndDate());
             $conference->setStart($model->getStartDate());
             $this->dbContext->saveChanges();
 
-            $this->redirect('Me', "Conferences");
+//            $this->redirect("Me", "Conferences");
         }
-
         $model = new ConferenceBindingModel($conference);
         return new View('Conference', 'Edit', $model, $viewBag);
     }

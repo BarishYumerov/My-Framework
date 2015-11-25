@@ -22,7 +22,7 @@
             <select id="hall" name="hallId" class="form-control" >
                 <?php foreach($this->getViewBag()['halls'] as $hall) : ?>
                     <option value="<?php echo $hall->getId() ?>"
-                            <?php if(intval($hall->getId()) == $model->getId())
+                            <?php if(intval($hall->getId()) == $model->getHall()->getId())
                                 echo 'selected="true"' ?>class=form-control">
                         <?php echo $hall->getName() ?>
                     </option>
