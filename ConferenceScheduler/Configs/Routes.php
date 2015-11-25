@@ -1,7 +1,7 @@
 <?php 
 namespace ConferenceScheduler\Configs; 
 class Routes { 
-	 public static $lastCheck = '2015-11-25 21:17:06';
+	 public static $lastCheck = '2015-11-25 21:37:48';
 
 	 public static $ROUTES = [ 
 		 [ 
@@ -112,6 +112,15 @@ class Routes {
 			 ]
 		 ], 
 		 [ 
+			 'controller' => 'ConferenceScheduler\Application\Controllers\LecturesController',
+			 'action' => 'notVisit',
+			 'route' => 'lecture/{int id}/notvisit',
+			 'annotations' => [
+				'route' => 'lecture/{int id}/notvisit',
+				'authorize' => '1',
+			 ]
+		 ], 
+		 [ 
 			 'controller' => 'ConferenceScheduler\Application\Areas\Admin\Controllers\AdminController',
 			 'action' => 'index',
 			 'route' => 'admin/KillThemAll',
@@ -210,13 +219,6 @@ class Routes {
 		 ], 
 		 [ 
 			 'controller' => 'ConferenceScheduler\Application\Controllers\LecturesController',
-			 'action' => 'getAll',
-			 'route' => 'lectures/getAll',
-			 'annotations' => [
-			 ]
-		 ], 
-		 [ 
-			 'controller' => 'ConferenceScheduler\Application\Controllers\LecturesController',
 			 'action' => 'manage',
 			 'route' => 'lectures/manage',
 			 'annotations' => [
@@ -266,6 +268,15 @@ class Routes {
 			 'route' => 'lectures/addVisit',
 			 'annotations' => [
 				'route' => 'lecture/{int id}/visit',
+				'authorize' => '1',
+			 ]
+		 ], 
+		 [ 
+			 'controller' => 'ConferenceScheduler\Application\Controllers\LecturesController',
+			 'action' => 'notVisit',
+			 'route' => 'lectures/notVisit',
+			 'annotations' => [
+				'route' => 'lecture/{int id}/notvisit',
 				'authorize' => '1',
 			 ]
 		 ], 

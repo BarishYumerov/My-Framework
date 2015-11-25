@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2800c4d0-2266-44b7-8f0a-8462eb871835" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Application/Models/Conference/DetailedConferenceViewModel.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Application/Views/Conference/Details.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Controllers/ConferenceController.php" afterPath="$PROJECT_DIR$/Application/Controllers/ConferenceController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Views/Home/Index.php" afterPath="$PROJECT_DIR$/Application/Views/Home/Index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Views/Conference/Details.php" afterPath="$PROJECT_DIR$/Application/Views/Conference/Details.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Controllers/LecturesController.php" afterPath="$PROJECT_DIR$/Application/Controllers/LecturesController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Configs/Routes.php" afterPath="$PROJECT_DIR$/Configs/Routes.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -30,65 +27,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ConferenceController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Application/Controllers/ConferenceController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.70071685">
-              <caret line="46" column="5" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Details.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Application/Views/Conference/Details.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.961538">
-              <caret line="40" column="63" selection-start-line="40" selection-start-column="63" selection-end-line="40" selection-end-column="63" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h4#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h4#1;n#div#1;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Lecturesuser.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Models/Lecturesuser.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.8076925">
-              <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LectureViewModel.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Application/Models/Lecture/LectureViewModel.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.8076925">
-              <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="View.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/View.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.1538463">
-              <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LecturesController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="LecturesController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Application/Controllers/LecturesController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.038462">
-              <caret line="317" column="52" selection-start-line="317" selection-start-column="52" selection-end-line="317" selection-end-column="52" />
+            <state vertical-scroll-proportion="0.32078853">
+              <caret line="316" column="50" selection-start-line="316" selection-start-column="50" selection-end-line="316" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -158,9 +101,9 @@
         <option value="$PROJECT_DIR$/Application/Views/Lectures/Edit.php" />
         <option value="$PROJECT_DIR$/Application/Views/Home/Index.php" />
         <option value="$PROJECT_DIR$/Application/Models/Conference/DetailedConferenceViewModel.php" />
-        <option value="$PROJECT_DIR$/Application/Controllers/LecturesController.php" />
         <option value="$PROJECT_DIR$/Application/Controllers/ConferenceController.php" />
         <option value="$PROJECT_DIR$/Application/Views/Conference/Details.php" />
+        <option value="$PROJECT_DIR$/Application/Controllers/LecturesController.php" />
       </list>
     </option>
   </component>
@@ -237,6 +180,46 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ConferenceScheduler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ConferenceScheduler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ConferenceScheduler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ConferenceScheduler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Hall" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -394,13 +377,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Models/Venue.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.807693">
-          <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Repositories/venuesRepository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.8461537">
@@ -535,13 +511,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-9.807693">
           <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Models/Hall/HallViewModel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.461538">
-          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -739,14 +708,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Controllers/LecturesController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.038462">
-          <caret line="317" column="52" selection-start-line="317" selection-start-column="52" selection-end-line="317" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Application/Models/Lecture/LectureViewModel.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.8076925">
@@ -763,10 +724,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Controllers/ConferenceController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.153846">
+          <caret line="19" column="41" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Application/Views/Conference/Details.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.961538">
-          <caret line="40" column="63" selection-start-line="40" selection-start-column="63" selection-end-line="40" selection-end-column="63" />
+        <state vertical-scroll-proportion="-11.653846">
+          <caret line="38" column="21" selection-start-line="38" selection-start-column="21" selection-end-line="38" selection-end-column="21" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#h4#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
@@ -775,10 +744,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Controllers/ConferenceController.php">
+    <entry file="file://$PROJECT_DIR$/Repositories/lecturesusersRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.70071685">
-          <caret line="46" column="5" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.34767026">
+          <caret line="183" column="20" selection-start-line="183" selection-start-column="20" selection-end-line="183" selection-end-column="20" />
+          <folding>
+            <marker date="1448483784607" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..lecturesusers$..." />
+            <marker date="1448483784607" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..lecturesusers$..." />
+            <marker date="1448483784607" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1448483784607" expanded="true" signature="-1:-1" placeholder="UPDATE lectu..." />
+            <marker date="1448483784607" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Models/Hall/HallViewModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.1272402">
+          <caret line="37" column="36" selection-start-line="37" selection-start-column="20" selection-end-line="37" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Controllers/LecturesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.32078853">
+          <caret line="316" column="50" selection-start-line="316" selection-start-column="50" selection-end-line="316" selection-end-column="50" />
           <folding />
         </state>
       </provider>

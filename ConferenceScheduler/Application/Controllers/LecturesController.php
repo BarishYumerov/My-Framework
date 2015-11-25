@@ -14,10 +14,6 @@ use ConferenceScheduler\View;
 
 class LecturesController extends BaseController
 {
-    public function getAll(){
-
-    }
-
     /**
      * @Authorize
      * @Route("Conference/{int id}/Lectures/Manage")
@@ -312,10 +308,17 @@ class LecturesController extends BaseController
         $lectureId = intval(func_get_args()[0]);
         $lecture = $this->dbContext->getLecturesRepository()->filterById(" = '$lectureId'")->findOne();
 
-        $joinedMembersNumber = intval((new LecturesService($this->dbContext))->getOne($lectureId)->getLectureJoinedMembers());
-        var_dump($joinedMembersNumber);
-
         $conferenceId = $lecture->getConferenceId();
+
+        $lectureFullInfo = (new LecturesService($this->dbContext))->getOne($lectureId);
+        $joinedMembersNumber = intval($lectureFullInfo->getLectureJoinedMembers());
+        $hallMembers = intval($lectureFullInfo->getHall()->getMaxHallPlaces());
+
+        if($joinedMembersNumber === $hallMembers){
+            $this->addErrorMessage('Lecture is full!');
+            $this->redirectToUrl("/Conference/$conferenceId/Details");
+        }
+
 
         $myVisits = $this->dbContext->getLecturesusersRepository()
             ->filterByUserId(" = '$loggedUserId'")->findAll()->getLecturesusers();
@@ -353,6 +356,37 @@ class LecturesController extends BaseController
 
         $this->addInfoMessage('You have joined this lecture!');
 
+        $this->redirect('home');
+    }
+
+    /**
+     * @Authorize
+     * @Route("Lecture/{int id}/NotVisit")
+     */
+    public function notVisit(){
+        $loggedUserId = $this->identity->getUserId();
+        $lectureId = intval(func_get_args()[0]);
+
+        $visit = $this->dbContext->getLecturesusersRepository()
+            ->filterByUserId(" = '$loggedUserId'")
+            ->filterByLectureId(" = $lectureId")
+            ->findOne();
+
+        if(!$visit->getId()){
+            $this->addErrorMessage("You cannot remove not visited lecture!");
+            $this->redirect('home');
+        }
+
+        if($visit->getUserId() != intval($visit->getUserId())){
+            $this->addErrorMessage("You cannot remove other people visits!");
+            $this->redirect('home');
+        }
+
+        $this->dbContext->getLecturesusersRepository()
+            ->filterByUserId(" = '$loggedUserId'")
+            ->filterByLectureId(" = $lectureId")->delete();
+
+        $this->dbContext->saveChanges();
         $this->redirect('home');
     }
 }

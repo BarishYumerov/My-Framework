@@ -38,7 +38,7 @@
                         }
                     }
                     if($hasVisited){
-                        echo "<a class=\"btn btn-danger btn-xs\">Not Visit</a>";
+                        echo "<a href='/Lecture/$lectureId/NotVisit' class=\"btn btn-danger btn-xs\">Not Visit</a>";
                     }
                     else{
                         echo "<a href='/Lecture/$lectureId/Visit' class=\"btn btn-success btn-xs\">Must Visit</a>";
