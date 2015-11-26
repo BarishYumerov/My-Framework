@@ -1,9 +1,27 @@
 <?php 
 namespace ConferenceScheduler\Configs; 
 class Routes { 
-	 public static $lastCheck = '2015-11-25 22:28:24';
+	 public static $lastCheck = '2015-11-26 20:53:01';
 
 	 public static $ROUTES = [ 
+		 [ 
+			 'controller' => 'ConferenceScheduler\Application\Controllers\ConferenceController',
+			 'action' => 'remove',
+			 'route' => 'conference/{int id}/remove/admin/{int id}',
+			 'annotations' => [
+				'route' => 'conference/{int id}/remove/admin/{int id}',
+				'authorize' => '1',
+			 ]
+		 ], 
+		 [ 
+			 'controller' => 'ConferenceScheduler\Application\Controllers\ConferenceController',
+			 'action' => 'admins',
+			 'route' => 'conference/{int id}/admins/manage',
+			 'annotations' => [
+				'route' => 'conference/{int id}/admins/manage',
+				'authorize' => '1',
+			 ]
+		 ], 
 		 [ 
 			 'controller' => 'ConferenceScheduler\Application\Controllers\ConferenceController',
 			 'action' => 'details',
@@ -156,6 +174,24 @@ class Routes {
 			 'action' => 'logout',
 			 'route' => 'account/logout',
 			 'annotations' => [
+			 ]
+		 ], 
+		 [ 
+			 'controller' => 'ConferenceScheduler\Application\Controllers\ConferenceController',
+			 'action' => 'remove',
+			 'route' => 'conference/remove',
+			 'annotations' => [
+				'route' => 'conference/{int id}/remove/admin/{int id}',
+				'authorize' => '1',
+			 ]
+		 ], 
+		 [ 
+			 'controller' => 'ConferenceScheduler\Application\Controllers\ConferenceController',
+			 'action' => 'admins',
+			 'route' => 'conference/admins',
+			 'annotations' => [
+				'route' => 'conference/{int id}/admins/manage',
+				'authorize' => '1',
 			 ]
 		 ], 
 		 [ 

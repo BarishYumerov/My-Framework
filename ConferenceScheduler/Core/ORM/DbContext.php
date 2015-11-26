@@ -4,7 +4,8 @@ namespace ConferenceScheduler\Core\ORM;
 
 class DbContext
 {
-private $conferencesRepository;
+private $conferenceadminsRepository;
+	private $conferencesRepository;
 	private $hallsRepository;
 	private $lecturesRepository;
 	private $lecturesspeakersRepository;
@@ -19,7 +20,8 @@ private $repositories = [];
 
 public function __construct()
     {
-        $this->conferencesRepository = \ConferenceScheduler\Repositories\ConferencesRepository::create();
+        $this->conferenceadminsRepository = \ConferenceScheduler\Repositories\ConferenceadminsRepository::create();
+		$this->conferencesRepository = \ConferenceScheduler\Repositories\ConferencesRepository::create();
 		$this->hallsRepository = \ConferenceScheduler\Repositories\HallsRepository::create();
 		$this->lecturesRepository = \ConferenceScheduler\Repositories\LecturesRepository::create();
 		$this->lecturesspeakersRepository = \ConferenceScheduler\Repositories\LecturesspeakersRepository::create();
@@ -30,7 +32,8 @@ public function __construct()
 		$this->usersrolesRepository = \ConferenceScheduler\Repositories\UsersrolesRepository::create();
 		$this->venuesRepository = \ConferenceScheduler\Repositories\VenuesRepository::create();
 
-        $this->repositories[] = $this->conferencesRepository;
+        $this->repositories[] = $this->conferenceadminsRepository;
+		$this->repositories[] = $this->conferencesRepository;
 		$this->repositories[] = $this->hallsRepository;
 		$this->repositories[] = $this->lecturesRepository;
 		$this->repositories[] = $this->lecturesspeakersRepository;
@@ -43,6 +46,14 @@ public function __construct()
     }
 
         /**
+     * @return \ConferenceScheduler\Repositories\ConferenceadminsRepository
+     */
+    public function getConferenceadminsRepository()
+    {
+        return $this->conferenceadminsRepository;
+    }
+
+    /**
      * @return \ConferenceScheduler\Repositories\ConferencesRepository
      */
     public function getConferencesRepository()
@@ -123,6 +134,16 @@ public function __construct()
     }
 
         /**
+     * @param mixed $conferenceadminsRepository
+     * @return $this
+     */
+    public function setConferenceadminsRepository($conferenceadminsRepository)
+    {
+        $this->conferenceadminsRepository = $conferenceadminsRepository;
+        return $this;
+    }
+
+    /**
      * @param mixed $conferencesRepository
      * @return $this
      */

@@ -2,15 +2,133 @@
 
 namespace ConferenceScheduler\Application\Controllers;
 
+use ConferenceScheduler\Application\Models\Account\AccountViewModel;
 use ConferenceScheduler\Application\Models\Conference\ConferenceBindingModel;
 use ConferenceScheduler\Application\Models\Conference\DetailedConferenceViewModel;
 use ConferenceScheduler\Application\Services\ConferenceService;
 use ConferenceScheduler\Application\Services\LecturesService;
 use ConferenceScheduler\Models\Conference;
+use ConferenceScheduler\Models\Conferenceadmin;
 use ConferenceScheduler\View;
 
 class ConferenceController extends BaseController
 {
+    /**
+     * @Authorize
+     * @Route("Conference/{int id}/Remove/Admin/{int id}")
+     */
+    public function remove(){
+        $confId = intval(func_get_args()[0]);
+        $userId = intval(func_get_args()[1]);
+
+        $loggedUserId = $this->identity->getUserId();
+
+        $conference = $this->dbContext->getConferencesRepository()->filterById(" = '$confId'")->findOne();
+
+        if(!$conference->getId()){
+            $this->addErrorMessage('No such conference!');
+            $this->redirect('Me', 'Conferences');
+        }
+
+        if(intval($conference->getOwnerId()) !== $loggedUserId){
+            $this->addErrorMessage('You are not allowed to edit this conference!');
+            $this->redirect('Me', 'Conferences');
+        }
+
+        $user = $this->dbContext->getUsersRepository()
+            ->filterById(" = '$userId'")->findOne();
+
+        if(!$user->getId()){
+            $this->addErrorMessage('No such user!');
+            $this->redirectToUrl("/Conference/$confId/Admins/Manage");
+        }
+
+        $this->dbContext->getConferenceadminsRepository()
+            ->filterByConferenceId(" = '$confId'")
+            ->filterByUserId(" = '$userId'")->delete();
+
+        $this->dbContext->saveChanges();
+        $this->redirectToUrl("/Conference/$confId/Admins/Manage");
+    }
+
+    /**
+     * @Authorize
+     * @Route("Conference/{int id}/Admins/Manage")
+     */
+    public function admins(){
+        $id = intval(func_get_args()[0]);
+        $loggedUserId = $this->identity->getUserId();
+
+        $conference = $this->dbContext->getConferencesRepository()->filterById(" = '$id'")->findOne();
+
+        if(!$conference->getId()){
+            $this->addErrorMessage('No such conference!');
+            $this->redirect('Me', 'Conferences');
+        }
+
+        if(intval($conference->getOwnerId()) !== $loggedUserId){
+            $this->addErrorMessage('You are not allowed to edit this conference!');
+            $this->redirect('Me', 'Conferences');
+        }
+
+        if($this->context->isPost()){
+            $user = $this->context->post('username');
+
+            $user = $this->dbContext->getUsersRepository()
+                ->filterByUsername(" = '$user'")->findOne();
+
+            if(!$user->getId()){
+                $this->addErrorMessage('No such user!');
+                $this->redirectToUrl("/Conference/$id/Admins/Manage");
+            }
+
+            if(intval($user->getId()) === $loggedUserId){
+                $this->addErrorMessage('You cannot add yourself as an admin!!');
+                $this->redirectToUrl("/Conference/$id/Admins/Manage");
+            }
+
+            $admins = $this->dbContext->getConferenceadminsRepository()
+                ->filterByConferenceId(" = '$id'")->findAll()->getConferenceadmins();
+
+            foreach ($admins as $admin) {
+                if($admin->getUserId() == $user->getId()){
+                    $this->addErrorMessage('This user is already an Admin!');
+                    $this->redirectToUrl("/Conference/$id/Admins/Manage");
+                }
+            }
+
+            $confAdmin = new Conferenceadmin(intval($user->getId()), $id);
+
+            $this->dbContext->getConferenceadminsRepository()->add($confAdmin);
+
+            $this->dbContext->saveChanges();
+            $this->addInfoMessage('User have been added to admins!');
+            $this->redirectToUrl("/Conference/$id/Admins/Manage");
+        }
+
+        $admins = $this->dbContext->getConferenceadminsRepository()
+            ->filterByConferenceId(" = '$id'")->findAll()->getConferenceadmins();
+
+        $usersFromDb = [];
+
+        foreach ($admins as $admin) {
+            $userId = intval($admin->getUserId());
+            $usersFromDb[] = $this->dbContext->getUsersRepository()
+                ->filterById(" = '$userId'")->findOne();
+        }
+
+        $model = [];
+
+        foreach ($usersFromDb as $admin) {
+            $model[] = new AccountViewModel($admin);
+        }
+
+        $viewBag = [];
+        $viewBag['conferenceId'] = $id;
+
+        return new View('Conference', 'Admins', $model, $viewBag);
+    }
+
     /**
      * @Route("Conference/{int id}/Details")
      */
