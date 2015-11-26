@@ -25,6 +25,7 @@
                     <li> <a href="/Me/Schedule">My Schedule</a></li>
                     <li> <a href="/Conference/Create">New Conference</a></li>
                     <li> <a href="/Me/Conferences">My Conferences</a></li>
+                    <li> <a href="/Me/Conferences/Admin">My Admin</a></li>
                    <?php if(\ConferenceScheduler\Core\HttpContext\HttpContext::getInstance()->session('hasInvites')){
                         echo '<li> <a style="color:red" href="/Me/Invites">Speaker Invites</a></li>';
                     }

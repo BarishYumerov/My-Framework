@@ -67,6 +67,7 @@ class ConferenceController extends BaseController
         }
 
         if(intval($conference->getOwnerId()) !== $loggedUserId){
+
             $this->addErrorMessage('You are not allowed to edit this conference!');
             $this->redirect('Me', 'Conferences');
         }
@@ -238,6 +239,17 @@ class ConferenceController extends BaseController
 
     /**
      * @Authorize
+     * @Route("Me/Conferences/Admin")
+     */
+    public function myAdmin(){
+        $service = new ConferenceService($this->dbContext);
+        $conferences = $service->myAdminConferences();
+
+        return new View('Conference', 'myAdmin', $conferences);
+    }
+
+    /**
+     * @Authorize
      * @Route("Conference/{int id}/Edit")
      */
     public function edit(){
@@ -249,9 +261,22 @@ class ConferenceController extends BaseController
         $conference = $service->getOne($id);
         $loggedUserId = $this->identity->getUserId();
 
+        $conferenceAdmins = $this->dbContext->getConferenceadminsRepository()
+            ->filterByConferenceId(" = '$id'")->findAll()->getConferenceadmins();
+
         if($loggedUserId !== intval($conference->getOwnerId())){
-            $this->addErrorMessage("You are not the owner of this conference!");
-            $this->redirect('Me', 'Conferences');
+            $unauthorized = true;
+            foreach ($conferenceAdmins as $admin) {
+                 if(intval($admin->getUserId()) === $loggedUserId ){
+                     $unauthorized = false;
+                     $viewBag['isAdmin'] = true;
+                     break;
+                 }
+            }
+            if($unauthorized){
+                $this->addErrorMessage("You are not the owner of this conference!");
+                $this->redirect('Me', 'Conferences');
+            }
         }
 
         if($this->context->isPost()){
@@ -298,7 +323,9 @@ class ConferenceController extends BaseController
             $conference = $service->getOne($id);
 
             $conference->setName($model->getTitle());
-            $conference->setVenueId($model->getVenueId());
+            if($model->getVenueId()){
+                $conference->setVenueId($model->getVenueId());
+            }
             $conference->setEnd($model->getEndDate());
             $conference->setStart($model->getStartDate());
             $this->dbContext->saveChanges();

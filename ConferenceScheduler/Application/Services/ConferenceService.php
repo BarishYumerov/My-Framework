@@ -68,4 +68,40 @@ class ConferenceService extends BaseService
 
         return $conferenceViewModels;
     }
+
+    public function myAdminConferences(){
+        $loggedInUserId = $this->context->session('userId');
+
+        $myAdminConferences = $this->dbContext->getConferenceadminsRepository()
+            ->filterByUserId(" = '$loggedInUserId'")->findAll()->getConferenceadmins();
+
+        $conferences = [];
+
+        foreach ($myAdminConferences as $conf) {
+            $id = intval($conf->getConferenceId());
+            $conferences[] = $this->dbContext->getConferencesRepository()->filterById(" = '$id'")->findOne();
+        }
+
+        $conferenceViewModels = [];
+        foreach ($conferences as $conference) {
+            $venueId = $conference->getVenueId();
+            $venue = $this->dbContext->getVenuesRepository()
+                ->filterById(" = $venueId")
+                ->findOne()
+                ->getName();
+            $ownerId = $conference->getOwnerId();
+            $owner = $this->dbContext->getUsersRepository()
+                ->filterById(" = $ownerId")
+                ->findOne()
+                ->getUsername();
+
+            $model = new ConferenceViewModel($conference);
+
+            $model->setVenue($venue);
+            $model->setOwner($owner);
+            $conferenceViewModels[] = $model;
+        }
+
+        return $conferenceViewModels;
+    }
 }

@@ -1,7 +1,7 @@
 <?php 
 namespace ConferenceScheduler\Configs; 
 class Routes { 
-	 public static $lastCheck = '2015-11-26 20:53:01';
+	 public static $lastCheck = '2015-11-26 22:16:39';
 
 	 public static $ROUTES = [ 
 		 [ 
@@ -36,6 +36,15 @@ class Routes {
 			 'route' => 'me/conferences',
 			 'annotations' => [
 				'route' => 'me/conferences',
+				'authorize' => '1',
+			 ]
+		 ], 
+		 [ 
+			 'controller' => 'ConferenceScheduler\Application\Controllers\ConferenceController',
+			 'action' => 'myAdmin',
+			 'route' => 'me/conferences/admin',
+			 'annotations' => [
+				'route' => 'me/conferences/admin',
 				'authorize' => '1',
 			 ]
 		 ], 
@@ -216,6 +225,15 @@ class Routes {
 			 'route' => 'conference/myConferences',
 			 'annotations' => [
 				'route' => 'me/conferences',
+				'authorize' => '1',
+			 ]
+		 ], 
+		 [ 
+			 'controller' => 'ConferenceScheduler\Application\Controllers\ConferenceController',
+			 'action' => 'myAdmin',
+			 'route' => 'conference/myAdmin',
+			 'annotations' => [
+				'route' => 'me/conferences/admin',
 				'authorize' => '1',
 			 ]
 		 ], 

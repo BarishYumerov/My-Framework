@@ -21,19 +21,20 @@
             <label for="endDate">End Date: </label>
             <input type="datetime" id="endDate" value="<?php echo $model->getEndDate(); ?>" name="endDate" class="form-control" />
         </div>
-
-        <div class="form-group">
-            <label for="venue">Venue: </label>
-            <select id="venue" name="venueId" class="form-control" >
-                <?php foreach($this->getViewBag()['venues'] as $venue) : ?>
-                    <option value="<?php echo $venue->getId() ?>"
-                            <?php if(intval($venue->getId()) == $model->getVenueId())
-                            echo 'selected="true"' ?>class=form-control">
-                        <?php echo $venue->getName() ?>
-                    </option>
-                <?php endforeach ?>
-            </select>
-        </div>
+        <?php if(!array_key_exists ( 'isAdmin' , $this->getViewBag())) : ?>
+            <div class="form-group">
+                <label for="venue">Venue: </label>
+                <select id="venue" name="venueId" class="form-control" >
+                    <?php foreach($this->getViewBag()['venues'] as $venue) : ?>
+                        <option value="<?php echo $venue->getId() ?>"
+                                <?php if(intval($venue->getId()) == $model->getVenueId())
+                                echo 'selected="true"' ?>class=form-control">
+                            <?php echo $venue->getName() ?>
+                        </option>
+                    <?php endforeach ?>
+                </select>
+            </div>
+        <?php endif; ?>
 
         <input type="submit" class="btn btn-default" value="Edit" />
     </form>

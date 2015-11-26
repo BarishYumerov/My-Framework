@@ -16,19 +16,20 @@
             <label for="end">End Time: </label>
             <input type="datetime" id="end" value="<?php echo $model->getEndDate(); ?>" name="endDate" class="form-control" />
         </div>
-
-        <div class="form-group">
-            <label for="hall">Hall: </label>
-            <select id="hall" name="hallId" class="form-control" >
-                <?php foreach($this->getViewBag()['halls'] as $hall) : ?>
-                    <option value="<?php echo $hall->getId() ?>"
-                            <?php if(intval($hall->getId()) == $model->getHall()->getId())
-                                echo 'selected="true"' ?>class=form-control">
-                        <?php echo $hall->getName() ?>
-                    </option>
-                <?php endforeach ?>
-            </select>
-        </div>
+        <?php if(!array_key_exists ( 'isAdmin' , $this->getViewBag())) : ?>
+            <div class="form-group">
+                <label for="hall">Hall: </label>
+                <select id="hall" name="hallId" class="form-control" >
+                    <?php foreach($this->getViewBag()['halls'] as $hall) : ?>
+                        <option value="<?php echo $hall->getId() ?>"
+                                <?php if(intval($hall->getId()) == $model->getHall()->getId())
+                                    echo 'selected="true"' ?>class=form-control">
+                            <?php echo $hall->getName() ?>
+                        </option>
+                    <?php endforeach ?>
+                </select>
+            </div>
+        <?php endif ?>
 
         <?php if($model->getSpeakers()) : ?>
             <div>

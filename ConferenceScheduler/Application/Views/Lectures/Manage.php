@@ -1,10 +1,12 @@
 <?php /** @model = LectureViewModel */?>
 <div  style="padding: 30px; margin-left: 7%;" class="col-lg-12">
     <?php if(count($model) > 0) : ?>
-        <h1 style="margin-bottom: 3%;">Conference Lectures:<br/>
-            <a class="btn btn-success row" href="/Conference/<?php echo $this->getViewBag()['conferenceId'] ?>/Add/Lecture">
-                Add Lecture</a>
-        </h1>
+        <?php if(!array_key_exists ( 'isAdmin' , $this->getViewBag())) : ?>
+            <h1 style="margin-bottom: 3%;">Conference Lectures:<br/>
+                <a class="btn btn-success row" href="/Conference/<?php echo $this->getViewBag()['conferenceId'] ?>/Add/Lecture">
+                    Add Lecture</a>
+            </h1>
+        <?php endif ?>
         <?php foreach($model as $lecture): ?>
             <div class="thumbnail col-lg-3" style="background: #333; padding: 10px; margin-right: 20px;">
                 <h3 style="color: #00bc8c">Title: <?php echo $lecture->getName()?></h3>
