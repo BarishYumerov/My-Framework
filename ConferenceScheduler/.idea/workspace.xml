@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2800c4d0-2266-44b7-8f0a-8462eb871835" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Application/Views/Conference/myAdmin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Controllers/ConferenceController.php" afterPath="$PROJECT_DIR$/Application/Controllers/ConferenceController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Services/ConferenceService.php" afterPath="$PROJECT_DIR$/Application/Services/ConferenceService.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Views/Conference/Edit.php" afterPath="$PROJECT_DIR$/Application/Views/Conference/Edit.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Views/Lectures/Edit.php" afterPath="$PROJECT_DIR$/Application/Views/Lectures/Edit.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Controllers/LecturesController.php" afterPath="$PROJECT_DIR$/Application/Controllers/LecturesController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Views/Lectures/Manage.php" afterPath="$PROJECT_DIR$/Application/Views/Lectures/Manage.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Configs/Routes.php" afterPath="$PROJECT_DIR$/Configs/Routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Views/Layouts/Default/header.php" afterPath="$PROJECT_DIR$/Application/Views/Layouts/Default/header.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ConferenceScheduler.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -46,8 +38,8 @@
       <file leaf-file-name="Manage.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Application/Views/Lectures/Manage.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.65384614">
-              <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+            <state vertical-scroll-proportion="-1.3076923">
+              <caret line="2" column="36" selection-start-line="2" selection-start-column="36" selection-end-line="3" selection-end-column="75" />
               <folding>
                 <element signature="n#style#0;n#h1#1;n#div#0;n#!!top" expanded="true" />
                 <marker date="1448572332106" expanded="false" signature="242:260" placeholder="..." />
@@ -65,8 +57,8 @@
       <file leaf-file-name="Edit.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Application/Views/Conference/Edit.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7419355">
-              <caret line="36" column="23" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.2437276">
+              <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="9" selection-end-column="126" />
               <folding />
             </state>
           </provider>
@@ -133,12 +125,12 @@
         <option value="$PROJECT_DIR$/Application/Views/Layouts/Default/header.php" />
         <option value="$PROJECT_DIR$/Application/Services/ConferenceService.php" />
         <option value="$PROJECT_DIR$/Application/Views/Conference/myAdmin.php" />
-        <option value="$PROJECT_DIR$/Application/Views/Conference/Edit.php" />
         <option value="$PROJECT_DIR$/Application/Controllers/ConferenceController.php" />
         <option value="$PROJECT_DIR$/Application/Views/Lectures/Edit.php" />
         <option value="$PROJECT_DIR$/Application/Controllers/LecturesController.php" />
         <option value="$PROJECT_DIR$/Models/Conference.php" />
         <option value="$PROJECT_DIR$/Application/Views/Lectures/Manage.php" />
+        <option value="$PROJECT_DIR$/Application/Views/Conference/Edit.php" />
       </list>
     </option>
   </component>
@@ -814,11 +806,11 @@
         <state vertical-scroll-proportion="-4.8076925">
           <caret line="224" column="0" selection-start-line="224" selection-start-column="0" selection-end-line="224" selection-end-column="0" />
           <folding>
-            <marker date="1448572450533" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..lectures$..." />
-            <marker date="1448572450533" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..lectures$..." />
-            <marker date="1448572450533" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1448572450533" expanded="true" signature="-1:-1" placeholder="UPDATE lectu..." />
-            <marker date="1448572450533" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1448572749391" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..lectures$..." />
+            <marker date="1448572749391" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..lectures$..." />
+            <marker date="1448572749391" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1448572749391" expanded="true" signature="-1:-1" placeholder="UPDATE lectu..." />
+            <marker date="1448572749391" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
           </folding>
         </state>
       </provider>
@@ -857,8 +849,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Views/Lectures/Manage.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.65384614">
-          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+        <state vertical-scroll-proportion="-1.3076923">
+          <caret line="2" column="36" selection-start-line="2" selection-start-column="36" selection-end-line="3" selection-end-column="75" />
           <folding>
             <element signature="n#style#0;n#h1#1;n#div#0;n#!!top" expanded="true" />
             <marker date="1448572332106" expanded="false" signature="242:260" placeholder="..." />
@@ -874,8 +866,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Views/Conference/Edit.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7419355">
-          <caret line="36" column="23" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.2437276">
+          <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="9" selection-end-column="126" />
           <folding />
         </state>
       </provider>
