@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace ConferenceScheduler\Application\Controllers;
 
@@ -55,7 +56,7 @@ class ConferenceController extends BaseController
      * @Authorize
      * @Route("Conference/{int id}/Admins/Manage")
      */
-    public function admins(){
+    public function admins() : View{
         $id = intval(func_get_args()[0]);
         $loggedUserId = $this->identity->getUserId();
 
@@ -133,7 +134,7 @@ class ConferenceController extends BaseController
     /**
      * @Route("Conference/{int id}/Details")
      */
-    public function details(){
+    public function details() : View{
         $id = intval(func_get_args()[0]);
         $conference = (new ConferenceService($this->dbContext))->getOne($id);
         $loggedUserId = $this->identity->getUserId();
@@ -168,7 +169,7 @@ class ConferenceController extends BaseController
     /**
      * @Authorize
      */
-    public function create(){
+    public function create() : View{
         $viewBag = [];
         $viewBag['venues'] = $this->dbContext->getVenuesRepository()->findAll()->getVenues();
 
@@ -231,7 +232,7 @@ class ConferenceController extends BaseController
      * @Authorize
      * @Route("Me/Conferences")
      */
-    public function myConferences(){
+    public function myConferences() : View{
         $service = new ConferenceService($this->dbContext);
         $conferences = $service->myConferences();
         return new View('Conference', 'MyConferences', $conferences);
@@ -241,7 +242,7 @@ class ConferenceController extends BaseController
      * @Authorize
      * @Route("Me/Conferences/Admin")
      */
-    public function myAdmin(){
+    public function myAdmin() : View{
         $service = new ConferenceService($this->dbContext);
         $conferences = $service->myAdminConferences();
 
@@ -252,7 +253,7 @@ class ConferenceController extends BaseController
      * @Authorize
      * @Route("Conference/{int id}/Edit")
      */
-    public function edit(){
+    public function edit() : View{
         $viewBag = [];
         $viewBag['venues'] = $this->dbContext->getVenuesRepository()->findAll()->getVenues();
 
@@ -330,7 +331,7 @@ class ConferenceController extends BaseController
             $conference->setStart($model->getStartDate());
             $this->dbContext->saveChanges();
 
-//            $this->redirect("Me", "Conferences");
+            $this->redirect("Me", "Conferences");
         }
         $model = new ConferenceBindingModel($conference);
         return new View('Conference', 'Edit', $model, $viewBag);

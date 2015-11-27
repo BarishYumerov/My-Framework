@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace ConferenceScheduler\Application\Controllers;
 
@@ -9,7 +10,7 @@ use ConferenceScheduler\View;
 
 class HomeController extends BaseController
 {
-    public function index(){
+    public function index() : View{
         $service = new ConferenceService($this->dbContext);
         $allConferences =$service->getAll();
         $allConferences = array_slice($allConferences, 0, 6);
@@ -20,7 +21,7 @@ class HomeController extends BaseController
      * @Authorize
      * @Route("Me/Invites")
      */
-    public function invites(){
+    public function invites() : View{
         return new View('Home', 'Invites', $this->invites);
     }
 
@@ -28,7 +29,7 @@ class HomeController extends BaseController
      * @Authorize
      * @Route("Me/Schedule")
      */
-    public function mySchedule(){
+    public function mySchedule() : View{
         $loggedUserId = $this->identity->getUserId();
         $service = new LecturesService($this->dbContext);
 

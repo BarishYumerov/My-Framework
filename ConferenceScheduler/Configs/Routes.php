@@ -1,7 +1,7 @@
 <?php 
 namespace ConferenceScheduler\Configs; 
 class Routes { 
-	 public static $lastCheck = '2015-11-26 22:20:19';
+	 public static $lastCheck = '2015-11-27 19:00:26';
 
 	 public static $ROUTES = [ 
 		 [ 

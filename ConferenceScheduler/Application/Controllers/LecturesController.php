@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace ConferenceScheduler\Application\Controllers;
 
@@ -18,7 +19,7 @@ class LecturesController extends BaseController
      * @Authorize
      * @Route("Conference/{int id}/Lectures/Manage")
      */
-    public function manage(){
+    public function manage() : View{
         $id = intval(func_get_args()[0]);
         $loggedUserId = $this->identity->getUserId();
 
@@ -61,7 +62,7 @@ class LecturesController extends BaseController
      * @Authorize
      * @Route("Conference/{int id}/Add/Lecture")
      */
-    public function add(){
+    public function add() : View{
         $conferenceId = intval(func_get_args()[0]);
         $viewBag = [];
         $viewBag['conferenceId'] = $conferenceId;
@@ -147,7 +148,7 @@ class LecturesController extends BaseController
      * @Authorize
      * @Route("Lecture/{int id}/Manage")
      */
-    public function edit(){
+    public function edit() : View{
         $lectureId = intval(func_get_args()[0]);
 
         $service = new LecturesService($this->dbContext);
@@ -280,7 +281,7 @@ class LecturesController extends BaseController
      * @Authorize
      * @Route("Lecture/{int id}/Invite/Speaker")
      */
-    public function inviteSpeaker(){
+    public function inviteSpeaker() : View{
         $lectureId = intval(func_get_args()[0]);
         $lecture = $this->dbContext->getLecturesRepository()->filterById(" = '$lectureId'")->findOne();
 

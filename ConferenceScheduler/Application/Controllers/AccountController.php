@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace ConferenceScheduler\Application\Controllers;
 
@@ -9,7 +10,7 @@ use ConferenceScheduler\View;
 
 class AccountController extends BaseController
 {
-    public function register(){
+    public function register() : View{
         if($this->identity->isAuthorised()){
             $this->redirect('home');
         }
@@ -40,7 +41,7 @@ class AccountController extends BaseController
         return new View('account', 'register');
     }
 
-    public function login(){
+    public function login() : View{
 
         $service = new AccountService($this->dbContext);
 
