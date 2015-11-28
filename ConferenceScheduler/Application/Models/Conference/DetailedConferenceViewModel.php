@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace ConferenceScheduler\Application\Models\Conference;
 
@@ -27,15 +28,15 @@ class DetailedConferenceViewModel
     /**
      * @return mixed
      */
-    public function getId()
+    public function getId() : int
     {
-        return $this->id;
+        return intval($this->id);
     }
 
     /**
      * @param mixed $id
      */
-    public function setId($id)
+    public function setId(int $id)
     {
         $this->id = $id;
     }
@@ -43,7 +44,7 @@ class DetailedConferenceViewModel
     /**
      * @return mixed
      */
-    public function getStartDate()
+    public function getStartDate() : string
     {
         return $this->startDate;
     }
@@ -51,7 +52,7 @@ class DetailedConferenceViewModel
     /**
      * @param mixed $startDate
      */
-    public function setStartDate($startDate)
+    public function setStartDate(string $startDate)
     {
         $this->startDate = $startDate;
     }
@@ -59,7 +60,7 @@ class DetailedConferenceViewModel
     /**
      * @return mixed
      */
-    public function getEndDate()
+    public function getEndDate() : string
     {
         return $this->endDate;
     }
@@ -67,7 +68,7 @@ class DetailedConferenceViewModel
     /**
      * @param mixed $endDate
      */
-    public function setEndDate($endDate)
+    public function setEndDate(string $endDate)
     {
         $this->endDate = $endDate;
     }
@@ -75,7 +76,7 @@ class DetailedConferenceViewModel
     /**
      * @return mixed
      */
-    public function getOwner()
+    public function getOwner() : string
     {
         return $this->owner;
     }
@@ -83,7 +84,7 @@ class DetailedConferenceViewModel
     /**
      * @param mixed $owner
      */
-    public function setOwner($owner)
+    public function setOwner(string $owner)
     {
         $this->owner = $owner;
     }
@@ -91,7 +92,7 @@ class DetailedConferenceViewModel
     /**
      * @return mixed
      */
-    public function getVenue()
+    public function getVenue() : string
     {
         return $this->venue;
     }
@@ -99,7 +100,7 @@ class DetailedConferenceViewModel
     /**
      * @param mixed $venue
      */
-    public function setVenue($venue)
+    public function setVenue(string $venue)
     {
         $this->venue = $venue;
     }
@@ -107,7 +108,7 @@ class DetailedConferenceViewModel
     /**
      * @return mixed
      */
-    public function getTitle()
+    public function getTitle() : string
     {
         return $this->title;
     }
@@ -115,7 +116,7 @@ class DetailedConferenceViewModel
     /**
      * @param mixed $title
      */
-    public function setTitle($title)
+    public function setTitle(string $title)
     {
         $this->title = $title;
     }
@@ -123,15 +124,15 @@ class DetailedConferenceViewModel
     /**
      * @return mixed
      */
-    public function getVenueId()
+    public function getVenueId() : int
     {
-        return $this->venueId;
+        return intval($this->venueId);
     }
 
     /**
      * @param mixed $venueId
      */
-    public function setVenueId($venueId)
+    public function setVenueId(int $venueId)
     {
         $this->venueId = $venueId;
     }
@@ -139,7 +140,7 @@ class DetailedConferenceViewModel
     /**
      * @return mixed
      */
-    public function getLectures()
+    public function getLectures() : array
     {
         return $this->lectures;
     }
@@ -147,7 +148,7 @@ class DetailedConferenceViewModel
     /**
      * @param mixed $lectures
      */
-    public function setLectures($lectures)
+    public function setLectures(array $lectures)
     {
         $this->lectures = $lectures;
     }

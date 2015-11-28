@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-//error_reporting(0);
+error_reporting(E_ERROR | E_WARNING | E_PARSE);
 session_start();
 
 require_once "Autoloader.php";

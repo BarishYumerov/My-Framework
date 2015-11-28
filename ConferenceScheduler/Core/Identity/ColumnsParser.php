@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace ConferenceScheduler\Core\Identity;
 
@@ -7,10 +8,7 @@ class ColumnsParser
 {
     private $columns = [];
 
-    /**
-     * @return bool
-     */
-    public function hasColumn($columnName)
+    public function hasColumn($columnName) : bool
     {
         return array_key_exists($columnName, $this->columns);
     }
@@ -34,10 +32,7 @@ class ColumnsParser
         return $this->columns;
     }
 
-    /**
-     * @return bool
-     */
-    public function equals($anotherUserTable)
+    public function equals($anotherUserTable) : bool
     {
         foreach ($this->columns as $key => $value) {
             if (!$anotherUserTable->hasColumn($key)) {

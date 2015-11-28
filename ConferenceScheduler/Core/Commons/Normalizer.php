@@ -9,7 +9,7 @@ namespace ConferenceScheduler\Core\Commons;
  */
 
 class Normalizer{
-    public static function normalize($data, $types){
+    public static function normalize(string $data, $types){
         $types=  explode('|', $types);
         if(is_array($types)){
             foreach($types as $v){
@@ -44,7 +44,7 @@ class Normalizer{
      * @param type $data
      * @return type
      */
-    public static function xss_clean($data) {
+    public static function xss_clean(string $data) {
         // Fix &entity\n;
         $data = str_replace(array('&amp;', '&lt;', '&gt;'), array('&amp;amp;', '&amp;lt;', '&amp;gt;'), $data);
         $data = preg_replace('/(&#*\w+)[\x00-\x20]+;/u', '$1;', $data);

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace ConferenceScheduler\Application\Models\Conference;
 
@@ -23,26 +24,26 @@ class ConferenceViewModel
         $this->venueId = $conference->getVenueId();
     }
 
-    public function setVenue($venue){
+    public function setVenue(string $venue){
         $this->venue = $venue;
     }
 
-    public function setOwner($owner){
+    public function setOwner(string $owner){
         $this->owner = $owner;
     }
 
     /**
      * @return mixed
      */
-    public function getId()
+    public function getId() : int
     {
-        return $this->id;
+        return intval($this->id);
     }
 
     /**
      * @return mixed
      */
-    public function getStartDate()
+    public function getStartDate() : string
     {
         return $this->startDate;
     }
@@ -50,7 +51,7 @@ class ConferenceViewModel
     /**
      * @return mixed
      */
-    public function getEndDate()
+    public function getEndDate() : string
     {
         return $this->endDate;
     }
@@ -58,7 +59,7 @@ class ConferenceViewModel
     /**
      * @return mixed
      */
-    public function getOwner()
+    public function getOwner() : string
     {
         return $this->owner;
     }
@@ -66,7 +67,7 @@ class ConferenceViewModel
     /**
      * @return mixed
      */
-    public function getVenue()
+    public function getVenue() : string
     {
         return $this->venue;
     }
@@ -74,7 +75,7 @@ class ConferenceViewModel
     /**
      * @return mixed
      */
-    public function getTitle()
+    public function getTitle() : string
     {
         return $this->title;
     }
@@ -82,8 +83,8 @@ class ConferenceViewModel
     /**
      * @return mixed
      */
-    public function getVenueId()
+    public function getVenueId() : int
     {
-        return $this->venueId;
+        return intval($this->venueId);
     }
 }

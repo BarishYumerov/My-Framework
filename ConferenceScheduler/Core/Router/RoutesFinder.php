@@ -28,7 +28,7 @@ class RoutesFinder{
         self::createRoutesConfig($allRoutes);
     }
 
-    private static function findRoutes(){
+    private static function findRoutes() : array{
         $controllers = [];
         $routes = [];
         $annotationRoutes = [];
@@ -96,7 +96,7 @@ class RoutesFinder{
         ];
     }
 
-    private static function findAreaRoutes()
+    private static function findAreaRoutes() : array
     {
         $routes = [];
         $annotationRoutes = [];
@@ -207,7 +207,7 @@ class RoutesFinder{
         return null;
     }
 
-    private static function createRoutesConfig($routes)
+    private static function createRoutesConfig(array $routes)
     {
         $routeConfigFile = fopen(ROUTES, "w") or die("Unable to open Routes.php!");
 

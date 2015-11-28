@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace ConferenceScheduler\Application\Models\Account;
 
@@ -25,7 +26,7 @@ class RegisterBindingModel extends BaseBindingModel
     /**
      * @return mixed
      */
-    public function getUsername()
+    public function getUsername() : string
     {
         return $this->username;
     }
@@ -33,7 +34,7 @@ class RegisterBindingModel extends BaseBindingModel
     /**
      * @param mixed $username
      */
-    public function setUsername($username)
+    public function setUsername(string $username)
     {
         if(!ctype_alnum($username)){
             $this->errors[] = 'The username must contain only characters and numbers!';
@@ -44,7 +45,7 @@ class RegisterBindingModel extends BaseBindingModel
     /**
      * @return mixed
      */
-    public function getEmail()
+    public function getEmail() : string
     {
         return $this->email;
     }
@@ -52,7 +53,7 @@ class RegisterBindingModel extends BaseBindingModel
     /**
      * @param mixed $email
      */
-    public function setEmail($email)
+    public function setEmail(string $email)
     {
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $this->errors[] = "Invalid email";
@@ -63,7 +64,7 @@ class RegisterBindingModel extends BaseBindingModel
     /**
      * @return mixed
      */
-    public function getConfirmPassword()
+    public function getConfirmPassword() : string
     {
         return $this->confirmPassword;
     }
@@ -71,7 +72,7 @@ class RegisterBindingModel extends BaseBindingModel
     /**
      * @param mixed $confirmPassword
      */
-    public function setConfirmPassword($confirmPassword)
+    public function setConfirmPassword(string $confirmPassword)
     {
         if($confirmPassword !== $this->getPassword()){
             $this->errors[] = 'Passwords does not match!';
@@ -82,7 +83,7 @@ class RegisterBindingModel extends BaseBindingModel
     /**
      * @return mixed
      */
-    public function getPassword()
+    public function getPassword() : string
     {
         return $this->password;
     }
@@ -90,7 +91,7 @@ class RegisterBindingModel extends BaseBindingModel
     /**
      * @param mixed $password
      */
-    public function setPassword($password)
+    public function setPassword(string $password)
     {
         $pattern = '/[A-Za-z0-9_]+$/';
         preg_match($pattern, $password, $matches);
@@ -103,7 +104,7 @@ class RegisterBindingModel extends BaseBindingModel
     /**
      * @return mixed
      */
-    public function getTelephone()
+    public function getTelephone() : int
     {
         return $this->telephone;
     }
@@ -111,7 +112,7 @@ class RegisterBindingModel extends BaseBindingModel
     /**
      * @param mixed $telephone
      */
-    public function setTelephone($telephone)
+    public function setTelephone(int $telephone)
     {
         if($telephone === 0){
             $this->errors[] = 'Phone number must me only digits and length greater than 5!';

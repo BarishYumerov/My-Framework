@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace ConferenceScheduler\Core\ORM;
 
@@ -88,7 +89,7 @@ KUF;
         fwrite($databaseContextFile, $contents);
     }
 
-    public static function getRepositoryNames()
+    public static function getRepositoryNames() : array
     {
         $names = [];
 

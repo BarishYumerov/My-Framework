@@ -1,4 +1,5 @@
 <?php
+declare(strcit_types=1);
 
 namespace ConferenceScheduler\Application\Models\Hall;
 
@@ -19,7 +20,7 @@ class HallViewModel
     /**
      * @return mixed
      */
-    public function getHallName()
+    public function getHallName() : string
     {
         return $this->hallName;
     }
@@ -27,7 +28,7 @@ class HallViewModel
     /**
      * @param mixed $hallName
      */
-    public function setHallName($hallName)
+    public function setHallName(string $hallName)
     {
         $this->hallName = $hallName;
     }
@@ -35,15 +36,15 @@ class HallViewModel
     /**
      * @return mixed
      */
-    public function getMaxHallPlaces()
+    public function getMaxHallPlaces() : int
     {
-        return $this->maxHallPlaces;
+        return intval($this->maxHallPlaces);
     }
 
     /**
      * @param mixed $maxHallPlaces
      */
-    public function setMaxHallPlaces($maxHallPlaces)
+    public function setMaxHallPlaces(string $maxHallPlaces)
     {
         $this->maxHallPlaces = $maxHallPlaces;
     }
@@ -51,15 +52,15 @@ class HallViewModel
     /**
      * @return mixed
      */
-    public function getId()
+    public function getId() : int
     {
-        return $this->id;
+        return intval($this->id);
     }
 
     /**
      * @param mixed $id
      */
-    public function setId($id)
+    public function setId(int $id)
     {
         $this->id = $id;
     }

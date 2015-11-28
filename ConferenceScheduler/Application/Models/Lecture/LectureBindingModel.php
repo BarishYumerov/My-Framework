@@ -1,4 +1,5 @@
 <?php
+declare(strcit_types=1);
 
 namespace ConferenceScheduler\Application\Models\Lecture;
 
@@ -17,13 +18,13 @@ class LectureBindingModel extends BaseBindingModel
         $this->setName($context->post('name'));
         $this->setStartDate($context->post('startDate'));
         $this->setEndDate($context->post('endDate'));
-        $this->hallId = intval($context->post('hallId'));
+        $this->setHallId(intval($context->post('hallId')));
     }
 
     /**
      * @return mixed
      */
-    public function getName()
+    public function getName() : string
     {
         return $this->name;
     }
@@ -31,7 +32,7 @@ class LectureBindingModel extends BaseBindingModel
     /**
      * @param mixed $name
      */
-    public function setName($name)
+    public function setName(string $name)
     {
         $this->name = $name;
     }
@@ -39,7 +40,7 @@ class LectureBindingModel extends BaseBindingModel
     /**
      * @return mixed
      */
-    public function getStartDate()
+    public function getStartDate() : string
     {
         return $this->startDate;
     }
@@ -47,7 +48,7 @@ class LectureBindingModel extends BaseBindingModel
     /**
      * @param mixed $startDate
      */
-    public function setStartDate($startDate)
+    public function setStartDate(string $startDate)
     {
         if(strtotime($startDate) < time()){
             $this->errors[] = 'Start date must be tomorrow or later!';
@@ -58,7 +59,7 @@ class LectureBindingModel extends BaseBindingModel
     /**
      * @return mixed
      */
-    public function getEndDate()
+    public function getEndDate() : string
     {
         return $this->endDate;
     }
@@ -66,7 +67,7 @@ class LectureBindingModel extends BaseBindingModel
     /**
      * @param mixed $endDate
      */
-    public function setEndDate($endDate)
+    public function setEndDate(string $endDate)
     {
         if (strtotime($this->startDate) > strtotime($endDate)){
             $this->errors[] = 'End date must be later than start date';
@@ -77,15 +78,15 @@ class LectureBindingModel extends BaseBindingModel
     /**
      * @return mixed
      */
-    public function getHallId()
+    public function getHallId() : int
     {
-        return $this->hallId;
+        return intval($this->hallId);
     }
 
     /**
      * @param mixed $hallId
      */
-    public function setHallId($hallId)
+    public function setHallId(int $hallId)
     {
         $this->hallId = $hallId;
     }

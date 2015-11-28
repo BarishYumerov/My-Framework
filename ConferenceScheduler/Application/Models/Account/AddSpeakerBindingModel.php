@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace ConferenceScheduler\Application\Models\Account;
 
@@ -17,7 +18,7 @@ class AddSpeakerBindingModel
     /**
      * @return mixed
      */
-    public function getUsername()
+    public function getUsername() : string
     {
         return $this->username;
     }
@@ -25,7 +26,7 @@ class AddSpeakerBindingModel
     /**
      * @param mixed $username
      */
-    public function setUsername($username)
+    public function setUsername(string $username)
     {
         $this->username = $username;
     }
@@ -33,15 +34,15 @@ class AddSpeakerBindingModel
     /**
      * @return mixed
      */
-    public function getLectureId()
+    public function getLectureId() : int
     {
-        return $this->lectureId;
+        return intval($this->lectureId);
     }
 
     /**
      * @param mixed $lectureId
      */
-    public function setLectureId($lectureId)
+    public function setLectureId(string $lectureId)
     {
         $this->lectureId = $lectureId;
     }

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace ConferenceScheduler\Core\Identity;
 
@@ -15,7 +16,7 @@ class Identity {
         $this->db = Db::getInstance($dbConfig::DB_NAME);
     }
 
-    public static function getIdentityInstance() {
+    public static function getIdentityInstance() : Identity {
         if (self::$_instance == null) {
             self::$_instance = new Identity();
         }
@@ -47,10 +48,7 @@ class Identity {
         }
     }
 
-    /**
-     * @return bool
-     */
-    public function isAuthorised()
+    public function isAuthorised() : bool
     {
         if ($this->getUserId() == null) {
             return false;
@@ -58,11 +56,7 @@ class Identity {
         return true;
     }
 
-    /**
-     * @param $role
-     * @return bool
-     */
-    public function isInRole($role)
+    public function isInRole(string $role) : bool
     {
         if (!$this->isAuthorised()) {
             return false;
@@ -73,20 +67,21 @@ class Identity {
     from roles
     join usersroles
     on roles.`id` = usersroles.`roleid`
-    where usersroles.`userid` = ?
+    where usersroles.`userId` = ?
 TAG;
 
         $statement = $this->db->prepare($query);
-        $statement->execute($this->getUserId());
+        $statement->execute([$this->getUserId()]);
         $userRoles = $statement->fetchAll();
-        return array_key_exists($role, $userRoles);
+        foreach ($userRoles as $userRole) {
+             if($userRole['name'] == $role){
+                 return true;
+             }
+        }
+        return false;
     }
 
-    /**
-     *
-     * @return \ConferenceScheduler\Core\Identity\Identity
-     */
-    public static function getInstance() {
+    public static function getInstance() : Identity {
         if (self::$_instance == null) {
             self::$_instance = new Identity();
         }

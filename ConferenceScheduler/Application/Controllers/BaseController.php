@@ -36,6 +36,9 @@ abstract class BaseController{
     }
 
     public function redirect($controllerName = null, $actionName = null, $params = null) {
+        if($controllerName == null){
+            $controllerName = 'home';
+        }
         $url = '/' . urlencode($controllerName);
         if ($actionName != null) {
             $url .= '/' . urlencode($actionName);

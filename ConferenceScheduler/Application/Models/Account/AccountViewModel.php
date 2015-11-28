@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace ConferenceScheduler\Application\Models\Account;
 
@@ -18,15 +19,15 @@ class AccountViewModel
     /**
      * @return mixed
      */
-    public function getId()
+    public function getId() : int
     {
-        return $this->id;
+        return intval($this->id);
     }
 
     /**
      * @param mixed $id
      */
-    public function setId($id)
+    public function setId(string $id)
     {
         $this->id = $id;
     }
@@ -34,7 +35,7 @@ class AccountViewModel
     /**
      * @return mixed
      */
-    public function getUsername()
+    public function getUsername() : string
     {
         return $this->username;
     }
@@ -42,7 +43,7 @@ class AccountViewModel
     /**
      * @param mixed $username
      */
-    public function setUsername($username)
+    public function setUsername(string $username)
     {
         $this->username = $username;
     }

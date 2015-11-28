@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace ConferenceScheduler\Core\ORM;
 use ConferenceScheduler\Configs\DatabaseConfig;
@@ -7,7 +8,7 @@ use ConferenceScheduler\Configs\DatabaseConfig;
  * The skeleton of the code is taken from RoYal
  */
 class Repositories {
-    public static function create($repositoryName, $model, $tableName, $columns)
+    public static function create(string $repositoryName, string $model, string $tableName, $columns)
     {
         $columnFilters = "";
         $columnsInEntity = [];

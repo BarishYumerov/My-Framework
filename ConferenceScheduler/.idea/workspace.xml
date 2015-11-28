@@ -2,39 +2,42 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2800c4d0-2266-44b7-8f0a-8462eb871835" name="Default" comment="">
-      <change type="MOVED" beforePath="C:\wamp\www\My-Framework\ConferenceScheduler\Models\conference.php" afterPath="$PROJECT_DIR$/Models/Conference.php" />
-      <change type="MOVED" beforePath="C:\wamp\www\My-Framework\ConferenceScheduler\Models\hall.php" afterPath="$PROJECT_DIR$/Models/Hall.php" />
-      <change type="MOVED" beforePath="C:\wamp\www\My-Framework\ConferenceScheduler\Models\lecture.php" afterPath="$PROJECT_DIR$/Models/Lecture.php" />
-      <change type="MOVED" beforePath="C:\wamp\www\My-Framework\ConferenceScheduler\Models\role.php" afterPath="$PROJECT_DIR$/Models/Role.php" />
-      <change type="MOVED" beforePath="C:\wamp\www\My-Framework\ConferenceScheduler\Models\user.php" afterPath="$PROJECT_DIR$/Models/User.php" />
-      <change type="MOVED" beforePath="C:\wamp\www\My-Framework\ConferenceScheduler\Models\usersrole.php" afterPath="$PROJECT_DIR$/Models/Usersrole.php" />
-      <change type="MOVED" beforePath="C:\wamp\www\My-Framework\ConferenceScheduler\Models\venue.php" afterPath="$PROJECT_DIR$/Models/Venue.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Controllers/AccountController.php" afterPath="$PROJECT_DIR$/Application/Controllers/AccountController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Models/Account/AccountViewModel.php" afterPath="$PROJECT_DIR$/Application/Models/Account/AccountViewModel.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Models/Account/AddSpeakerBindingModel.php" afterPath="$PROJECT_DIR$/Application/Models/Account/AddSpeakerBindingModel.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Areas/Admin/Controllers/AdminController.php" afterPath="$PROJECT_DIR$/Application/Areas/Admin/Controllers/AdminController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Core/Identity/ApplicationUser.php" afterPath="$PROJECT_DIR$/Core/Identity/ApplicationUser.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Controllers/BaseController.php" afterPath="$PROJECT_DIR$/Application/Controllers/BaseController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Controllers/ConferenceController.php" afterPath="$PROJECT_DIR$/Application/Controllers/ConferenceController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Models/Conferenceadmin.php" afterPath="$PROJECT_DIR$/Models/Conferenceadmin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Configs/DatabaseConfig.php" afterPath="$PROJECT_DIR$/Configs/DatabaseConfig.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Core/ORM/DbContext.php" afterPath="$PROJECT_DIR$/Core/ORM/DbContext.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Controllers/HomeController.php" afterPath="$PROJECT_DIR$/Application/Controllers/HomeController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Controllers/InvitesController.php" afterPath="$PROJECT_DIR$/Application/Controllers/InvitesController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Controllers/LecturesController.php" afterPath="$PROJECT_DIR$/Application/Controllers/LecturesController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Models/Lecturesspeaker.php" afterPath="$PROJECT_DIR$/Models/Lecturesspeaker.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Models/Lecturesuser.php" afterPath="$PROJECT_DIR$/Models/Lecturesuser.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Core/ORM/Collections.php" afterPath="$PROJECT_DIR$/Core/ORM/Collections.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Core/Identity/ColumnsParser.php" afterPath="$PROJECT_DIR$/Core/Identity/ColumnsParser.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Models/Conference/ConferenceBindingModel.php" afterPath="$PROJECT_DIR$/Application/Models/Conference/ConferenceBindingModel.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Models/Conference/ConferenceViewModel.php" afterPath="$PROJECT_DIR$/Application/Models/Conference/ConferenceViewModel.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Core/Database/Db.php" afterPath="$PROJECT_DIR$/Core/Database/Db.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Models/Conference/DetailedConferenceViewModel.php" afterPath="$PROJECT_DIR$/Application/Models/Conference/DetailedConferenceViewModel.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Core/Drivers/Driver.php" afterPath="$PROJECT_DIR$/Core/Drivers/Driver.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Core/Drivers/DriverFactory.php" afterPath="$PROJECT_DIR$/Core/Drivers/DriverFactory.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Core/ORM/EntityCreator.php" afterPath="$PROJECT_DIR$/Core/ORM/EntityCreator.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Models/Hall/HallViewModel.php" afterPath="$PROJECT_DIR$/Application/Models/Hall/HallViewModel.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Core/HttpContext/HttpContext.php" afterPath="$PROJECT_DIR$/Core/HttpContext/HttpContext.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Core/Identity/Identity.php" afterPath="$PROJECT_DIR$/Core/Identity/Identity.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Core/Identity/IdentityParser.php" afterPath="$PROJECT_DIR$/Core/Identity/IdentityParser.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Models/Invite/InviteViewModel.php" afterPath="$PROJECT_DIR$/Application/Models/Invite/InviteViewModel.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Views/Home/Invites.php" afterPath="$PROJECT_DIR$/Application/Views/Home/Invites.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Models/Lecture/LectureBindingModel.php" afterPath="$PROJECT_DIR$/Application/Models/Lecture/LectureBindingModel.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Models/Lecture/LectureViewModel.php" afterPath="$PROJECT_DIR$/Application/Models/Lecture/LectureViewModel.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Models/Account/LoginBindingModel.php" afterPath="$PROJECT_DIR$/Application/Models/Account/LoginBindingModel.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Core/Drivers/MySqlDriver.php" afterPath="$PROJECT_DIR$/Core/Drivers/MySqlDriver.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Core/Identity/MyUser.php" afterPath="$PROJECT_DIR$/Core/Identity/MyUser.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Core/Commons/Normalizer.php" afterPath="$PROJECT_DIR$/Core/Commons/Normalizer.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Core/ORM/ORM.php" afterPath="$PROJECT_DIR$/Core/ORM/ORM.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Core/Router/ParameterRoute.php" afterPath="$PROJECT_DIR$/Core/Router/ParameterRoute.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Models/Account/RegisterBindingModel.php" afterPath="$PROJECT_DIR$/Application/Models/Account/RegisterBindingModel.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Core/ORM/Repositories.php" afterPath="$PROJECT_DIR$/Core/ORM/Repositories.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Core/Router/RouteMapper.php" afterPath="$PROJECT_DIR$/Core/Router/RouteMapper.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Configs/Routes.php" afterPath="$PROJECT_DIR$/Configs/Routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Models/Speakerinvite.php" afterPath="$PROJECT_DIR$/Models/Speakerinvite.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Repositories/conferenceadminsRepository.php" afterPath="$PROJECT_DIR$/Repositories/conferenceadminsRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Repositories/conferencesRepository.php" afterPath="$PROJECT_DIR$/Repositories/conferencesRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Repositories/hallsRepository.php" afterPath="$PROJECT_DIR$/Repositories/hallsRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Core/Router/RoutesFinder.php" afterPath="$PROJECT_DIR$/Core/Router/RoutesFinder.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Core/Identity/TablesUpdater.php" afterPath="$PROJECT_DIR$/Core/Identity/TablesUpdater.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Models/Venue/VenueViewModel.php" afterPath="$PROJECT_DIR$/Application/Models/Venue/VenueViewModel.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Repositories/lecturesRepository.php" afterPath="$PROJECT_DIR$/Repositories/lecturesRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Repositories/lecturesspeakersRepository.php" afterPath="$PROJECT_DIR$/Repositories/lecturesspeakersRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Repositories/lecturesusersRepository.php" afterPath="$PROJECT_DIR$/Repositories/lecturesusersRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/php.xml" afterPath="$PROJECT_DIR$/.idea/php.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Repositories/rolesRepository.php" afterPath="$PROJECT_DIR$/Repositories/rolesRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Repositories/speakerinvitesRepository.php" afterPath="$PROJECT_DIR$/Repositories/speakerinvitesRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Repositories/usersRepository.php" afterPath="$PROJECT_DIR$/Repositories/usersRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Repositories/usersrolesRepository.php" afterPath="$PROJECT_DIR$/Repositories/usersrolesRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Repositories/venuesRepository.php" afterPath="$PROJECT_DIR$/Repositories/venuesRepository.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ConferenceScheduler.iws" />
@@ -57,63 +60,53 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="LecturesController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Application/Controllers/LecturesController.php">
+      <file leaf-file-name="InviteViewModel.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/Models/Invite/InviteViewModel.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-24.192308">
-              <caret line="283" column="43" selection-start-line="283" selection-start-column="43" selection-end-line="283" selection-end-column="43" />
-              <folding>
-                <element signature="e#712#2065#0#PHP" expanded="false" />
-                <element signature="e#2154#5993#0#PHP" expanded="false" />
-                <element signature="e#6074#10763#0#PHP" expanded="false" />
-                <element signature="e#10861#11726#0#PHP" expanded="false" />
-                <element signature="e#11815#14341#0#PHP" expanded="false" />
-                <element signature="e#14421#16896#0#PHP" expanded="false" />
-                <element signature="e#16979#17893#0#PHP" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ConferenceController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Application/Controllers/ConferenceController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-213.8077">
-              <caret line="334" column="9" selection-start-line="334" selection-start-column="9" selection-end-line="334" selection-end-column="9" />
+            <state vertical-scroll-proportion="-0.65384614">
+              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HomeController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Application/Controllers/HomeController.php">
+      <file leaf-file-name="LectureBindingModel.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/Models/Lecture/LectureBindingModel.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-17.653847">
-              <caret line="27" column="7" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
+            <state vertical-scroll-proportion="-30.0">
+              <caret line="84" column="0" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LectureViewModel.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/Models/Lecture/LectureViewModel.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-13.730769">
+              <caret line="105" column="41" selection-start-line="105" selection-start-column="36" selection-end-line="105" selection-end-column="41" />
               <folding>
-                <element signature="e#88#151#0#PHP" expanded="true" />
+                <element signature="e#91#153#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="InvitesController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Application/Controllers/InvitesController.php">
+      <file leaf-file-name="Invites.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Application/Views/Home/Invites.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.65384614">
-              <caret line="1" column="24" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="24" />
-              <folding>
-                <element signature="e#31#119#0#PHP" expanded="false" />
-              </folding>
+            <state vertical-scroll-proportion="0.48658317">
+              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.09123435">
-              <caret line="3" column="16" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
+            <state vertical-scroll-proportion="-1.3076923">
+              <caret line="2" column="45" selection-start-line="2" selection-start-column="45" selection-end-line="2" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -135,41 +128,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Core/ORM/Repositories.php" />
-        <option value="$PROJECT_DIR$/Core/Identity/ColumnsParser.php" />
-        <option value="$PROJECT_DIR$/Core/Identity/IdentityParser.php" />
-        <option value="$PROJECT_DIR$/Application/Views/Account/Register.php" />
-        <option value="$PROJECT_DIR$/Application/Models/Venue/VenueViewModel.php" />
-        <option value="$PROJECT_DIR$/Application/Models/Conference/ConferenceViewModel.php" />
-        <option value="$PROJECT_DIR$/Core/Annotations/Authorize.php" />
-        <option value="$PROJECT_DIR$/Application/Services/AccountService.php" />
-        <option value="$PROJECT_DIR$/Application/Application.php" />
-        <option value="$PROJECT_DIR$/Application/Services/ConferencesServices.php" />
-        <option value="$PROJECT_DIR$/Application/Views/Conference/Create.php" />
-        <option value="$PROJECT_DIR$/Application/Models/Conference/ConferenceBindingModel.php" />
-        <option value="$PROJECT_DIR$/Core/Identity/Identity.php" />
-        <option value="$PROJECT_DIR$/Core/Router/RoutesFinder.php" />
-        <option value="$PROJECT_DIR$/Core/Router/RouteMapper.php" />
-        <option value="$PROJECT_DIR$/Application/Views/Conference/MyConferences.php" />
-        <option value="$PROJECT_DIR$/Application/Views/Lectures/edit.php" />
-        <option value="$PROJECT_DIR$/Application/Models/Hall/HallViewModel.php" />
-        <option value="$PROJECT_DIR$/View.php" />
-        <option value="$PROJECT_DIR$/Application/Models/Account/AccountViewModel.php" />
-        <option value="$PROJECT_DIR$/Application/Services/LecturesService.php" />
-        <option value="$PROJECT_DIR$/Application/Models/Account/AddSpeakerBindingMode.php" />
-        <option value="$PROJECT_DIR$/Application/Models/Account/AddSpeakerBindingModel.php" />
-        <option value="$PROJECT_DIR$/Application/Views/Lectures/InviteSpeaker.php" />
-        <option value="$PROJECT_DIR$/Application/Models/Lecture/LectureBindingModel.php" />
-        <option value="$PROJECT_DIR$/Application/Models/Lecture/LectureViewModel.php" />
-        <option value="$PROJECT_DIR$/Application/Views/Lectures/Add.php" />
-        <option value="$PROJECT_DIR$/Configs/Routes.php" />
-        <option value="$PROJECT_DIR$/Application/Views/Home/Invites.php" />
-        <option value="$PROJECT_DIR$/Application/Models/Invite/InviteViewModel.php" />
-        <option value="$PROJECT_DIR$/Application/Views/Home/Index.php" />
-        <option value="$PROJECT_DIR$/Application/Models/Conference/DetailedConferenceViewModel.php" />
-        <option value="$PROJECT_DIR$/Application/Views/Conference/Details.php" />
         <option value="$PROJECT_DIR$/Application/Views/Home/mySchedule.php" />
-        <option value="$PROJECT_DIR$/Core/Identity/MyUser.php" />
         <option value="$PROJECT_DIR$/Application/Views/Conference/Admins.php" />
         <option value="$PROJECT_DIR$/Application/Views/Layouts/Default/header.php" />
         <option value="$PROJECT_DIR$/Application/Services/ConferenceService.php" />
@@ -181,11 +140,45 @@
         <option value="$PROJECT_DIR$/Configs/DatabaseConfig.php" />
         <option value="$PROJECT_DIR$/Application/Controllers/InvitesController.php" />
         <option value="$PROJECT_DIR$/Application/Controllers/HomeController.php" />
-        <option value="$PROJECT_DIR$/Application/Controllers/AccountController.php" />
-        <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/Application/Controllers/BaseController.php" />
-        <option value="$PROJECT_DIR$/Application/Controllers/ConferenceController.php" />
         <option value="$PROJECT_DIR$/Application/Controllers/LecturesController.php" />
+        <option value="$PROJECT_DIR$/Application/Controllers/BaseController.php" />
+        <option value="$PROJECT_DIR$/Application/Controllers/AccountController.php" />
+        <option value="$PROJECT_DIR$/Core/Commons/Normalizer.php" />
+        <option value="$PROJECT_DIR$/Core/Drivers/Driver.php" />
+        <option value="$PROJECT_DIR$/Core/Drivers/DriverFactory.php" />
+        <option value="$PROJECT_DIR$/Core/Drivers/MySqlDriver.php" />
+        <option value="$PROJECT_DIR$/Core/Database/Db.php" />
+        <option value="$PROJECT_DIR$/Core/HttpContext/HttpContext.php" />
+        <option value="$PROJECT_DIR$/Core/Identity/ApplicationUser.php" />
+        <option value="$PROJECT_DIR$/Core/Identity/IdentityParser.php" />
+        <option value="$PROJECT_DIR$/Core/Identity/MyUser.php" />
+        <option value="$PROJECT_DIR$/Core/Identity/ColumnsParser.php" />
+        <option value="$PROJECT_DIR$/Core/Identity/Identity.php" />
+        <option value="$PROJECT_DIR$/Application/Controllers/ConferenceController.php" />
+        <option value="$PROJECT_DIR$/Core/Identity/TablesUpdater.php" />
+        <option value="$PROJECT_DIR$/Core/ORM/Collections.php" />
+        <option value="$PROJECT_DIR$/Core/ORM/DbContext.php" />
+        <option value="$PROJECT_DIR$/Core/ORM/EntityCreator.php" />
+        <option value="$PROJECT_DIR$/Core/ORM/ORM.php" />
+        <option value="$PROJECT_DIR$/Core/ORM/Repositories.php" />
+        <option value="$PROJECT_DIR$/Application/Areas/Admin/Controllers/AdminController.php" />
+        <option value="$PROJECT_DIR$/Application/Models/Account/AccountViewModel.php" />
+        <option value="$PROJECT_DIR$/Application/Models/Account/AddSpeakerBindingModel.php" />
+        <option value="$PROJECT_DIR$/Application/Models/Account/LoginBindingModel.php" />
+        <option value="$PROJECT_DIR$/Core/Router/RouteMapper.php" />
+        <option value="$PROJECT_DIR$/Core/Router/ParameterRoute.php" />
+        <option value="$PROJECT_DIR$/Core/Router/RoutesFinder.php" />
+        <option value="$PROJECT_DIR$/Application/Models/Account/RegisterBindingModel.php" />
+        <option value="$PROJECT_DIR$/Application/Models/Conference/ConferenceBindingModel.php" />
+        <option value="$PROJECT_DIR$/Application/Models/Conference/ConferenceViewModel.php" />
+        <option value="$PROJECT_DIR$/Application/Models/Conference/DetailedConferenceViewModel.php" />
+        <option value="$PROJECT_DIR$/Application/Models/Hall/HallViewModel.php" />
+        <option value="$PROJECT_DIR$/Application/Models/Invite/InviteViewModel.php" />
+        <option value="$PROJECT_DIR$/Application/Models/Venue/VenueViewModel.php" />
+        <option value="$PROJECT_DIR$/Application/Models/Lecture/LectureBindingModel.php" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/Application/Models/Lecture/LectureViewModel.php" />
+        <option value="$PROJECT_DIR$/Application/Views/Home/Invites.php" />
       </list>
     </option>
   </component>
@@ -231,6 +224,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -259,6 +253,64 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ConferenceScheduler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ConferenceScheduler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ConferenceScheduler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ConferenceScheduler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ConferenceScheduler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ConferenceScheduler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -276,11 +328,106 @@
               <option name="myItemId" value="Application" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Venue" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ConferenceScheduler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ConferenceScheduler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Lecture" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ConferenceScheduler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ConferenceScheduler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Invite" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ConferenceScheduler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ConferenceScheduler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Hall" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ConferenceScheduler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ConferenceScheduler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Conference" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -366,10 +513,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2065053" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28668684" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32913387" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -403,287 +550,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="68" />
+      <option name="time" value="70" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Application/Services/AccountService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9444444">
-          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Views/Account/Register.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8530466">
-          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="29" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Repositories/lecturesspeakersRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.4615383">
-          <caret line="205" column="20" selection-start-line="205" selection-start-column="20" selection-end-line="205" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Views/Lectures/InviteSpeaker.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.9615384">
-          <caret line="3" column="9" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Models/Account/RegisterBindingModel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.730769">
-          <caret line="37" column="8" selection-start-line="37" selection-start-column="8" selection-end-line="39" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Configs/Routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.807693">
-          <caret line="80" column="41" selection-start-line="80" selection-start-column="25" selection-end-line="80" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Views/Lectures/Add.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.0">
-          <caret line="21" column="47" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Models/Invite/InviteViewModel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.0053763">
-          <caret line="105" column="5" selection-start-line="105" selection-start-column="5" selection-end-line="105" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Models/Conference/ConferenceBindingModel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34767026">
-          <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Models/Conference/ConferenceViewModel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3655914">
-          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="23" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Models/Conference/DetailedConferenceViewModel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3655914">
-          <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Views/Home/Index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1218638">
-          <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="11" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/View.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.1538463">
-          <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/Lecturesuser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.8076925">
-          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Repositories/lecturesusersRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34767026">
-          <caret line="183" column="20" selection-start-line="183" selection-start-column="20" selection-end-line="183" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Views/Home/Invites.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09139785">
-          <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="9" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Models/Lecture/LectureBindingModel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.4615383">
-          <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Models/Lecture/LectureViewModel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Views/Home/mySchedule.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="35" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Core/Identity/MyUser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Models/Hall/HallViewModel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.98566306">
-          <caret line="37" column="36" selection-start-line="37" selection-start-column="20" selection-end-line="37" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Views/Conference/Create.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Models/Account/AddSpeakerBindingModel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27419356">
-          <caret line="9" column="23" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Views/Conference/Admins.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.153846">
-          <caret line="14" column="41" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Core/Identity/Identity.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.8076925">
-          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Views/Layouts/Default/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.230769">
-          <caret line="27" column="73" selection-start-line="27" selection-start-column="73" selection-end-line="27" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Services/ConferenceService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.5384617">
-          <caret line="82" column="9" selection-start-line="82" selection-start-column="9" selection-end-line="82" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Views/Conference/MyConferences.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Views/Conference/myAdmin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.5384617">
-          <caret line="10" column="106" selection-start-line="10" selection-start-column="106" selection-end-line="10" selection-end-column="106" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Views/Conference/Details.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0358423">
-          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Views/Lectures/Edit.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5483871">
-          <caret line="18" column="75" selection-start-line="18" selection-start-column="75" selection-end-line="18" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/Conference.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.8076925">
-          <caret line="135" column="0" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/Conferenceadmin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.1538463">
-          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Core/ORM/DbContext.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.1538463">
-          <caret line="76" column="0" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Repositories/lecturesRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.8076925">
-          <caret line="224" column="0" selection-start-line="224" selection-start-column="0" selection-end-line="224" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Collections/LectureCollection.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.1538463">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Services/LecturesService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.8076925">
-          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Application/Application.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.8637993">
@@ -704,7 +575,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="9" selection-end-column="126" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -712,7 +582,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="2" column="36" selection-start-line="2" selection-start-column="36" selection-end-line="3" selection-end-column="75" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -720,7 +589,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.14529915">
           <caret line="5" column="11" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -728,39 +596,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3041145">
           <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Models/Account/AccountViewModel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6690519">
-          <caret line="22" column="7" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Controllers/AccountController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.0983899">
-          <caret line="72" column="5" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Controllers/BaseController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.115385">
-          <caret line="17" column="33" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
-          <folding>
-            <element signature="e#88#154#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Controllers/LecturesController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-24.192308">
+        <state vertical-scroll-proportion="0.0">
           <caret line="283" column="43" selection-start-line="283" selection-start-column="43" selection-end-line="283" selection-end-column="43" />
           <folding>
             <element signature="e#712#2065#0#PHP" expanded="false" />
@@ -774,27 +615,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Controllers/ConferenceController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-213.8077">
-          <caret line="334" column="9" selection-start-line="334" selection-start-column="9" selection-end-line="334" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Controllers/HomeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.653847">
-          <caret line="27" column="7" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
-          <folding>
-            <element signature="e#88#151#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Application/Controllers/InvitesController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.65384614">
+        <state vertical-scroll-proportion="0.0">
           <caret line="1" column="24" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="24" />
           <folding>
             <element signature="e#31#119#0#PHP" expanded="false" />
@@ -802,10 +625,356 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Controllers/BaseController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.115385">
+          <caret line="39" column="37" selection-start-line="39" selection-start-column="37" selection-end-line="39" selection-end-column="37" />
+          <folding>
+            <element signature="e#88#154#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Controllers/HomeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="27" column="7" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
+          <folding>
+            <element signature="e#88#151#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Controllers/AccountController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.423077">
+          <caret line="59" column="13" selection-start-line="59" selection-start-column="13" selection-end-line="59" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Core/Commons/Normalizer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="13.076923">
+          <caret line="7" column="15" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/PDO.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.817532">
+          <caret line="819" column="20" selection-start-line="819" selection-start-column="20" selection-end-line="819" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Core/Drivers/MySqlDriver.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.060822897">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Core/Drivers/DriverFactory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.060822897">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Core/Drivers/Driver.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.060822897">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Core/HttpContext/HttpContext.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.030411448">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="2" selection-end-column="24" />
+          <folding>
+            <element signature="e#82#130#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Core/Identity/ApplicationUser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.3076923">
+          <caret line="1" column="24" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Core/Identity/ColumnsParser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="5" selection-start-line="0" selection-start-column="5" selection-end-line="1" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Core/Database/Db.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.63506263">
+          <caret line="78" column="47" selection-start-line="78" selection-start-column="47" selection-end-line="78" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Core/Identity/Identity.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.12164579">
+          <caret line="12" column="34" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Controllers/ConferenceController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-48.307693">
+          <caret line="298" column="0" selection-start-line="298" selection-start-column="0" selection-end-line="298" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Core/Identity/IdentityParser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.576923">
+          <caret line="132" column="5" selection-start-line="132" selection-start-column="5" selection-end-line="132" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Core/Identity/MyUser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.230769">
+          <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Core/Identity/TablesUpdater.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.769231">
+          <caret line="31" column="34" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
+          <folding>
+            <element signature="e#78#119#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Core/ORM/Collections.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="5" selection-start-line="0" selection-start-column="5" selection-end-line="1" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Core/ORM/DbContestTemplate.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Core/ORM/DbContext.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="49.692307">
+          <caret line="53" column="5" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Core/ORM/EntityCreator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.1923075">
+          <caret line="89" column="5" selection-start-line="89" selection-start-column="5" selection-end-line="89" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Core/ORM/ORM.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.2692308">
+          <caret line="6" column="47" selection-start-line="6" selection-start-column="47" selection-end-line="6" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Core/ORM/Repositories.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1824687">
+          <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/Reflection.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3488372">
+          <caret line="155" column="20" selection-start-line="155" selection-start-column="20" selection-end-line="155" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Core/Router/ParameterRoute.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.030411448">
+          <caret line="1" column="20" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Core/Router/RouteMapper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.030411448">
+          <caret line="1" column="20" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Core/Router/RoutesFinder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="5" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Areas/Admin/Controllers/AdminController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4257603">
+          <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Models/Account/AccountViewModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="5" selection-start-line="0" selection-start-column="5" selection-end-line="1" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Models/Account/AddSpeakerBindingModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.030411448">
+          <caret line="1" column="24" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Models/Account/LoginBindingModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8211091">
+          <caret line="27" column="38" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Models/Account/RegisterBindingModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.769231">
+          <caret line="106" column="40" selection-start-line="106" selection-start-column="40" selection-end-line="106" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Models/Conference/ConferenceViewModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.4633274">
+          <caret line="81" column="0" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Models/Conference/ConferenceBindingModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6690519">
+          <caret line="40" column="5" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Models/Conference/DetailedConferenceViewModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.0035778">
+          <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Models/Hall/HallViewModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.3076923">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Models/Venue/VenueViewModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.65384614">
+          <caret line="1" column="24" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Models/BaseBindingModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33452594">
+          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Models/Invite/InviteViewModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.65384614">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09123435">
-          <caret line="3" column="16" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
+        <state vertical-scroll-proportion="-1.3076923">
+          <caret line="2" column="45" selection-start-line="2" selection-start-column="45" selection-end-line="2" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Models/Lecture/LectureBindingModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-30.0">
+          <caret line="84" column="0" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Models/Lecture/LectureViewModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.730769">
+          <caret line="105" column="41" selection-start-line="105" selection-start-column="36" selection-end-line="105" selection-end-column="41" />
+          <folding>
+            <element signature="e#91#153#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Views/Home/Invites.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.48658317">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding />
         </state>
       </provider>

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace ConferenceScheduler\Core\Identity;
 
@@ -7,7 +8,7 @@ use ConferenceScheduler\Configs\DatabaseConfig;
 
 class TablesUpdater
 {
-    public function createTable($name) {
+    public function createTable(string $name) : bool {
         $db = Db::getInstance(DatabaseConfig::DB_INSTANCE);
         $query = str_replace('{{name}}', $name, self::CREATE_TABLE);
 
@@ -20,7 +21,7 @@ class TablesUpdater
         }
     }
 
-    public function dropTable($name) {
+    public function dropTable(string $name) : bool {
         $db = Db::getInstance(DatabaseConfig::DB_INSTANCE);
         $query = str_replace('{{name}}', $name, self::DROP_TABLE);
 
@@ -33,7 +34,7 @@ class TablesUpdater
         }
     }
 
-    public function addColumn($table, $column, $type) {
+    public function addColumn(string $table, string $column, string $type) : bool{
         $db = Db::getInstance(DatabaseConfig::DB_INSTANCE);
         $query = str_replace('{{table}}',$table, self::UPDATE_TABLE_ADD_COL);
         $query = str_replace('{{column}}', $column, $query);
@@ -48,7 +49,7 @@ class TablesUpdater
         }
     }
 
-    public function dropColumn($table, $column) {
+    public function dropColumn(string $table, string $column)  : bool {
         $db = Db::getInstance(DatabaseConfig::DB_INSTANCE);
         $query = str_replace('{{table}}', $table, self::UPDATE_TABLE_DELETE_COL);
         $query = str_replace('{{column}}', $column, $query);
@@ -62,7 +63,7 @@ class TablesUpdater
         }
     }
 
-    public function modifyColumn($table, $column, $type) {
+    public function modifyColumn(string $table, string $column, string $type) : bool {
         $db = Db::getInstance(DatabaseConfig::DB_INSTANCE);
         $query = str_replace('{{table}}',$table, self::UPDATE_TABLE_MODIFY_COL);
         $query = str_replace('{{column}}', $column, $query);
@@ -77,7 +78,7 @@ class TablesUpdater
         }
     }
 
-    public function tableExists($table) {
+    public function tableExists(string $table) : bool {
         $db = Db::getInstance(DatabaseConfig::DB_INSTANCE);
         $query = str_replace('{{table}}',$table, self::TABLE_EXISTS);
 
@@ -90,7 +91,7 @@ class TablesUpdater
         }
     }
 
-    public function insertRole($role) {
+    public function insertRole($role) : bool {
         $db = Db::getInstance(DatabaseConfig::DB_INSTANCE);
         $statement = $db->prepare(self::INSERT_ROLE);
 

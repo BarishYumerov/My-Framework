@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ConferenceScheduler\Core\HttpContext;
 
 use ConferenceScheduler\Core\Commons\Normalizer;
@@ -53,11 +55,11 @@ class HttpContext {
         $this->method = $method;
     }
 
-    public function hasGet($id) {
+    public function hasGet($id) : bool{
         return array_key_exists($id, $this->_get);
     }
 
-    public function hasPost($name) {
+    public function hasPost($name) : bool{
         return array_key_exists($name, $this->_post);
     }
 
@@ -65,7 +67,7 @@ class HttpContext {
         return array_key_exists($name, $this->_session);
     }
 
-    public function hasCookies($name) {
+    public function hasCookies($name) : bool {
         return array_key_exists($name, $this->_cookies);
     }
 
@@ -114,17 +116,17 @@ class HttpContext {
         return $this->method;
     }
 
-    public function isGet()
+    public function isGet() : bool
     {
         return $this->method == 'get';
     }
 
-    public function isPost()
+    public function isPost() : bool
     {
         return $this->method == 'post';
     }
 
-    public static function getInstance() {
+    public static function getInstance() : HttpContext {
         if (self::$_instance == null) {
             self::$_instance = new HttpContext();
         }

@@ -1,13 +1,15 @@
 <?php
+declare(strict_types=1);
 
 namespace ConferenceScheduler\Core\ORM;
+use ConferenceScheduler\Application\Controllers\BaseController;
 
 /**
  * The skeleton of the code is taken from RoYal
  */
 class Collections {
 
-    public static function create($model)
+    public static function create(string $model) : string
     {
         $modelCollection = $model . 'Collection';
         $modelName = $model . 's';

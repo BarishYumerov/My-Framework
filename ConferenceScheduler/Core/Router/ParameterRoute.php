@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace ConferenceScheduler\Core\Router;
 
@@ -39,7 +40,7 @@ class ParameterRoute {
         }
     }
 
-    public function isMatching($route)
+    public function isMatching($route) : bool
     {
         $components = explode('/', $route);
         if (count($components) != count($this->parameters)) {
@@ -90,7 +91,7 @@ class UriParameter {
     /**
      * @param mixed $type
      */
-    public function setType($type)
+    public function setType(int $type)
     {
         if ($type < 1 || $type > 4) {
             throw new \Exception('Type must be a valid integer number.');
@@ -114,7 +115,7 @@ class UriParameter {
         $this->name = $name;
     }
 
-    public function isValid($value)
+    public function isValid($value) : bool
     {
         switch ($this->type) {
             case self::DOUBLE_TYPE:

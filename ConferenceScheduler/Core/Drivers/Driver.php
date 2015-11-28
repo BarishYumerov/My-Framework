@@ -1,5 +1,5 @@
 <?php
-//declare(strict_types=1);
+declare(strict_types=1);
 
 namespace ConferenceScheduler\Core\Drivers;
 
@@ -17,8 +17,5 @@ abstract class Driver {
         $this->host = $host;
     }
 
-    /**
-     * @return string
-     */
-    public abstract function getDsn();
+    public abstract function getDsn() : string;
 }

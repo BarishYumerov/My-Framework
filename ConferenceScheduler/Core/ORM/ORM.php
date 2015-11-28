@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace ConferenceScheduler\Core\ORM;
 
@@ -50,7 +51,7 @@ class Orm {
         }
     }
 
-    private static function generateClassInfo($model) {
+    private static function generateClassInfo(string $model) {
         $output = <<<KUF
 <?php
 
@@ -63,7 +64,7 @@ KUF;
         return $output;
     }
 
-    private static function generateFields($model, $tableName, $columns) {
+    private static function generateFields($model, $tableName, $columns) : string {
         $output = "";
         foreach ($columns as $column) {
             $output .= "\n\tprivate $" . $column . ';';
@@ -72,7 +73,7 @@ KUF;
         return $output . "\n";
     }
 
-    private static function generateConstructor($model, $tableName, $columns) {
+    private static function generateConstructor($model, $tableName, $columns) : string {
         $output = "";
         $signature = "";
         foreach ($columns as $column) {
@@ -91,7 +92,7 @@ KUF;
         return $output . "\n";
     }
 
-    private static function generateGettersAndSetters($model, $tableName, $columns) {
+    private static function generateGettersAndSetters($model, $tableName, $columns) : string {
         /*
          *     /**
              * @return mixed
@@ -127,7 +128,7 @@ KUF;
         return $output;
     }
 
-    private static function generateConstants($model, $tableName, $columns) {
+    private static function generateConstants($model, $tableName, $columns) : string {
         //    const COL_USERNAME = 'username';
         $output = "";
         foreach ($columns as $column) {

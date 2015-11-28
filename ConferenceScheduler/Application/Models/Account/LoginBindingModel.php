@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace ConferenceScheduler\Application\Models\Account;
 
 class LoginBindingModel
@@ -15,7 +17,7 @@ class LoginBindingModel
     /**
      * @return mixed
      */
-    public function getPassword()
+    public function getPassword() : string
     {
         return $this->password;
     }
@@ -23,7 +25,7 @@ class LoginBindingModel
     /**
      * @param mixed $password
      */
-    public function setPassword($password)
+    public function setPassword(string $password)
     {
         $this->password = $password;
     }
@@ -31,7 +33,7 @@ class LoginBindingModel
     /**
      * @return mixed
      */
-    public function getUsername()
+    public function getUsername() : string
     {
         return $this->username;
     }
@@ -39,7 +41,7 @@ class LoginBindingModel
     /**
      * @param mixed $username
      */
-    public function setUsername($username)
+    public function setUsername(string $username)
     {
         $this->username = $username;
     }

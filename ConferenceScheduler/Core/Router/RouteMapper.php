@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace ConferenceScheduler\Core\Router;
 
@@ -6,7 +7,7 @@ use ConferenceScheduler\Configs\Routes;
 
 class RouteMapper
 {
-    public static function map($route)
+    public static function map(string $route)
     {
         foreach (Routes::$ROUTES as $existingRoute) {
             if (strpos($existingRoute['route'], '{') === false) {

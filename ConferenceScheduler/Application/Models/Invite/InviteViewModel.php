@@ -1,4 +1,5 @@
 <?php
+declare(strcit_types=1);
 
 namespace ConferenceScheduler\Application\Models\Invite;
 
@@ -22,15 +23,15 @@ class InviteViewModel
     /**
      * @return mixed
      */
-    public function getId()
+    public function getId() : int
     {
-        return $this->id;
+        return intval($this->id);
     }
 
     /**
      * @param mixed $id
      */
-    public function setId($id)
+    public function setId(string $id)
     {
         $this->id = $id;
     }
@@ -38,15 +39,15 @@ class InviteViewModel
     /**
      * @return mixed
      */
-    public function getUserId()
+    public function getUserId() : int
     {
-        return $this->userId;
+        return intval($this->userId);
     }
 
     /**
      * @param mixed $userId
      */
-    public function setUserId($userId)
+    public function setUserId(int $userId)
     {
         $this->userId = $userId;
     }
@@ -54,15 +55,15 @@ class InviteViewModel
     /**
      * @return mixed
      */
-    public function getLectureId()
+    public function getLectureId() : int
     {
-        return $this->lectureId;
+        return intval($this->lectureId);
     }
 
     /**
      * @param mixed $lectureId
      */
-    public function setLectureId($lectureId)
+    public function setLectureId(int $lectureId)
     {
         $this->lectureId = $lectureId;
     }
@@ -70,7 +71,7 @@ class InviteViewModel
     /**
      * @return mixed
      */
-    public function getLectureName()
+    public function getLectureName() : string
     {
         return $this->lectureName;
     }
@@ -78,7 +79,7 @@ class InviteViewModel
     /**
      * @param mixed $lectureName
      */
-    public function setLectureName($lectureName)
+    public function setLectureName(string $lectureName)
     {
         $this->lectureName = $lectureName;
     }
@@ -86,7 +87,7 @@ class InviteViewModel
     /**
      * @return mixed
      */
-    public function getConferenceName()
+    public function getConferenceName() : string
     {
         return $this->conferenceName;
     }
@@ -94,7 +95,7 @@ class InviteViewModel
     /**
      * @param mixed $conferenceName
      */
-    public function setConferenceName($conferenceName)
+    public function setConferenceName(string $conferenceName)
     {
         $this->conferenceName = $conferenceName;
     }
@@ -102,15 +103,15 @@ class InviteViewModel
     /**
      * @return mixed
      */
-    public function getConferenceId()
+    public function getConferenceId() : int
     {
-        return $this->conferenceId;
+        return intval($this->conferenceId);
     }
 
     /**
      * @param mixed $conferenceId
      */
-    public function setConferenceId($conferenceId)
+    public function setConferenceId(int $conferenceId)
     {
         $this->conferenceId = $conferenceId;
     }

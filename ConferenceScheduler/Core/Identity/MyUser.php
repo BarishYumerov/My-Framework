@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Barish-PC
- * Date: 16.11.2015 ã.
- * Time: 13:33
- */
+declare(strict_types=1);
 
 namespace ConferenceScheduler\Core\Identity;
 

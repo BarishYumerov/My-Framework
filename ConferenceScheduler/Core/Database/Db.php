@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 namespace ConferenceScheduler\Core\Database;
 
 use ConferenceScheduler\Configs\DatabaseConfig;
@@ -18,7 +18,7 @@ class Db {
      * @return Db
      * @throws \Exception
      */
-    public static function getInstance($instanceName = 'default') {
+    public static function getInstance($instanceName = 'default') : Db {
         if (!isset(self::$instances[$instanceName])) {
             throw new \Exception('Instance with that name was not set.');
         }
@@ -39,7 +39,7 @@ class Db {
         self::$instances[$config::DB_INSTANCE] = new self($pdo);
     }
 
-    public function prepare($statement, $driver_options = [])
+    public function prepare($statement, $driver_options = []) : Statement
     {
         $pdoStatement = $this->db->prepare($statement, $driver_options);
         return new Statement($pdoStatement);
@@ -69,22 +69,22 @@ class Statement {
         return $this->statement->fetch($fetchStyle);
     }
 
-    public function fetchAll($fetchStyle = \PDO::FETCH_ASSOC)
+    public function fetchAll($fetchStyle = \PDO::FETCH_ASSOC) : array
     {
         return $this->statement->fetchAll($fetchStyle);
     }
 
-    public function bindParam($parameter, &$variable, $dataType = \PDO::PARAM_STR, $length = null, $driver_options = [])
+    public function bindParam($parameter, &$variable, $dataType = \PDO::PARAM_STR, $length = null, $driver_options = []) : bool
     {
         return $this->statement->bindParam($parameter, $variable, $dataType, $length, $driver_options);
     }
 
-    public function execute($input_parameters = [])
+    public function execute($input_parameters = []) : bool
     {
         return $this->statement->execute($input_parameters);
     }
 
-    public function rowCount()
+    public function rowCount() : int
     {
         return $this->statement->rowCount();
     }

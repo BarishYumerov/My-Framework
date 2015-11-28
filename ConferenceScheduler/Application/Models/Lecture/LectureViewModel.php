@@ -1,7 +1,9 @@
 <?php
+declare(strcit_types=1);
 
 namespace ConferenceScheduler\Application\Models\Lecture;
 
+use ConferenceScheduler\Application\Models\Hall\HallViewModel;
 use ConferenceScheduler\Models\Lecture;
 
 class LectureViewModel
@@ -28,7 +30,7 @@ class LectureViewModel
     /**
      * @param mixed $id
      */
-    public function setId($id)
+    public function setId(int $id)
     {
         $this->id = $id;
     }
@@ -36,7 +38,7 @@ class LectureViewModel
     /**
      * @param mixed $name
      */
-    public function setName($name)
+    public function setName($name) : string
     {
         $this->name = $name;
     }
@@ -44,7 +46,7 @@ class LectureViewModel
     /**
      * @param mixed $speakers
      */
-    public function setSpeakers($speakers)
+    public function setSpeakers(array $speakers)
     {
         $this->speakers = $speakers;
     }
@@ -52,7 +54,7 @@ class LectureViewModel
     /**
      * @param mixed $startDate
      */
-    public function setStartDate($startDate)
+    public function setStartDate(string $startDate)
     {
         $this->startDate = $startDate;
     }
@@ -60,7 +62,7 @@ class LectureViewModel
     /**
      * @param mixed $endDate
      */
-    public function setEndDate($endDate)
+    public function setEndDate(string $endDate)
     {
         $this->endDate = $endDate;
     }
@@ -68,7 +70,7 @@ class LectureViewModel
     /**
      * @param mixed $hall
      */
-    public function setHall($hall)
+    public function setHall(HallViewModel $hall)
     {
         $this->hall = $hall;
     }
@@ -77,7 +79,7 @@ class LectureViewModel
      * @param mixed $lectureJoinedMembers
      * @Return HallViewModel
      */
-    public function setLectureJoinedMembers($lectureJoinedMembers)
+    public function setLectureJoinedMembers(int $lectureJoinedMembers)
     {
         $this->lectureJoinedMembers = $lectureJoinedMembers;
     }
@@ -85,15 +87,15 @@ class LectureViewModel
     /**
      * @return mixed
      */
-    public function getId()
+    public function getId() : int
     {
-        return $this->id;
+        return intval($this->id);
     }
 
     /**
      * @return mixed
      */
-    public function getName()
+    public function getName() : string
     {
         return $this->name;
     }
@@ -101,7 +103,7 @@ class LectureViewModel
     /**
      * @return mixed
      */
-    public function getSpeakers()
+    public function getSpeakers() : array
     {
         return $this->speakers;
     }
@@ -109,7 +111,7 @@ class LectureViewModel
     /**
      * @return mixed
      */
-    public function getStartDate()
+    public function getStartDate() : string
     {
         return $this->startDate;
     }
@@ -117,7 +119,7 @@ class LectureViewModel
     /**
      * @return mixed
      */
-    public function getEndDate()
+    public function getEndDate() : string
     {
         return $this->endDate;
     }
@@ -125,7 +127,7 @@ class LectureViewModel
     /**
      * @return mixed
      */
-    public function getHall()
+    public function getHall() : HallViewModel
     {
         return $this->hall;
     }
@@ -133,7 +135,7 @@ class LectureViewModel
     /**
      * @return mixed
      */
-    public function getLectureJoinedMembers()
+    public function getLectureJoinedMembers() : int
     {
         return $this->lectureJoinedMembers;
     }
@@ -142,15 +144,15 @@ class LectureViewModel
      * @return mixed
      */
 
-    public function getConferenceId()
+    public function getConferenceId() : int
     {
-        return $this->conferenceId;
+        return intval($this->conferenceId);
     }
 
     /**
      * @param mixed $conferenceId
      */
-    public function setConferenceId($conferenceId)
+    public function setConferenceId(int $conferenceId)
     {
         $this->conferenceId = $conferenceId;
     }
@@ -158,15 +160,15 @@ class LectureViewModel
     /**
      * @return mixed
      */
-    public function getVenueId()
+    public function getVenueId() : int
     {
-        return $this->venueId;
+        return intval($this->venueId);
     }
 
     /**
      * @param mixed $venueId
      */
-    public function setVenueId($venueId)
+    public function setVenueId(int $venueId)
     {
         $this->venueId = $venueId;
     }

@@ -1,4 +1,5 @@
 <?php
+declare(strcit_types=1);
 
 class VenueViewModel
 {

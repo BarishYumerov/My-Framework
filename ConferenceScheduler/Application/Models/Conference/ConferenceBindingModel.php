@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 namespace ConferenceScheduler\Application\Models\Conference;
 
 use ConferenceScheduler\Application\Models\BaseBindingModel;
@@ -35,15 +35,15 @@ class ConferenceBindingModel extends BaseBindingModel
     /**
      * @return mixed
      */
-    public function getVenueId()
+    public function getVenueId() : int
     {
-        return $this->venueId;
+        return intval($this->venueId);
     }
 
     /**
      * @param mixed $venueId
      */
-    public function setVenueId($venueId)
+    public function setVenueId(int $venueId)
     {
         $this->venueId = $venueId;
     }
@@ -51,7 +51,7 @@ class ConferenceBindingModel extends BaseBindingModel
     /**
      * @return mixed
      */
-    public function getStartDate()
+    public function getStartDate() : string
     {
         return $this->startDate;
     }
@@ -59,7 +59,7 @@ class ConferenceBindingModel extends BaseBindingModel
     /**
      * @param mixed $startDate
      */
-    public function setStartDate($startDate)
+    public function setStartDate(string $startDate)
     {
         if(strtotime($startDate) < time()){
             $this->errors[] = 'Start date must be tomorrow or later!';
@@ -70,7 +70,7 @@ class ConferenceBindingModel extends BaseBindingModel
     /**
      * @return mixed
      */
-    public function getEndDate()
+    public function getEndDate() : string
     {
         return $this->endDate;
     }
@@ -78,7 +78,7 @@ class ConferenceBindingModel extends BaseBindingModel
     /**
      * @param mixed $endDate
      */
-    public function setEndDate($endDate)
+    public function setEndDate(string $endDate)
     {
         if (strtotime($this->startDate) > strtotime($endDate)){
             $this->errors[] = 'End date must be later than start date';
@@ -89,7 +89,7 @@ class ConferenceBindingModel extends BaseBindingModel
     /**
      * @return mixed
      */
-    public function getTitle()
+    public function getTitle() : string
     {
         return $this->title;
     }
@@ -97,7 +97,7 @@ class ConferenceBindingModel extends BaseBindingModel
     /**
      * @param mixed $title
      */
-    public function setTitle($title)
+    public function setTitle(string $title)
     {
         if(count($title) == 0){
             $this->errors[] = 'Title length must be grater than 0!';
@@ -105,7 +105,7 @@ class ConferenceBindingModel extends BaseBindingModel
         $this->title = $title;
     }
 
-    public function getId(){
-        return $this->id;
+    public function getId() : int{
+        return intval($this->id);
     }
 }
