@@ -44,7 +44,8 @@
             <h4 style="color: #ff0000;">No speakers are assigned yet!</h4>
         <?php endif; ?>
         <a href="/Lecture/<?php echo $model->getId()?>/Invite/Speaker" class="btn btn-info">Invite a speaker!</a>
-        <input type="submit" class="btn btn-default" value="Edit" />
-        <a href="/Lecture/<?php echo $model->getId() ?>/Delete" class="btn btn-danger btn-sm">Delete</a>
+        <input type="submit" class="btn btn-default" value="Edit" /><?php if(!array_key_exists ( 'isAdmin' , $this->getViewBag())) : ?>
+            <a href="/Lecture/<?php echo $lecture->getId() ?>/Delete" class="btn btn-danger btn-sm">Delete</a>
+        <?php endif ?>
     </form>
 </div>

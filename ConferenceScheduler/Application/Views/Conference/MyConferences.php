@@ -9,7 +9,7 @@
             <p>Start Date: <?php echo $conference->getStartDate()?></p>
             <p>End Date: <?php echo $conference->getEndDate()?></p>
             <a href="/Conference/<?php echo $conference->getId() ?>/Edit" class="btn btn-primary">Edit</a>
-            <a class="btn btn-danger">Delete</a>
+            <a href="/Conference/<?php echo $conference->getId() ?>/Delete" class="btn btn-danger">Delete</a>
         </div>
     <?php endforeach ?>
 </div>

@@ -16,6 +16,45 @@ class ConferenceController extends BaseController
 {
     /**
      * @Authorize
+     * @Route("Conference/{int id}/Delete")
+     */
+    public function delete(){
+        $id = intval(func_get_args()[0]);
+        $loggedUserId = $this->identity->getUserId();
+        $service = new LecturesService($this->dbContext);
+
+        $conference = $this->dbContext->getConferencesRepository()->filterById(" = '$id'")->findOne();
+
+        if(!$conference->getId()){
+            $this->addErrorMessage('No such conference!');
+            $this->redirect('Me', 'Conferences');
+        }
+
+        if(!$this->identity->isInRole("Admin")){
+            if(intval($conference->getOwnerId()) !== $loggedUserId){
+                $this->addErrorMessage('You are not allowed to edit this conference!');
+                $this->redirect('Me', 'Conferences');
+            }
+        }
+
+        $this->dbContext->getConferenceadminsRepository()->filterByConferenceId(" = '$id'")->delete();
+
+        $lectures = $this->dbContext->getLecturesRepository()->filterByConferenceId(" = '$id'")->findAll()->getLectures();
+
+        foreach ($lectures as $l) {
+            $service->delete(intval($l->getId()));
+        }
+
+        $this->dbContext->getConferencesRepository()->filterById(" = '$id'")->delete();
+
+        $this->dbContext->saveChanges();
+
+        $this->addInfoMessage("Conference deleted!");
+        $this->redirectToUrl("/Me/Conferences");
+    }
+
+    /**
+     * @Authorize
      * @Route("Conference/{int id}/Remove/Admin/{int id}")
      */
     public function remove(){
@@ -31,9 +70,11 @@ class ConferenceController extends BaseController
             $this->redirect('Me', 'Conferences');
         }
 
-        if(intval($conference->getOwnerId()) !== $loggedUserId){
-            $this->addErrorMessage('You are not allowed to edit this conference!');
-            $this->redirect('Me', 'Conferences');
+        if(!$this->identity->isInRole("Admin")){
+            if(intval($conference->getOwnerId()) !== $loggedUserId){
+                $this->addErrorMessage('You are not allowed to edit this conference!');
+                $this->redirect('Me', 'Conferences');
+            }
         }
 
         $user = $this->dbContext->getUsersRepository()

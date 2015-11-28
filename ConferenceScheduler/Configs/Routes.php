@@ -1,9 +1,18 @@
 <?php 
 namespace ConferenceScheduler\Configs; 
 class Routes { 
-	 public static $lastCheck = '2015-11-28 14:35:44';
+	 public static $lastCheck = '2015-11-28 14:58:02';
 
 	 public static $ROUTES = [ 
+		 [ 
+			 'controller' => 'ConferenceScheduler\Application\Controllers\ConferenceController',
+			 'action' => 'delete',
+			 'route' => 'conference/{int id}/delete',
+			 'annotations' => [
+				'route' => 'conference/{int id}/delete',
+				'authorize' => '1',
+			 ]
+		 ], 
 		 [ 
 			 'controller' => 'ConferenceScheduler\Application\Controllers\ConferenceController',
 			 'action' => 'remove',
@@ -192,6 +201,15 @@ class Routes {
 			 'action' => 'logout',
 			 'route' => 'account/logout',
 			 'annotations' => [
+			 ]
+		 ], 
+		 [ 
+			 'controller' => 'ConferenceScheduler\Application\Controllers\ConferenceController',
+			 'action' => 'delete',
+			 'route' => 'conference/delete',
+			 'annotations' => [
+				'route' => 'conference/{int id}/delete',
+				'authorize' => '1',
 			 ]
 		 ], 
 		 [ 
