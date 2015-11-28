@@ -1,7 +1,7 @@
 <?php 
 namespace ConferenceScheduler\Configs; 
 class Routes { 
-	 public static $lastCheck = '2015-11-28 14:58:02';
+	 public static $lastCheck = '2015-11-28 15:35:32';
 
 	 public static $ROUTES = [ 
 		 [ 
@@ -180,6 +180,7 @@ class Routes {
 			 'route' => 'admin/KillThemAll',
 			 'annotations' => [
 				'route' => 'admin/killthemall',
+				'admin' => '1',
 			 ]
 		 ], 
 		 [ 
@@ -394,6 +395,7 @@ class Routes {
 			 'route' => 'admin/admin/index',
 			 'annotations' => [
 				'route' => 'admin/killthemall',
+				'admin' => '1',
 			 ]
 		 ], 
 	 ]; 

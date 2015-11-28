@@ -200,6 +200,11 @@ class RoutesFinder{
             $annotations['authorize'] = true;
         }
 
+        preg_match("/@Admin/m", $annotationsText, $matches);
+        if (count($matches) > 0) {
+            $annotations['admin'] = true;
+        }
+
         if (count($annotations) > 0) {
             return $annotations;
         }

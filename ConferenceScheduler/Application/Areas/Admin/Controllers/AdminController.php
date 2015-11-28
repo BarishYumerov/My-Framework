@@ -10,8 +10,9 @@ class AdminController extends BaseController
 {
     /**
      * @Route("admin/KillThemAll");
+     * @Admin
      */
     public function index() : View{
-        return new View('Admin', 'index', 'Default', null, 'Admin');
+        return new View('Admin', 'Index',null, null,'Admin');
     }
 }
