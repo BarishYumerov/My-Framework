@@ -43,7 +43,7 @@ class ConferenceBindingModel extends BaseBindingModel
     /**
      * @param mixed $venueId
      */
-    public function setVenueId(int $venueId)
+    public function setVenueId($venueId)
     {
         $this->venueId = $venueId;
     }

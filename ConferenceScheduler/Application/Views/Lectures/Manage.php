@@ -25,6 +25,7 @@
                     <h4 style="color: #ff0000;">No speakers are assigned yet!</h4>
                 <?php endif; ?>
                 <a href="/Lecture/<?php echo $lecture->getId() ?>/Manage" class="btn btn-primary btn-sm">Edit</a>
+                <a href="/Lecture/<?php echo $lecture->getId() ?>/Delete" class="btn btn-danger btn-sm">Delete</a>
             </div>
         <?php endforeach ?>
     <?php else : ?>

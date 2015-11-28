@@ -1,12 +1,12 @@
 <?php
-
+declare(strict_types=1);
 namespace ConferenceScheduler\Application\Services;
 
 use ConferenceScheduler\Application\Models\Conference\ConferenceViewModel;
 
 class ConferenceService extends BaseService
 {
-    public function getOne($id){
+    public function getOne(int $id){
         $conference = $this->dbContext->getConferencesRepository()->filterById(" = '$id'")->findOne();
         if($conference->getId() == null){
             return null;

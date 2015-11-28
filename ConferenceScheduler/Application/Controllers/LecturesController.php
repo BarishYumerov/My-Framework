@@ -15,6 +15,43 @@ use ConferenceScheduler\View;
 
 class LecturesController extends BaseController
 {
+
+    /**
+     * @Authorize
+     * @Route("Lecture/{int id}/Delete")
+     */
+    public function delete(){
+        $lectureId = intval(func_get_args()[0]);
+        $loggedUserId = $this->identity->getUserId();
+        $service = new LecturesService($this->dbContext);
+        $confService = new ConferenceService($this->dbContext);
+
+        $lecture = $service->getOne($lectureId);
+
+        if($lecture == null){
+            $this->addErrorMessage('No such conference!');
+            $this->redirect('home');
+        }
+
+        $id = intval($lecture->getConferenceId());
+
+        $conference = $confService->getOne($id);
+
+        $conferenceOwner = intval($conference->getOwnerId());
+
+        if(!$this->identity->isInRole("Admin")){
+            if($conferenceOwner !== $loggedUserId){
+                $this->addErrorMessage('You cannot edit this conference lectures!');
+                $this->redirectToUrl('/Me/Conferences');
+            }
+        }
+
+        $service->delete($lectureId);
+
+        $this->addInfoMessage("Lecture deleted!");
+        $this->redirectToUrl("/Conference/$id/Lectures/Manage");
+    }
+
     /**
      * @Authorize
      * @Route("Conference/{int id}/Lectures/Manage")
@@ -29,6 +66,7 @@ class LecturesController extends BaseController
         $service = new LecturesService($this->dbContext);
 
         $conference = $confService->getOne($id);
+
         if($conference == null){
             $this->addErrorMessage('No such conference!');
             $this->redirect('home');
@@ -317,7 +355,7 @@ class LecturesController extends BaseController
         $lectureId = intval(func_get_args()[0]);
         $lecture = $this->dbContext->getLecturesRepository()->filterById(" = '$lectureId'")->findOne();
 
-        $conferenceId = $lecture->getConferenceId();
+        $conferenceId = intval($lecture->getConferenceId());
 
         $loggedUserId = $this->identity->getUserId();
 

@@ -45,5 +45,6 @@
         <?php endif; ?>
         <a href="/Lecture/<?php echo $model->getId()?>/Invite/Speaker" class="btn btn-info">Invite a speaker!</a>
         <input type="submit" class="btn btn-default" value="Edit" />
+        <a href="/Lecture/<?php echo $model->getId() ?>/Delete" class="btn btn-danger btn-sm">Delete</a>
     </form>
 </div>
