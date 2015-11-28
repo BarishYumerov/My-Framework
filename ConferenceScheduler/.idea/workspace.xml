@@ -2,42 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2800c4d0-2266-44b7-8f0a-8462eb871835" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Models/Account/AccountViewModel.php" afterPath="$PROJECT_DIR$/Application/Models/Account/AccountViewModel.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Models/Account/AddSpeakerBindingModel.php" afterPath="$PROJECT_DIR$/Application/Models/Account/AddSpeakerBindingModel.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Areas/Admin/Controllers/AdminController.php" afterPath="$PROJECT_DIR$/Application/Areas/Admin/Controllers/AdminController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Core/Identity/ApplicationUser.php" afterPath="$PROJECT_DIR$/Core/Identity/ApplicationUser.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Controllers/BaseController.php" afterPath="$PROJECT_DIR$/Application/Controllers/BaseController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Core/ORM/Collections.php" afterPath="$PROJECT_DIR$/Core/ORM/Collections.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Core/Identity/ColumnsParser.php" afterPath="$PROJECT_DIR$/Core/Identity/ColumnsParser.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Models/Conference/ConferenceBindingModel.php" afterPath="$PROJECT_DIR$/Application/Models/Conference/ConferenceBindingModel.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Models/Conference/ConferenceViewModel.php" afterPath="$PROJECT_DIR$/Application/Models/Conference/ConferenceViewModel.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Core/Database/Db.php" afterPath="$PROJECT_DIR$/Core/Database/Db.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Models/Conference/DetailedConferenceViewModel.php" afterPath="$PROJECT_DIR$/Application/Models/Conference/DetailedConferenceViewModel.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Core/Drivers/Driver.php" afterPath="$PROJECT_DIR$/Core/Drivers/Driver.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Core/Drivers/DriverFactory.php" afterPath="$PROJECT_DIR$/Core/Drivers/DriverFactory.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Core/ORM/EntityCreator.php" afterPath="$PROJECT_DIR$/Core/ORM/EntityCreator.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Models/Hall/HallViewModel.php" afterPath="$PROJECT_DIR$/Application/Models/Hall/HallViewModel.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Core/HttpContext/HttpContext.php" afterPath="$PROJECT_DIR$/Core/HttpContext/HttpContext.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Core/Identity/Identity.php" afterPath="$PROJECT_DIR$/Core/Identity/Identity.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Core/Identity/IdentityParser.php" afterPath="$PROJECT_DIR$/Core/Identity/IdentityParser.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Models/Invite/InviteViewModel.php" afterPath="$PROJECT_DIR$/Application/Models/Invite/InviteViewModel.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Views/Home/Invites.php" afterPath="$PROJECT_DIR$/Application/Views/Home/Invites.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Models/Lecture/LectureBindingModel.php" afterPath="$PROJECT_DIR$/Application/Models/Lecture/LectureBindingModel.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Models/Lecture/LectureViewModel.php" afterPath="$PROJECT_DIR$/Application/Models/Lecture/LectureViewModel.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Models/Account/LoginBindingModel.php" afterPath="$PROJECT_DIR$/Application/Models/Account/LoginBindingModel.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Core/Drivers/MySqlDriver.php" afterPath="$PROJECT_DIR$/Core/Drivers/MySqlDriver.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Core/Identity/MyUser.php" afterPath="$PROJECT_DIR$/Core/Identity/MyUser.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Core/Commons/Normalizer.php" afterPath="$PROJECT_DIR$/Core/Commons/Normalizer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Core/ORM/ORM.php" afterPath="$PROJECT_DIR$/Core/ORM/ORM.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Core/Router/ParameterRoute.php" afterPath="$PROJECT_DIR$/Core/Router/ParameterRoute.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Models/Account/RegisterBindingModel.php" afterPath="$PROJECT_DIR$/Application/Models/Account/RegisterBindingModel.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Core/ORM/Repositories.php" afterPath="$PROJECT_DIR$/Core/ORM/Repositories.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Core/Router/RouteMapper.php" afterPath="$PROJECT_DIR$/Core/Router/RouteMapper.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Controllers/ConferenceController.php" afterPath="$PROJECT_DIR$/Application/Controllers/ConferenceController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Controllers/LecturesController.php" afterPath="$PROJECT_DIR$/Application/Controllers/LecturesController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Services/LecturesService.php" afterPath="$PROJECT_DIR$/Application/Services/LecturesService.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Configs/Routes.php" afterPath="$PROJECT_DIR$/Configs/Routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Core/Router/RoutesFinder.php" afterPath="$PROJECT_DIR$/Core/Router/RoutesFinder.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Core/Identity/TablesUpdater.php" afterPath="$PROJECT_DIR$/Core/Identity/TablesUpdater.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Models/Venue/VenueViewModel.php" afterPath="$PROJECT_DIR$/Application/Models/Venue/VenueViewModel.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ConferenceScheduler.iws" />
@@ -60,11 +28,63 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="LecturesController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/Controllers/LecturesController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-35.23077">
+              <caret line="444" column="7" selection-start-line="444" selection-start-column="7" selection-end-line="444" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LecturesService.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/Services/LecturesService.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-4.8846154">
+              <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="InviteViewModel.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Application/Models/Invite/InviteViewModel.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-0.65384614">
               <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InvitesController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/Controllers/InvitesController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-7.8461537">
+              <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+              <folding>
+                <element signature="e#31#119#0#PHP" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ConferenceController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Application/Controllers/ConferenceController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.6708408">
+              <caret line="69" column="48" selection-start-line="69" selection-start-column="48" selection-end-line="69" selection-end-column="48" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ConferenceService.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/Services/ConferenceService.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-1.3076923">
+              <caret line="17" column="26" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -92,10 +112,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Invites.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Invites.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Application/Views/Home/Invites.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.48658317">
+            <state vertical-scroll-proportion="-10.461538">
               <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
               <folding />
             </state>
@@ -128,10 +148,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Application/Views/Home/mySchedule.php" />
         <option value="$PROJECT_DIR$/Application/Views/Conference/Admins.php" />
         <option value="$PROJECT_DIR$/Application/Views/Layouts/Default/header.php" />
-        <option value="$PROJECT_DIR$/Application/Services/ConferenceService.php" />
         <option value="$PROJECT_DIR$/Application/Views/Conference/myAdmin.php" />
         <option value="$PROJECT_DIR$/Application/Views/Lectures/Edit.php" />
         <option value="$PROJECT_DIR$/Models/Conference.php" />
@@ -140,7 +158,6 @@
         <option value="$PROJECT_DIR$/Configs/DatabaseConfig.php" />
         <option value="$PROJECT_DIR$/Application/Controllers/InvitesController.php" />
         <option value="$PROJECT_DIR$/Application/Controllers/HomeController.php" />
-        <option value="$PROJECT_DIR$/Application/Controllers/LecturesController.php" />
         <option value="$PROJECT_DIR$/Application/Controllers/BaseController.php" />
         <option value="$PROJECT_DIR$/Application/Controllers/AccountController.php" />
         <option value="$PROJECT_DIR$/Core/Commons/Normalizer.php" />
@@ -154,7 +171,6 @@
         <option value="$PROJECT_DIR$/Core/Identity/MyUser.php" />
         <option value="$PROJECT_DIR$/Core/Identity/ColumnsParser.php" />
         <option value="$PROJECT_DIR$/Core/Identity/Identity.php" />
-        <option value="$PROJECT_DIR$/Application/Controllers/ConferenceController.php" />
         <option value="$PROJECT_DIR$/Core/Identity/TablesUpdater.php" />
         <option value="$PROJECT_DIR$/Core/ORM/Collections.php" />
         <option value="$PROJECT_DIR$/Core/ORM/DbContext.php" />
@@ -179,6 +195,10 @@
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/Application/Models/Lecture/LectureViewModel.php" />
         <option value="$PROJECT_DIR$/Application/Views/Home/Invites.php" />
+        <option value="$PROJECT_DIR$/Application/Services/ConferenceService.php" />
+        <option value="$PROJECT_DIR$/Application/Services/LecturesService.php" />
+        <option value="$PROJECT_DIR$/Application/Controllers/LecturesController.php" />
+        <option value="$PROJECT_DIR$/Application/Controllers/ConferenceController.php" />
       </list>
     </option>
   </component>
@@ -191,7 +211,7 @@
   </component>
   <component name="PhpServers">
     <servers>
-      <server host="localhost" id="96372790-40c9-424f-8314-2cea9b096914" name="PHP 5" />
+      <server host="localhost" id="96372790-40c9-424f-8314-2cea9b096914" name="PHP 7" />
     </servers>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="php 7 wamp" />
@@ -271,157 +291,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ConferenceScheduler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ConferenceScheduler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Home" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ConferenceScheduler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ConferenceScheduler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Models" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ConferenceScheduler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ConferenceScheduler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Models" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Venue" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ConferenceScheduler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ConferenceScheduler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Models" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Lecture" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ConferenceScheduler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ConferenceScheduler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Models" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Invite" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ConferenceScheduler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ConferenceScheduler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Models" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Hall" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ConferenceScheduler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ConferenceScheduler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Models" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Conference" />
+              <option name="myItemId" value="Controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -453,7 +323,7 @@
       <recent name="C:\Bitnami\wampstack-7.0.0RC6-0\apache2\htdocs\My-Framework\ConferenceScheduler\Application" />
     </key>
   </component>
-  <component name="RunManager" selected="PHP Web Application.PHP 5">
+  <component name="RunManager" selected="PHP Web Application.PHP 7">
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
       <method />
     </configuration>
@@ -483,11 +353,11 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="PHP 5" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" server_name="PHP 5">
+    <configuration default="false" name="PHP 7" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" server_name="PHP 7">
       <method />
     </configuration>
     <list size="1">
-      <item index="0" class="java.lang.String" itemvalue="PHP Web Application.PHP 5" />
+      <item index="0" class="java.lang.String" itemvalue="PHP Web Application.PHP 7" />
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
@@ -550,27 +420,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="70" />
+      <option name="time" value="72" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Application/Application.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8637993">
-          <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Configs/DatabaseConfig.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.230769">
-          <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Application/Views/Conference/Edit.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -596,32 +450,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3041145">
           <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Controllers/LecturesController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="283" column="43" selection-start-line="283" selection-start-column="43" selection-end-line="283" selection-end-column="43" />
-          <folding>
-            <element signature="e#712#2065#0#PHP" expanded="false" />
-            <element signature="e#2154#5993#0#PHP" expanded="false" />
-            <element signature="e#6074#10763#0#PHP" expanded="false" />
-            <element signature="e#10861#11726#0#PHP" expanded="false" />
-            <element signature="e#11815#14341#0#PHP" expanded="false" />
-            <element signature="e#14421#16896#0#PHP" expanded="false" />
-            <element signature="e#16979#17893#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Controllers/InvitesController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="24" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="24" />
-          <folding>
-            <element signature="e#31#119#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -731,14 +559,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.12164579">
           <caret line="12" column="34" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Controllers/ConferenceController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-48.307693">
-          <caret line="298" column="0" selection-start-line="298" selection-start-column="0" selection-end-line="298" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -973,8 +793,50 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Views/Home/Invites.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48658317">
+        <state vertical-scroll-proportion="-10.461538">
           <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Services/ConferenceService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.3076923">
+          <caret line="17" column="26" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Services/LecturesService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.8846154">
+          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Controllers/InvitesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.8461537">
+          <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+          <folding>
+            <element signature="e#31#119#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Controllers/LecturesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-35.23077">
+          <caret line="444" column="7" selection-start-line="444" selection-start-column="7" selection-end-line="444" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Controllers/ConferenceController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6708408">
+          <caret line="69" column="48" selection-start-line="69" selection-start-column="48" selection-end-line="69" selection-end-column="48" />
           <folding />
         </state>
       </provider>

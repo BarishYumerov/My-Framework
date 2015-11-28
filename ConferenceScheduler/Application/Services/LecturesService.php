@@ -34,7 +34,7 @@ class LecturesService extends BaseService
         return $lecturesViewModel;
     }
 
-    public function getOne($lectureId){
+    public function getOne(int $lectureId){
         $lecture = $this->dbContext->getLecturesRepository()
             ->filterById(" = '$lectureId'")
             ->findOne();

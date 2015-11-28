@@ -37,18 +37,20 @@ class LecturesController extends BaseController
         $conferenceAdmins = $this->dbContext->getConferenceadminsRepository()
             ->filterByConferenceId(" = '$id'")->findAll()->getConferenceadmins();
 
-        if($loggedUserId !== intval($conference->getOwnerId())){
-            $unauthorized = true;
-            foreach ($conferenceAdmins as $admin) {
-                if(intval($admin->getUserId()) === $loggedUserId ){
-                    $unauthorized = false;
-                    $viewBag['isAdmin'] = true;
-                    break;
+        if(!$this->identity->isInRole("Admin")){
+            if($loggedUserId !== intval($conference->getOwnerId())){
+                $unauthorized = true;
+                foreach ($conferenceAdmins as $admin) {
+                    if(intval($admin->getUserId()) === $loggedUserId ){
+                        $unauthorized = false;
+                        $viewBag['isAdmin'] = true;
+                        break;
+                    }
                 }
-            }
-            if($unauthorized){
-                $this->addErrorMessage("You are not the owner of this conference!");
-                $this->redirect('Me', 'Conferences');
+                if($unauthorized){
+                    $this->addErrorMessage("You are not the owner of this conference!");
+                    $this->redirect('Me', 'Conferences');
+                }
             }
         }
 
@@ -70,9 +72,11 @@ class LecturesController extends BaseController
         $conferenceService = new ConferenceService($this->dbContext);
         $conference = $conferenceService->getOne($conferenceId);
 
-        if(intval($conference->getOwnerId()) !== $this->identity->getUserId()){
-            $this->addErrorMessage('You are not allowed to add lectures to this conference!');
-            $this->redirect('Me', 'Conferences');
+        if(!$this->identity->isInRole("Admin")){
+            if(intval($conference->getOwnerId()) !== $this->identity->getUserId()){
+                $this->addErrorMessage('You are not allowed to add lectures to this conference!');
+                $this->redirect('Me', 'Conferences');
+            }
         }
 
         $venueId = $conference->getVenueId();
@@ -163,18 +167,20 @@ class LecturesController extends BaseController
         $conferenceAdmins = $this->dbContext->getConferenceadminsRepository()
             ->filterByConferenceId(" = '$id'")->findAll()->getConferenceadmins();
 
-        if($loggedUserId !== intval($conference->getOwnerId())){
-            $unauthorized = true;
-            foreach ($conferenceAdmins as $admin) {
-                if(intval($admin->getUserId()) === $loggedUserId ){
-                    $unauthorized = false;
-                    $viewBag['isAdmin'] = true;
-                    break;
+        if(!$this->identity->isInRole("Admin")){
+            if($loggedUserId !== intval($conference->getOwnerId())){
+                $unauthorized = true;
+                foreach ($conferenceAdmins as $admin) {
+                    if(intval($admin->getUserId()) === $loggedUserId ){
+                        $unauthorized = false;
+                        $viewBag['isAdmin'] = true;
+                        break;
+                    }
                 }
-            }
-            if($unauthorized){
-                $this->addErrorMessage("You are not the owner of this conference!");
-                $this->redirect('Me', 'Conferences');
+                if($unauthorized){
+                    $this->addErrorMessage("You are not the owner of this conference!");
+                    $this->redirect('Me', 'Conferences');
+                }
             }
         }
 
@@ -255,6 +261,32 @@ class LecturesController extends BaseController
         $params = func_get_args();
         $lectureId = intval($params[0]);
         $speakerId = intval($params[1]);
+        $loggedUserId = $this->identity->getUserId();
+
+        $lecture = (new LecturesService($this->dbContext))->getOne($lectureId);
+        $conference = (new ConferenceService($this->dbContext))->getOne(intval($lecture->getConferenceId()));
+
+        $conferenceId = intval($conference->getId());
+
+        $conferenceAdmins = $this->dbContext->getConferenceadminsRepository()
+            ->filterByConferenceId(" = '$conferenceId'")->findAll()->getConferenceadmins();
+
+        if(!$this->identity->isInRole("Admin")){
+            if($loggedUserId !== intval($conference->getOwnerId())){
+                $unauthorized = true;
+                foreach ($conferenceAdmins as $admin) {
+                    if(intval($admin->getUserId()) === $loggedUserId ){
+                        $unauthorized = false;
+                        $viewBag['isAdmin'] = true;
+                        break;
+                    }
+                }
+                if($unauthorized){
+                    $this->addErrorMessage("You are not the owner of this conference!");
+                    $this->redirect('Me', 'Conferences');
+                }
+            }
+        }
 
         $speaker = $this->dbContext->getLecturesspeakersRepository()
             ->filterByLectureId(" = '$lectureId'")
@@ -295,18 +327,20 @@ class LecturesController extends BaseController
         $conferenceAdmins = $this->dbContext->getConferenceadminsRepository()
             ->filterByConferenceId(" = '$conferenceId'")->findAll()->getConferenceadmins();
 
-        if($loggedUserId !== intval($conference->getOwnerId())){
-            $unauthorized = true;
-            foreach ($conferenceAdmins as $admin) {
-                if(intval($admin->getUserId()) === $loggedUserId ){
-                    $unauthorized = false;
-                    $viewBag['isAdmin'] = true;
-                    break;
+        if(!$this->identity->isInRole("Admin")){
+            if($loggedUserId !== intval($conference->getOwnerId())){
+                $unauthorized = true;
+                foreach ($conferenceAdmins as $admin) {
+                    if(intval($admin->getUserId()) === $loggedUserId ){
+                        $unauthorized = false;
+                        $viewBag['isAdmin'] = true;
+                        break;
+                    }
                 }
-            }
-            if($unauthorized){
-                $this->addErrorMessage("You are not the owner of this conference!");
-                $this->redirect('Me', 'Conferences');
+                if($unauthorized){
+                    $this->addErrorMessage("You are not the owner of this conference!");
+                    $this->redirect('Me', 'Conferences');
+                }
             }
         }
 
