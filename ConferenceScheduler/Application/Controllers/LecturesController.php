@@ -474,7 +474,7 @@ class LecturesController extends BaseController
 
         $this->addInfoMessage('You have joined this lecture!');
 
-        $this->redirect('home');
+        $this->redirectToUrl("/Conference/$conferenceId/Details");
     }
 
     /**
@@ -484,6 +484,9 @@ class LecturesController extends BaseController
     public function notVisit(){
         $loggedUserId = $this->identity->getUserId();
         $lectureId = intval(func_get_args()[0]);
+
+        $id = intval($this->dbContext->getLecturesRepository()->filterById(" = '$lectureId'")->findOne()->getConferenceId());
+
 
         $visit = $this->dbContext->getLecturesusersRepository()
             ->filterByUserId(" = '$loggedUserId'")
@@ -505,6 +508,6 @@ class LecturesController extends BaseController
             ->filterByLectureId(" = $lectureId")->delete();
 
         $this->dbContext->saveChanges();
-        $this->redirect('home');
+        $this->redirectToUrl("/Conference/$id/Details");
     }
 }

@@ -10,6 +10,7 @@ use ConferenceScheduler\Application\Services\ConferenceService;
 use ConferenceScheduler\Application\Services\LecturesService;
 use ConferenceScheduler\Models\Conference;
 use ConferenceScheduler\Models\Conferenceadmin;
+use ConferenceScheduler\Models\Lecturesuser;
 use ConferenceScheduler\View;
 
 class ConferenceController extends BaseController
@@ -201,12 +202,55 @@ class ConferenceController extends BaseController
         $conferenceView->setOwner($owner);
         $conferenceView->setLectures($lectures);
 
+        $bestSequence = $this->getBestSequence($id);
+
         $viewBag = [];
         $viewBag['visits'] = $this->dbContext->getLecturesusersRepository()
             ->filterByUserId(" = '$loggedUserId'")->findAll()->getLecturesusers();
 
+        $viewBag['sequence'] = $bestSequence;
+
         return new View('Conference', 'Details', $conferenceView, $viewBag);
     }
+
+    /**
+     * @Authorize
+     * @Route("Conference/{int id}/Apply")
+     */
+    public function Apply(){
+        $id = intval(func_get_args()[0]);
+        $loggedUserId = $this->identity->getUserId();
+
+        $bestSequence = $this->getBestSequence($id);
+
+        $lectures = $this->dbContext->getLecturesRepository()->filterByConferenceId(" = '$id'")->findAll()->getLectures();
+
+        foreach ($lectures as $lecture) {
+            $lectureId = intval($lecture->getId());
+
+            $lectureToDelete = $this->dbContext->getLecturesusersRepository()
+                ->filterByUserId(" = '$loggedUserId'")
+                ->filterByLectureId(" = '$lectureId'")->findOne();
+
+            var_dump($lectureToDelete->getId());
+
+            $this->dbContext->getLecturesusersRepository()
+                ->filterByLectureId(" = '$lectureId'")
+                ->filterByUserId(" = '$loggedUserId'")->delete();
+        }
+
+        $this->dbContext->saveChanges();
+
+        foreach ($bestSequence as $lecture) {
+            $lectureId = intval($lecture->getId());
+            $visit = new Lecturesuser($lectureId, $loggedUserId);
+            $this->dbContext->getLecturesusersRepository()->add($visit);
+        }
+
+        $this->dbContext->saveChanges();
+        $this->redirectToUrl("/Conference/$id/Details");
+    }
+
 
     /**
      * @Authorize
@@ -384,5 +428,11 @@ class ConferenceController extends BaseController
         }
         $model = new ConferenceBindingModel($conference);
         return new View('Conference', 'Edit', $model, $viewBag);
+    }
+
+    private function getBestSequence(int $id){
+        $service = new ConferenceService($this->dbContext);
+        $bestSequence = $service->getBestSchedule($id);
+        return $bestSequence;
     }
 }

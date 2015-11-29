@@ -19,7 +19,10 @@ class LecturesService extends BaseService
     }
 
     public function getLectures(int $id){
-        $lectures = $this->dbContext->getLecturesRepository()->filterByConferenceId(" = '$id'")->findAll()->getLectures();
+        $lectures = $this->dbContext->getLecturesRepository()
+            ->filterByConferenceId(" = '$id'")
+            ->findAll()->getLectures();
+
         $lecturesViewModel = [];
 
         foreach ($lectures as $lecture) {

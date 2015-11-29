@@ -3,6 +3,7 @@ declare(strict_types=1);
 namespace ConferenceScheduler\Application\Services;
 
 use ConferenceScheduler\Application\Models\Conference\ConferenceViewModel;
+use ConferenceScheduler\Application\Models\Lecture\LectureViewModel;
 
 class ConferenceService extends BaseService
 {
@@ -103,5 +104,37 @@ class ConferenceService extends BaseService
         }
 
         return $conferenceViewModels;
+    }
+
+    public function getBestSchedule(int $id){
+        $lectures = (new LecturesService($this->dbContext))->getLectures($id);
+        $longestSequence = [];
+        $prevLecture = null;
+
+        foreach ($lectures as $lecture) {
+            if($prevLecture){
+                if (strtotime($lecture->getStartDate()) <= strtotime($prevLecture->getStartDate())
+                    && strtotime($lecture ->getEndDate()) >= strtotime($prevLecture->getStartDate())){
+                    continue;
+                }
+
+                if(strtotime($lecture->getStartDate()) <= strtotime($prevLecture->getEndDate())
+                    && strtotime($lecture->getEndDate()) >= strtotime($prevLecture->getEndDate())){
+                    continue;
+                }
+
+                if(strtotime($lecture->getStartDate()) >= strtotime($prevLecture->getStartDate())
+                    && strtotime($lecture->getEndDate()) <= strtotime($prevLecture->getEndDate())){
+                    continue;
+                }
+                $longestSequence[] = $lecture;
+                $prevLecture = $lecture;
+                continue;
+            }
+            $longestSequence[] = $lecture;
+            $prevLecture = $lecture;
+        }
+
+        return $longestSequence;
     }
 }
