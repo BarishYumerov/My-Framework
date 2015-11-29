@@ -40,5 +40,6 @@
         <?php endif; ?>
 
         <input type="submit" class="btn btn-default" value="Edit" />
+        <?php echo $this->getCsfrToken() ?>
     </form>
 </div>

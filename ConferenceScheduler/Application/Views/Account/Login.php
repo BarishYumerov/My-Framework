@@ -12,5 +12,7 @@
         </div>
 
         <input type="submit" class="btn btn-default" value="Login" />
+
+        <?php echo $this->getCsfrToken() ?>
     </form>
 </div>

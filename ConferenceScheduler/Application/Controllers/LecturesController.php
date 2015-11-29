@@ -123,6 +123,7 @@ class LecturesController extends BaseController
         $viewBag['halls'] = $halls;
 
         if($this->context->isPost()){
+            $this->validateToken();
             $model = new LectureBindingModel();
             if($model->getErrors()){
                 foreach ($model->getErrors() as $error) {
@@ -227,6 +228,7 @@ class LecturesController extends BaseController
         $viewBag['halls'] = $halls;
 
         if($this->context->isPost()){
+            $this->validateToken();
             $model = new LectureBindingModel();
             if($model->getErrors()){
                 foreach ($model->getErrors() as $error) {
@@ -385,6 +387,7 @@ class LecturesController extends BaseController
         $model = new AddSpeakerBindingModel($lectureId);
 
         if($this->context->isPost()){
+            $this->validateToken();
             $username = $model->getUsername();
             $user = $this->dbContext->getUsersRepository()->filterByUsername(" = '$username'")
                 ->findOne();

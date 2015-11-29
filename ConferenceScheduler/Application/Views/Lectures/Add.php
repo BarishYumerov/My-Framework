@@ -27,5 +27,6 @@
             </select>
         </div>
         <input type="submit" class="btn btn-default" value="Add" />
+        <?php echo $this->getCsfrToken() ?>
     </form>
 </div>

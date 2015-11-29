@@ -21,5 +21,6 @@
             <input id="username" name="username" type="text" class="form-control">
         </div>
         <input type="submit" class="btn btn-success btn-sm" value="Add Admin">
+        <?php echo $this->getCsfrToken() ?>
     </form>
 </div>

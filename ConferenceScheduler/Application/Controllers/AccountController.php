@@ -17,6 +17,7 @@ class AccountController extends BaseController
         $service = new AccountService($this->dbContext);
 
         if($this->context->getMethod() == 'post'){
+            $this->validateToken();
             $model = new RegisterBindingModel();
             if($model->getErrors()){
                 foreach ($model->getErrors() as $error) {
@@ -42,10 +43,11 @@ class AccountController extends BaseController
     }
 
     public function login() : View{
-
         $service = new AccountService($this->dbContext);
 
         if($this->context->getMethod() == 'post'){
+            $this->validateToken();
+
             $model = new LoginBindingModel();
             $result = $service->login($model);
 

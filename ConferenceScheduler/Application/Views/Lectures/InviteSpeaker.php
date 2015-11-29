@@ -9,6 +9,7 @@
             </div>
 
             <input type="submit" value="Add" class="btn btn-default">
+            <?php echo $this->getCsfrToken() ?>
         </form>
     </div>
 </div>

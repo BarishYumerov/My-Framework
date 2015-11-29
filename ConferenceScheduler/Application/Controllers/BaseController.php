@@ -81,6 +81,14 @@ abstract class BaseController{
         $this->invites = $invitesViews;
     }
 
+    protected function validateToken(){
+        $tokenFromSite = $this->context->post('token');
+        $tokenFromSession = $this->context->session('token');
+        if($tokenFromSession !== $tokenFromSite){
+            throw new \Exception("Invalid CSFR Token!");
+        }
+    }
+
     function addMessage($msg, $type) {
         if (!isset($_SESSION['messages'])) {
             $_SESSION['messages'] = array();

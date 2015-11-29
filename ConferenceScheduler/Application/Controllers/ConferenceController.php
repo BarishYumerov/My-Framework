@@ -117,6 +117,7 @@ class ConferenceController extends BaseController
         }
 
         if($this->context->isPost()){
+            $this->validateToken();
             $user = $this->context->post('username');
 
             $user = $this->dbContext->getUsersRepository()
@@ -260,6 +261,7 @@ class ConferenceController extends BaseController
         $viewBag['venues'] = $this->dbContext->getVenuesRepository()->findAll()->getVenues();
 
         if($this->context->getMethod() == 'post'){
+            $this->validateToken();
             $model = new ConferenceBindingModel();
             if($model->getErrors()){
                 foreach ($model->getErrors() as $error) {
@@ -374,6 +376,7 @@ class ConferenceController extends BaseController
         }
 
         if($this->context->isPost()){
+            $this->validateToken();
             $model = new ConferenceBindingModel();
             if($model->getErrors()){
                 foreach ($model->getErrors() as $error) {

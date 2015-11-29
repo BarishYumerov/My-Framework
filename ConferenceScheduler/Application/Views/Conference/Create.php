@@ -29,5 +29,6 @@
         </div>
 
         <input type="submit" class="btn btn-default" value="Create" />
+        <?php echo $this->getCsfrToken() ?>
     </form>
 </div>

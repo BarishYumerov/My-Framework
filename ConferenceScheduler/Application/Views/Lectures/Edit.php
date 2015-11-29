@@ -47,5 +47,6 @@
         <input type="submit" class="btn btn-default" value="Edit" /><?php if(!array_key_exists ( 'isAdmin' , $this->getViewBag())) : ?>
             <a href="/Lecture/<?php echo $lecture->getId() ?>/Delete" class="btn btn-danger btn-sm">Delete</a>
         <?php endif ?>
+        <?php echo $this->getCsfrToken() ?>
     </form>
 </div>

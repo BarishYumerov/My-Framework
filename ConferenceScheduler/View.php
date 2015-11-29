@@ -155,4 +155,12 @@ class View
             require $path;
         }
     }
+
+    public function getCsfrToken(){
+        $token = rand(1, 1000);
+        $token .= time();
+        $_SESSION['token'] = $token;
+        $result = "<input type=\"hidden\" value=\"" . $token . "\" name='token'>";
+        return $result;
+    }
 }
